@@ -1,16 +1,24 @@
 package Test;
 
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @ClassName Test
+ * @ClassName zfTest
  * @Author zhaofu
  * @Date 2019/9/9
  * @Version V1.0
  **/
-public class Test {
-    public static void main(String[] args) {
+@RunWith(SpringRunner.class)
+
+public class zfTest {
+    @Test
+    public void test() {
         int ceil = (int) Math.ceil(26 / 20)+1;
         List<Object> objects = new ArrayList<>();
 
