@@ -3,6 +3,7 @@ package com.example.springboot.util;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -11,10 +12,10 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 /**
-* @Date: 2019/8/27
-* @Author: zhaofu
-* @Description: 时间工具类
-**/
+ * @Date: 2019/8/27
+ * @Author: zhaofu
+ * @Description: 时间工具类
+ **/
 public class DateUtil {
 
     private static final Logger log = LoggerFactory.getLogger(DateUtil.class);
@@ -1038,11 +1039,13 @@ public class DateUtil {
         DateFormat df = getNewDateFormat(DEFAULT_SEQ_DATE);
         return df.format(date);
     }
+
     /**
      * long时间戳转String类型日期
+     *
      * @return 当天的时间格式化为"yyyy-MM-dd HH:mm:ss"
      */
-    public static String getDateString(String time){
+    public static String getDateString(String time) {
         return new SimpleDateFormat(DEFAULT_TIME).format(new Date(Long.parseLong(time)));
     }
 

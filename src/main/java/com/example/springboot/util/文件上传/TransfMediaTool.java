@@ -17,12 +17,9 @@ public class TransfMediaTool {
     /**
      * 视频转码flv
      *
-     * @param ffmpegPath
-     *            转码工具的存放路径
-     * @param upFilePath
-     *            用于指定要转换格式的文件,要截图的视频源文件
-     * @param codcFilePath
-     *            格式转换后的的文件保存路径
+     * @param ffmpegPath   转码工具的存放路径
+     * @param upFilePath   用于指定要转换格式的文件,要截图的视频源文件
+     * @param codcFilePath 格式转换后的的文件保存路径
      * @return
      * @throws Exception
      */
@@ -65,12 +62,9 @@ public class TransfMediaTool {
     /**
      * 对ffmpeg无法解析的文件格式(wmv9，rm，rmvb等), 先用mencoder转换为avi(ffmpeg能解析的)格式
      *
-     * @param mencoderPath
-     *            转码工具的存放路径
-     * @param upFilePath
-     *            用于指定要转换格式的文件,要截图的视频源文件
-     * @param codcFilePath
-     *            格式转换后的的文件保存路径
+     * @param mencoderPath 转码工具的存放路径
+     * @param upFilePath   用于指定要转换格式的文件,要截图的视频源文件
+     * @param codcFilePath 格式转换后的的文件保存路径
      * @return
      * @throws Exception
      */

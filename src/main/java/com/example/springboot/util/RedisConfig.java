@@ -16,12 +16,12 @@ import org.springframework.web.client.RestTemplate;
 public class RedisConfig {
 
     @Bean
-    public RedisUtil redisUtil(RedisTemplate<String, Object> redisTemplate){
+    public RedisUtil redisUtil(RedisTemplate<String, Object> redisTemplate) {
         return new RedisUtil(redisTemplate);
     }
 
     @Bean
-    public RestTemplate restTemplate(){
+    public RestTemplate restTemplate() {
         SimpleClientHttpRequestFactory requestFactory = new SimpleClientHttpRequestFactory();
         requestFactory.setConnectTimeout(3000);
         requestFactory.setReadTimeout(3000);

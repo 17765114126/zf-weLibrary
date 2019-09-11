@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Random;
 import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.web.multipart.MultipartFile;
 //import com.model.sj.FileEntity;
 
@@ -24,15 +25,15 @@ public class FileUploadTool {
     // 文件最大500M
     private static long upload_maxsize = 800 * 1024 * 1024;
     // 文件允许格式
-    private static String[] allowFiles = { ".rar", ".doc", ".docx", ".zip",
+    private static String[] allowFiles = {".rar", ".doc", ".docx", ".zip",
             ".pdf", ".txt", ".swf", ".xlsx", ".gif", ".png", ".jpg", ".jpeg",
             ".bmp", ".xls", ".mp4", ".flv", ".ppt", ".avi", ".mpg", ".wmv",
-            ".3gp", ".mov", ".asf", ".asx", ".vob", ".wmv9", ".rm", ".rmvb" };
+            ".3gp", ".mov", ".asf", ".asx", ".vob", ".wmv9", ".rm", ".rmvb"};
     // 允许转码的视频格式（ffmpeg）
-    private static String[] allowFLV = { ".avi", ".mpg", ".wmv", ".3gp",
-            ".mov", ".asf", ".asx", ".vob" };
+    private static String[] allowFLV = {".avi", ".mpg", ".wmv", ".3gp",
+            ".mov", ".asf", ".asx", ".vob"};
     // 允许的视频转码格式(mencoder)
-    private static String[] allowAVI = { ".wmv9", ".rm", ".rmvb" };
+    private static String[] allowAVI = {".wmv9", ".rm", ".rmvb"};
 
     public FileEntity createFile(MultipartFile multipartFile, HttpServletRequest request) {
         FileEntity entity = new FileEntity();
@@ -113,7 +114,7 @@ public class FileUploadTool {
                         String codcFilePath = logoRealPathDir + File.separator + newFileName + ".flv";
                         // 获取配置的转换工具（ffmpeg.exe）的存放路径
                         String ffmpegPath = request.getSession().getServletContext().getRealPath("/tools/ffmpeg.exe");
-                        transfMediaTool.processFLV(ffmpegPath, aviPath,    codcFilePath);
+                        transfMediaTool.processFLV(ffmpegPath, aviPath, codcFilePath);
                         fileDir = logoPathDir + newFileName + ".flv";
                         builder = new StringBuilder(fileDir);
                         finalFileDir = builder.substring(1);
@@ -199,6 +200,7 @@ public class FileUploadTool {
 
     /**
      * 依据原始文件名生成新文件名
+     *
      * @return
      */
     private String getName(String fileName) {

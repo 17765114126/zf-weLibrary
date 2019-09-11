@@ -17,8 +17,8 @@ public class ListenerConterller {
 
     @RequestMapping("/testListenerLogin")
     public String testListenerLogin(HttpServletRequest req) {
-        System.out.println("当前在线人数"+req.getSession().getId()+"："
-                +req.getSession().getServletContext().getAttribute("count"));
+        System.out.println("当前在线人数" + req.getSession().getId() + "："
+                + req.getSession().getServletContext().getAttribute("count"));
         return "Hello testListenerLogin";
     }
 

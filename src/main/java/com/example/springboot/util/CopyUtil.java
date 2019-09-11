@@ -6,15 +6,16 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.cglib.beans.BeanCopier;
 import org.springframework.cglib.core.Converter;
 import org.springframework.util.CollectionUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
-* @Date: 2019/8/27
-* @Author: zhaofu
-* @Description: CopyUtil bean对象拷贝
-**/
+ * @Date: 2019/8/27
+ * @Author: zhaofu
+ * @Description: CopyUtil bean对象拷贝
+ **/
 public class CopyUtil {
 
     /**

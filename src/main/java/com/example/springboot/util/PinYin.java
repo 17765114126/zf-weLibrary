@@ -8,15 +8,18 @@ import net.sourceforge.pinyin4j.format.HanyuPinyinVCharType;
 import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
 
 /**
- * Created by chen on 2019/7/3.
- */
+ * @Date: 2019/9/10
+ * @Author: zhaofu
+ * @Description: TODO
+ **/
 public class PinYin {
     /**
      * 将汉字转换为全拼
+     *
      * @param src
      * @return
      */
-    public static String getPinYin(String src){
+    public static String getPinYin(String src) {
         char[] hz = null;
         hz = src.toCharArray();//该方法的作用是返回一个字符数组，该字符数组中存放了当前字符串中的所有字符
         String[] py = new String[hz.length];//该数组用来存储
@@ -30,19 +33,19 @@ public class PinYin {
         int len = hz.length;
 
         try {
-            for (int i = 0; i < len ; i++ ){
+            for (int i = 0; i < len; i++) {
                 //先判断是否为汉字字符
-                if(Character.toString(hz[i]).matches("[\\u4E00-\\u9FA5]+")){
+                if (Character.toString(hz[i]).matches("[\\u4E00-\\u9FA5]+")) {
                     //将汉字的几种全拼都存到py数组中
-                    py = PinyinHelper.toHanyuPinyinStringArray(hz[i],format);
+                    py = PinyinHelper.toHanyuPinyinStringArray(hz[i], format);
                     //取出改汉字全拼的第一种读音，并存放到字符串pys后
                     pys += py[0];
-                }else{
+                } else {
                     //如果不是汉字字符，间接取出字符并连接到 pys 后
                     pys += Character.toString(hz[i]);
                 }
             }
-        } catch (BadHanyuPinyinOutputFormatCombination e){
+        } catch (BadHanyuPinyinOutputFormatCombination e) {
             e.printStackTrace();
         }
         return pys;
@@ -50,18 +53,19 @@ public class PinYin {
 
     /**
      * 提取每个汉字的首字母
+     *
      * @param str
      * @return
      */
-    public static String getPinYinHeadChar(String str){
+    public static String getPinYinHeadChar(String str) {
         String convert = "";
         for (int i = 0; i < str.length(); i++) {
             char word = str.charAt(i);
             //提取汉字的首字母
             String[] pinyinArray = PinyinHelper.toHanyuPinyinStringArray(word);
-            if (pinyinArray != null){
+            if (pinyinArray != null) {
                 convert += pinyinArray[0].charAt(0);
-            }else{
+            } else {
                 convert += word;
             }
         }
@@ -71,7 +75,7 @@ public class PinYin {
     /**
      * 将字符串转换成ASCII码
      */
-    public static String getCnASCII(String str){
+    public static String getCnASCII(String str) {
         StringBuffer buf = new StringBuffer();
         //将字符串转换成字节序列
         byte[] bGBK = str.getBytes();

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -36,7 +37,7 @@ public class FileUploadController {
     @RequestMapping(value = "/upVideo.html")
     public Result videosUp(@RequestParam("file") MultipartFile files, HttpServletRequest request,
                            HttpServletResponse response, ModelMap map) throws ServletException, IOException {
-        log.info("视频文件"+files.getName());
+        log.info("视频文件" + files.getName());
         FileEntity entity;
         FileUploadTool fileUploadTool = new FileUploadTool();
         try {

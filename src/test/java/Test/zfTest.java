@@ -15,21 +15,20 @@ import java.util.List;
  * @Version V1.0
  **/
 @RunWith(SpringRunner.class)
-
 public class zfTest {
     @Test
     public void test() {
-        int ceil = (int) Math.ceil(26 / 20)+1;
+        int ceil = (int) Math.ceil(26 / 20) + 1;
         List<Object> objects = new ArrayList<>();
 
         System.out.println(ceil);
         for (int i = 0; i < ceil; i++) {
-            for (int j = 0; j <=20; j++) {
-                if (i== ceil-1 && j==26-(i*20))break;
+            for (int j = 0; j <= 20; j++) {
+                if (i == ceil - 1 && j == 26 - (i * 20)) break;
                 if (i == 1) {
-                    System.out.println(i+"---"+j);
+                    System.out.println(i + "---" + j);
                 } else {
-                    System.out.println(i+"---"+j);
+                    System.out.println(i + "---" + j);
                 }
             }
             int x = 3;

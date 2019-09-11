@@ -23,6 +23,7 @@ public class FilterConfig {
         filterRegistrationBean.addUrlPatterns("/hello");
         return filterRegistrationBean;
     }
+
     @Bean
     public FilterRegistrationBean filterRegistrationBean2() {
         FilterRegistrationBean filterRegistrationBean =

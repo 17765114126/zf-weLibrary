@@ -24,7 +24,6 @@ public class Result<T> {
      * 总记录数 分页用
      */
 //    private int total;
-
     public Result() {
     }
 

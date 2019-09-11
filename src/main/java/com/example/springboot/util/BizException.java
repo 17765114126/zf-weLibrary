@@ -1,10 +1,10 @@
 package com.example.springboot.util;
 
 /**
-* @Date: 2019/8/27
-* @Author: zhaofu
-* @Description: TODO
-**/
+ * @Date: 2019/8/27
+ * @Author: zhaofu
+ * @Description: TODO
+ **/
 public class BizException extends RuntimeException {
 
     protected Integer code;

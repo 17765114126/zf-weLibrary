@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Author zhaofu
  * @Date 2019/8/5
  * @Version V1.0
- *
  **/
 @Controller
 @Slf4j
@@ -23,7 +22,7 @@ public class HelloController {
         Student student = new Student();
         student.setName("执行Contriller类    Student.name+小熊");
         student.setAge(18);
-        log.info("打印日志"+student.toString());
+        log.info("打印日志" + student.toString());
         model.addAttribute("s", s);
         model.addAttribute("student", student);
         return "views/hello";
