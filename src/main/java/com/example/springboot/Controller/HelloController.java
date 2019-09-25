@@ -18,7 +18,7 @@ public class HelloController {
 
     @RequestMapping("/hello")
     public String hello(Model model) {
-        String s = "Hello Spring Boot!==++++++==========+++++++++++++++++++========+我自===";
+        String s = "Hello Spring Boot!==++++++==========+++++++++++++++++++========+我自===gasolene";
         Student student = new Student();
         student.setName("执行Contriller类    Student.name+小熊");
         student.setAge(18);
