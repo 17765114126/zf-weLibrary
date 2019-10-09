@@ -9,6 +9,8 @@ package com.example.springboot.Controller.activemq;
 public class 介绍 {
     /**
      * 参考地址： https://www.cnblogs.com/lzylcf/p/9381446.html
+     *
+     * 更详细的一篇文章：https://blog.csdn.net/cs_hnu_scw/article/details/81040834
      * */
 
     /**
