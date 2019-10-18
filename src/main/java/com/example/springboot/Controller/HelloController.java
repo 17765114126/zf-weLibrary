@@ -35,9 +35,10 @@ public class HelloController {
     **/
     @MyLog(value = "student",method = Student.class)
     @RequestMapping("/helloAop")
-    public String Aop(Student student) {
+    public String Aop(Student student,Model model) {
         student.setName("123456");
         student.setAge(18);
+        model.addAttribute("student", student);
         return "views/hello";
     }
 }
