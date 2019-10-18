@@ -1012,7 +1012,22 @@ public class DateUtil {
             return date;
         }
     }
-
+    /**
+     * @return 与当前时间比较大小
+     *
+     */
+    public static Boolean gainBigOrSmall(String date) {
+        boolean bool = false;
+        try {
+            SimpleDateFormat df = new SimpleDateFormat(DEFAULT_TIME);
+            if (df.parse(date).before(df.parse(df.format(new Date())))){
+                bool = true;
+            }
+        }catch (ParseException e){
+            return null;
+        }
+        return bool;
+    }
 /*    public static Date getDayEnd(Date date) {
         String dateString = format(date, "yyyy-MM-dd 23:59:59");
         return parseDateNewFormat(dateString);
