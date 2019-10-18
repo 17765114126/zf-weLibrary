@@ -1,5 +1,6 @@
 package com.example.springboot.Controller;
 
+import com.example.springboot.Config.自定义注解.MyLog;
 import com.example.springboot.model.Student;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -27,5 +28,16 @@ public class HelloController {
         model.addAttribute("student", student);
         return "views/hello";
     }
-
+    /**
+    * @Date: 2019/10/18
+    * @Author: zhaofu
+    * @Description: 自定义切面注解
+    **/
+    @MyLog(value = "student",method = Student.class)
+    @RequestMapping("/helloAop")
+    public String Aop(Student student) {
+        student.setName("123456");
+        student.setAge(18);
+        return "views/hello";
+    }
 }
