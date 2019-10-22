@@ -1,4 +1,4 @@
-package com.example.springboot.Controller.activemq;
+package com.example.springboot.Controller.Activemq;
 
 /**
  * @ClassName 介绍

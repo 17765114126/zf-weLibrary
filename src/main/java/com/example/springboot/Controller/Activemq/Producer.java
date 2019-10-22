@@ -1,4 +1,4 @@
-package com.example.springboot.Controller.activemq;
+package com.example.springboot.Controller.Activemq;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 import javax.jms.*;
