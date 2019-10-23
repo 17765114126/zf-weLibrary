@@ -90,7 +90,7 @@
 <body>
 <div class="waifu" id="waifu">
     <div class="waifu-tips" style="opacity: 1; font-size: 14px"></div>
-    <canvas id="live2d" width="100" height="1200" class="live2d"></canvas>
+    <canvas id="live2d" width="280" height="430" class="live2d"></canvas>
     <div class="waifu-tool">
         <span class="fui-home"></span>
         <span class="fui-chat"></span>
