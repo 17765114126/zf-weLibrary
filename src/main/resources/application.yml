@@ -1,3 +1,4 @@
+#端口
 server:
   port: 8080
 
@@ -7,7 +8,7 @@ spring:
       prefix: /WEB-INF/
       suffix: .jsp
 
-  #配置Rabbitmq的安装地址、端口以及账户信息
+#配置Rabbitmq的安装地址、端口以及账户信息
   rabbitmq:
     name: spirng-boot-rabbitmq
     rabbitmq: host=127.0.0.1
@@ -15,15 +16,7 @@ spring:
     username: admin
     password: admin
 
-    listener:
-      direct:
-        retry:
-          #关闭不连接rabbitmq--无用
-          auto-startup: false
-
-
-
-  #配置文件传输
+#配置文件传输
   servlet:
     multipart:
       enabled: true
@@ -32,10 +25,8 @@ spring:
       max-file-size: 500MB
       #总数据的大小
       max-request-size: 1000MB
-  #文件大小配置
-  #  spring.servlet.multipart.max-file-size=50MB
-  #  spring.servlet.multipart.max-request-size=50MB
-  #redis配置
+
+#redis配置
   redis:
     host: 127.0.0.1
     port: 6379
@@ -53,7 +44,10 @@ spring:
 #      timeout: 5000
 #    database: 0
 
+# 去除启动时大量的Positive matches信息
+logging.level.org.springframework.boot.autoconfigure: ERROR
 
+#数据库连接
 #  datasource:
 #    driver-class-name: com.
 #    url: 120.0.0.1:3306
