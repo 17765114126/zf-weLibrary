@@ -7,19 +7,35 @@ spring:
       prefix: /WEB-INF/
       suffix: .jsp
 
-#配置文件传输
+  #配置Rabbitmq的安装地址、端口以及账户信息
+  rabbitmq:
+    name: spirng-boot-rabbitmq
+    rabbitmq: host=127.0.0.1
+    port: 5672
+    username: admin
+    password: admin
+
+    listener:
+      direct:
+        retry:
+          #关闭不连接rabbitmq--无用
+          auto-startup: false
+
+
+
+  #配置文件传输
   servlet:
     multipart:
       enabled: true
       file-size-threshold: 0
       #单个数据的大小
-      max-file-size : 500MB
+      max-file-size: 500MB
       #总数据的大小
-      max-request-size : 1000MB
-#文件大小配置
-#  spring.servlet.multipart.max-file-size=50MB
-#  spring.servlet.multipart.max-request-size=50MB
-#redis配置
+      max-request-size: 1000MB
+  #文件大小配置
+  #  spring.servlet.multipart.max-file-size=50MB
+  #  spring.servlet.multipart.max-request-size=50MB
+  #redis配置
   redis:
     host: 127.0.0.1
     port: 6379
