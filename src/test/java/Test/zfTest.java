@@ -1,5 +1,7 @@
 package Test;
 
+import com.example.springboot.util.AESEncryptUtil;
+import com.example.springboot.util.Md5Util;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -37,4 +39,19 @@ public class zfTest {
 
     }
 
+    public static String aesEncrypt(){
+        String key = "zhaofu";
+        String md5key= Md5Util.encode(key).toUpperCase();
+        return md5key;
+    }
+    public static String getEncrypt(String token){
+        String aesToken = AESEncryptUtil.aesEncrypt(token,aesEncrypt());
+        return aesToken;
+    }
+    public static String aesDecrypt(String token){
+        String key = "dorago";
+        String AESToken = AESEncryptUtil.aesDecrypt(token, key);
+
+        return AESToken;
+    }
 }
