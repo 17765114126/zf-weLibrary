@@ -141,6 +141,12 @@
             <artifactId>jsoup</artifactId>
             <version>1.8.2</version>
         </dependency>
+        <!--httpclient-->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.3.1</version>
+        </dependency>
     </dependencies>
 
     <build>
