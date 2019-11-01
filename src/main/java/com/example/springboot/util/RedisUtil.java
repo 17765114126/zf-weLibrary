@@ -1,7 +1,10 @@
 package com.example.springboot.util;
 
+import org.springframework.data.redis.core.RedisOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.util.CollectionUtils;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;
@@ -599,4 +602,29 @@ public class RedisUtil {
         }
     }
 
+    /**
+    * @Date: 2019/11/1
+    * @Author: zhaofu
+    * @Description: 使用Redis流水线测试10万次读写功能
+    **/
+/*    @RequestMapping("/..")
+    @ResponseBody
+    public Map<String,Object> test(){
+        long start = System.currentTimeMillis();
+        List list = (List) redisTemplate.executePipelined((RedisOperations operations) -> {
+            for (int i = 0; i <= 100000; i++) {
+            operations.opsForValue().set("key" + i,"value"+i);
+                String value = (String)operations.opsForValue().get("key" + i);
+                if (i == 100000){
+                    System.out.println("命令只是进入队列，所以值为空《"+ value +"》");
+                }
+            }
+            return null;
+        });
+        long end = System.currentTimeMillis();
+        System.out.println("耗时："+(end-start)+" 毫秒");
+        Map<String, Object> map = new HashMap<>();
+        map.put("success",true);
+        return map;
+    }*/
 }
