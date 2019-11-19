@@ -1,8 +1,14 @@
 package com.example.springboot.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 /**
  * @ClassName User
@@ -15,9 +21,15 @@ import org.springframework.stereotype.Component;
 @Data
 public class User {
     @Value("1")
+    @NotNull
     private Long id;
     @Value("user_name_1")
     private String userName;
     @Value("note_1")
     private String note;
+    //@DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    private Date date;
+    @Email(message = "邮箱格式错误")
+    private String email;
 }

@@ -31,6 +31,13 @@ spring:
     host: 127.0.0.1
     port: 6379
     password:
+#spring-security
+  #自定义用户名和密码
+#  security:
+#    user:
+#      name: x
+#      password: 1
+
 #    lettuce:
 #    pool:
 #      #最大连接数
@@ -46,6 +53,10 @@ spring:
 
 # 去除启动时大量的Positive matches信息
 logging.level.org.springframework.boot.autoconfigure: ERROR
+
+#配置日志级别
+logging:
+  level: debug
 
 #数据库连接
 #  datasource:

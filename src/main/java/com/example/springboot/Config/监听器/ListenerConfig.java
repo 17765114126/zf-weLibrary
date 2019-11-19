@@ -18,7 +18,7 @@ public class ListenerConfig {
     @Bean
     public ServletListenerRegistrationBean<CountListener>
     countListenerServletRegistrationBean() {
-        return new ServletListenerRegistrationBean<CountListener>(
+        return new ServletListenerRegistrationBean<>(
                 new CountListener());
     }
 }
