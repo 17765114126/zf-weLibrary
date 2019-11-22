@@ -104,7 +104,14 @@ public class MathUtil { //默认除法运算精度
         BigDecimal one = new BigDecimal("1");
         return b.divide(one, scale, BigDecimal.ROUND_HALF_UP).doubleValue();
     }
-
+    /**
+     * 只取整数
+     */
+    public static double toInteger(Double v1) {
+        BigDecimal b1 = new BigDecimal(Double.toString(v1));
+        BigDecimal bigDecimal = b1.setScale(0, BigDecimal.ROUND_DOWN);
+        return Double.parseDouble(bigDecimal.toString());
+    }
     /**
      * 根据角，分，毫位四舍五入。并保留两位小数
      *

@@ -3,10 +3,14 @@ package com.example.springboot.Controller;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.example.springboot.util.MathUtil;
 import com.example.springboot.util.Result;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -26,6 +30,7 @@ public class Json {
     @RequestMapping("/customInfo.html")
     public String customInfo(@ModelAttribute(value = "orderId") String data) {
         data = "[{\"android\":\"4\",\"id\":1,\"iphoneFive\":\"2\",\"iphoneFour\":\"1\",\"iphonePlus\":\"5\",\"iphoneSix\":\"3\",\"iphonex\":\"6\",\"times\":1,\"title\":\"测试\",\"type\":1}]";
+        //"[{"android":"4","id":1,"iphoneFive":"2","iphoneFour":"1","iphonePlus":"5","iphoneSix":"3","iphonex":"6","times":1,"title":"测试","type":1}]"
         JSONArray jsonArray = JSON.parseArray(data);
         Map<String, Object> map = null;
         ArrayList<String> list = new ArrayList<String>();
@@ -40,5 +45,23 @@ public class Json {
             }
         }
         return JSON.toJSONString(Result.with(map));
+    }
+
+    public static void main(String[] args) {
+        Double xpPrice = Double.parseDouble("5.455555");
+        xpPrice = MathUtil.toInteger(xpPrice);
+        System.out.println(xpPrice);
+
+        DecimalFormat decimalFormat = new DecimalFormat("#");
+//        Double xpPrice = Double.parseDouble("99")*0.95;
+
+
+
+        BigDecimal bd = new BigDecimal("12.1");
+        BigDecimal bigDecimal = bd.setScale(0, BigDecimal.ROUND_DOWN);
+
+
+//        decimalFormat.format(xpPrice);
+        System.out.println(xpPrice);
     }
 }
