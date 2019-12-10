@@ -54,14 +54,8 @@ public class Json {
 
         DecimalFormat decimalFormat = new DecimalFormat("#");
 //        Double xpPrice = Double.parseDouble("99")*0.95;
-
-
-
         BigDecimal bd = new BigDecimal("12.1");
         BigDecimal bigDecimal = bd.setScale(0, BigDecimal.ROUND_DOWN);
-
-
 //        decimalFormat.format(xpPrice);
-        System.out.println(xpPrice);
     }
 }
