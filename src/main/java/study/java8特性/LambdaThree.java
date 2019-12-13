@@ -1,5 +1,16 @@
 package study.java8特性;
 
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Supplier;
+import java.util.logging.Filter;
+
 /**
  * @ClassName LambdaThree
  * @Author zhaofu
@@ -9,33 +20,6 @@ package study.java8特性;
 public class LambdaThree {
 
 /**Java 8新特性终极指南
-
-*编者注：Java 8已经公布有一段时间了，种种迹象表明Java 8是一个有重大改变的发行版。
- * 目录结构
- * 介绍
- * Java语言的新特性
- * 2.1 Lambdas表达式与Functional接口
- * 2.2 接口的默认与静态方法
- * 2.3 方法引用
- * 2.4 重复注解
- * 2.5 更好的类型推测机制
- * 2.6 扩展注解的支持
- * Java编译器的新特性
- * 3.1 参数名字
- * Java 类库的新特性
- * 4.1 Optional
- * 4.2 Streams
- * 4.3 Date/Time API (JSR 310)
- * 4.4 JavaScript引擎Nashorn
- * 4.5 Base64
- * 4.6 并行（parallel）数组
- * 4.7 并发（Concurrency）
- * 新增的Java工具
- * 5.1 Nashorn引擎: jjs
- * 5.2 类依赖分析器: jdeps
- * Java虚拟机（JVM）的新特性
- * 总结
-
  * 1.介绍
  * 毫无疑问，Java 8发行版是自Java 5（发行于2004，已经过了相当一段时间了）以来最具革命性的版本。
  * Java 8 为Java语言、编译器、类库、开发工具与JVM（Java虚拟机）带来了大量新特性。在这篇教程中，我们将一一探索这些变化，并用真实的例子说明它们适用的场景。
@@ -57,36 +41,41 @@ public class LambdaThree {
  * 在JVM平台上的很多语言（Groovy，Scala，……）从一开始就有Lambda，但是Java程序员不得不使用毫无新意的匿名类来代替lambda。
  *
  * 关于Lambda设计的讨论占用了大量的时间与社区的努力。可喜的是，最终找到了一个平衡点，使得可以使用一种即简洁又紧凑的新方式来构造Lambdas。
- *
- * 在最简单的形式中，一个lambda可以由用逗号分隔的参数列表、–>符号与函数体三部分表示。例如：
- * Arrays.asList( "a", "b", "d" ).forEach( e -> System.out.println( e ) );
- *
- * 请注意参数e的类型是由编译器推测出来的。同时，你也可以通过把参数类型与参数包括在括号中的形式直接给出参数的类型：
- * Arrays.asList( "a", "b", "d" ).forEach( ( String e ) -> System.out.println( e ) );
- *
- * 在某些情况下lambda的函数体会更加复杂，这时可以把函数体放到在一对花括号中，就像在Java中定义普通函数一样。例如：
- * Arrays.asList( "a", "b", "d" ).forEach( e -> {
- *     System.out.print( e );
- *     System.out.print( e );
- * } );
- * Lambda可以引用类的成员变量与局部变量（如果这些变量不是final的话，它们会被隐含的转为final，这样效率更高）。例如，下面两个代码片段是等价的：
- * String separator = ",";
- * Arrays.asList( "a", "b", "d" ).forEach(
- *     ( String e ) -> System.out.print( e + separator ) );
- * 和：
- * final String separator = ",";
- * Arrays.asList( "a", "b", "d" ).forEach(
- *     ( String e ) -> System.out.print( e + separator ) );
- *
- * Lambda可能会返回一个值。返回值的类型也是由编译器推测出来的。如果lambda的函数体只有一行的话，那么没有必要显式使用return语句。下面两个代码片段是等价的：
- * Arrays.asList( "a", "b", "d" ).sort( ( e1, e2 ) -> e1.compareTo( e2 ) );
- * 和：
- * Arrays.asList( "a", "b", "d" ).sort( ( e1, e2 ) -> {
- *     int result = e1.compareTo( e2 );
- *     return result;
- * } );
- *
- * 语言设计者投入了大量精力来思考如何使现有的函数友好地支持lambda。
+ */
+public static void main(String[] args) {
+
+
+
+//  在最简单的形式中，一个lambda可以由用逗号分隔的参数列表、–>符号与函数体三部分表示。例如：
+  Arrays.asList( "a", "b", "d" ).forEach( e -> System.out.println( e ) );
+
+//  请注意参数e的类型是由编译器推测出来的。同时，你也可以通过把参数类型与参数包括在括号中的形式直接给出参数的类型：
+  Arrays.asList( "a", "b", "d" ).forEach( (String e ) -> System.out.println( e ) );
+
+//  在某些情况下lambda的函数体会更加复杂，这时可以把函数体放到在一对花括号中，就像在Java中定义普通函数一样。例如：
+  Arrays.asList( "a", "b", "d" ).forEach( e -> {
+      System.out.print( e );
+      System.out.print( e );
+  } );
+//  Lambda可以引用类的成员变量与局部变量（如果这些变量不是final的话，它们会被隐含的转为final，这样效率更高）。例如，下面两个代码片段是等价的：
+  String separator = ",";
+  Arrays.asList( "a", "b", "d" ).forEach(
+      ( String e ) -> System.out.print( e + separator ) );
+    final String separator1 = ",";
+  Arrays.asList( "a", "b", "d" ).forEach(
+      ( String e ) -> System.out.print( e + separator1 ) );
+
+//  Lambda可能会返回一个值。返回值的类型也是由编译器推测出来的。
+//  如果lambda的函数体只有一行的话，那么没有必要显式使用return语句。下面两个代码片段是等价的：
+  Arrays.asList( "a", "b", "d" ).sort( ( e1, e2 ) -> e1.compareTo( e2 ) );
+
+  Arrays.asList( "a", "b", "d" ).sort( ( e1, e2 ) -> {
+      int result = e1.compareTo( e2 );
+      return result;
+  });
+  }
+ /**
+  语言设计者投入了大量精力来思考如何使现有的函数友好地支持lambda。
  * 最终采取的方法是：增加函数式接口的概念。
  * 函数式接口就是一个具有一个方法的普通接口。
  * 像这样的接口，可以被隐式转换为lambda表达式。
@@ -95,23 +84,23 @@ public class LambdaThree {
  *
  * 在实际使用过程中，函数式接口是容易出错的：如有某个人在接口定义中增加了另一个方法，这时，这个接口就不再是函数式的了，并且编译过程也会失败。
  * 为了克服函数式接口的这种脆弱性并且能够明确声明接口作为函数式接口的意图，Java 8增加了一种特殊的注解@FunctionalInterface（Java 8中所有类库的已有接口都添加了@FunctionalInterface注解）。
- *
- * 让我们看一下这种函数式接口的定义：
- * @FunctionalInterface
- * public interface Functional {
- *     void method();
- * }
- * 需要记住的一件事是：默认方法与静态方法并不影响函数式接口的契约，可以任意使用：
- * @FunctionalInterface
- * public interface FunctionalDefaultMethods {
- *     void method();
- *
- *     default void defaultMethod() {
- *     }
- * }
- *
+ */
+//  让我们看一下这种函数式接口的定义：
+  @FunctionalInterface
+  public interface Functional {
+      void method();
+  }
+// * 需要记住的一件事是：默认方法与静态方法并不影响函数式接口的契约，可以任意使用：
+  @FunctionalInterface
+  public interface FunctionalDefaultMethods {
+      void method();
 
- * Lambda是Java 8最大的卖点。它具有吸引越来越多程序员到Java平台上的潜力，并且能够在纯Java语言环境中提供一种优雅的方式来支持函数式编程。
+      default void defaultMethod() {
+      }
+  }
+
+
+ /** Lambda是Java 8最大的卖点。它具有吸引越来越多程序员到Java平台上的潜力，并且能够在纯Java语言环境中提供一种优雅的方式来支持函数式编程。
 
  * 2.2 接口的默认方法与静态方法
  * Java 8用默认方法与静态方法这两个新概念来扩展接口的声明。
@@ -119,220 +108,208 @@ public class LambdaThree {
  * 但与传统的接口又有些不一样，它允许在已有的接口中添加新方法，而同时又保持了与旧版本代码的兼容性。
  * 默认方法与抽象方法不同之处在于抽象方法必须要求实现，但是默认方法则没有这个要求。
  * 相反，每个接口都必须提供一个所谓的默认实现，这样所有的接口实现者将会默认继承它（如果有必要的话，可以覆盖这个默认实现）。
- *
- * 让我们看看下面的例子：
- * private interface Defaulable {
- *     // Interfaces now allow default methods, the implementer may or
- *     // may not implement (override) them.
- *     default String notRequired() {
- *         return "Default implementation";
- *     }
- * }
- *
- * private static class DefaultableImpl implements Defaulable {
- * }
- *
- * private static class OverridableImpl implements Defaulable {
- *     @Override
- *     public String notRequired() {
- *         return "Overridden implementation";
- *     }
- * }
- *
+ */
+
+ // 让我们看看下面的例子：
+  private interface Defaulable {
+      // Interfaces now allow default methods, the implementer may or
+      // may not implement (override) them.
+      default String notRequired() {
+          return "Default implementation";
+      }
+  }
+
+  private static class DefaultableImpl implements Defaulable {
+  }
+
+  private static class OverridableImpl implements Defaulable {
+      @Override
+      public String notRequired() {
+          return "Overridden implementation";
+      }
+  }
+ /**
  * Defaulable接口用关键字default声明了一个默认方法notRequired()，Defaulable接口的实现者之一DefaultableImpl实现了这个接口，并且让默认方法保持原样。
  * Defaulable接口的另一个实现者OverridableImpl用自己的方法覆盖了默认方法。
- *
- * Java 8带来的另一个有趣的特性是接口可以声明（并且可以提供实现）静态方法。
- * 例如：
- * private interface DefaulableFactory {
- *     // Interfaces now allow static methods
- *     static Defaulable create( Supplier< Defaulable > supplier ) {
- *         return supplier.get();
- *     }
- * }
- *
- * 下面的一小段代码片段把上面的默认方法与静态方法黏合到一起。
- *
- * public static void main( String[] args ) {
- *     Defaulable defaulable = DefaulableFactory.create( DefaultableImpl::new );
- *     System.out.println( defaulable.notRequired() );
- *
- *     defaulable = DefaulableFactory.create( OverridableImpl::new );
- *     System.out.println( defaulable.notRequired() );
- * }
- *
- * 这个程序的控制台输出如下：
+ */
+// * Java 8带来的另一个有趣的特性是接口可以声明（并且可以提供实现）静态方法。
+//  例如：
+  private interface DefaulableFactory {
+      // Interfaces now allow static methods
+      static Defaulable create( Supplier< Defaulable > supplier ) {
+          return supplier.get();
+      }
+  }
+
+// * 下面的一小段代码片段把上面的默认方法与静态方法黏合到一起。
+
+  public static void Test1( String[] args ) {
+      Defaulable defaulable = DefaulableFactory.create( DefaultableImpl::new );
+      System.out.println( defaulable.notRequired() );
+
+      defaulable = DefaulableFactory.create( OverridableImpl::new );
+      System.out.println( defaulable.notRequired() );
+  }
+
+/**  这个程序的控制台输出如下：
  *
  * Default implementation
  * Overridden implementation
- *
+
  * 在JVM中，默认方法的实现是非常高效的，并且通过字节码指令为方法调用提供了支持。
  * 默认方法允许继续使用现有的Java接口，而同时能够保障正常的编译过程。
  * 这方面好的例子是大量的方法被添加到java.util.Collection接口中去：stream()，parallelStream()，forEach()，removeIf()，……
  *
  * 尽管默认方法非常强大，但是在使用默认方法时我们需要小心注意一个地方：
  * 在声明一个默认方法前，请仔细思考是不是真的有必要使用默认方法，因为默认方法会带给程序歧义，并且在复杂的继承体系中容易产生编译错误。更多详情请参考官方文档
+*/
+//  2.3 方法引用
+//
+//  方法引用提供了非常有用的语法，可以直接引用已有Java类或对象（实例）的方法或构造器。与lambda联合使用，方法引用可以使语言的构造更紧凑简洁，减少冗余代码。
+//  下面，我们以定义了4个方法的Car这个类作为例子，区分Java中支持的4种不同的方法引用。
+//
+  public static class Car {
+       public static Car create( final Supplier< Car > supplier ) {
+     return supplier.get();
+      }
 
- * 2.3 方法引用
- *
- * 方法引用提供了非常有用的语法，可以直接引用已有Java类或对象（实例）的方法或构造器。与lambda联合使用，方法引用可以使语言的构造更紧凑简洁，减少冗余代码。
- * 下面，我们以定义了4个方法的Car这个类作为例子，区分Java中支持的4种不同的方法引用。
- *
- * public static class Car {
- *     public static Car create( final Supplier< Car > supplier ) {
- *         return supplier.get();
- *     }
- *
- *     public static void collide( final Car car ) {
- *         System.out.println( "Collided " + car.toString() );
- *     }
- *
- *     public void follow( final Car another ) {
- *         System.out.println( "Following the " + another.toString() );
- *     }
- *
- *     public void repair() {
- *         System.out.println( "Repaired " + this.toString() );
- *     }
- * }
- * 第一种方法引用是构造器引用，它的语法是Class::new，或者更一般的Class< T >::new。请注意构造器没有参数。
- * final Car car = Car.create( Car::new );
- * final List< Car > cars = Arrays.asList( car );
- *
- * 第二种方法引用是静态方法引用，它的语法是Class::static_method。请注意这个方法接受一个Car类型的参数。
- * cars.forEach( Car::collide );
- *
- * 第三种方法引用是特定类的任意对象的方法引用，它的语法是Class::method。请注意，这个方法没有参数。
- * cars.forEach( Car::repair );
- *
- * 最后，第四种方法引用是特定对象的方法引用，它的语法是instance::method。请注意，这个方法接受一个Car类型的参数
- * final Car police = Car.create( Car::new );
- * cars.forEach( police::follow );
- *
- * 运行上面的Java程序在控制台上会有下面的输出（Car的实例可能不一样）：
- * Collided com.javacodegeeks.java8.method.references.MethodReferences$Car@7a81197d
- * Repaired com.javacodegeeks.java8.method.references.MethodReferences$Car@7a81197d
- * Following the com.javacodegeeks.java8.method.references.MethodReferences$Car@7a81197d
- * 关于方法引用的更多详情请参考官方文档。
- *
- *
- * 2.4 重复注解
+      public static void collide( final Car car ) {
+          System.out.println( "Collided " + car.toString() );
+      }
+
+      public void follow( final Car another ) {
+          System.out.println( "Following the " + another.toString() );
+      }
+
+      public void repair() {
+          System.out.println( "Repaired " + this.toString() );
+      }
+  }
+    public static void Test2() {
+     //  第一种方法引用是构造器引用，它的语法是Class::new，或者更一般的Class< T >::new。请注意构造器没有参数。
+        final Car car = Car.create( Car::new );
+        final List< Car > cars = Arrays.asList( car );
+     //  第二种方法引用是静态方法引用，它的语法是Class::static_method。请注意这个方法接受一个Car类型的参数。
+        cars.forEach( Car::collide );
+
+     //  第三种方法引用是特定类的任意对象的方法引用，它的语法是Class::method。请注意，这个方法没有参数。
+        cars.forEach( Car::repair );
+
+     //  最后，第四种方法引用是特定对象的方法引用，它的语法是instance::method。请注意，这个方法接受一个Car类型的参数
+        final Car police = Car.create( Car::new );
+        cars.forEach( police::follow );
+    }
+
+
+// * 运行上面的Java程序在控制台上会有下面的输出（Car的实例可能不一样）：
+// * Collided com.javacodegeeks.java8.method.references.MethodReferences$Car@7a81197d
+// * Repaired com.javacodegeeks.java8.method.references.MethodReferences$Car@7a81197d
+// * Following the com.javacodegeeks.java8.method.references.MethodReferences$Car@7a81197d
+// * 关于方法引用的更多详情请参考官方文档。
+
+ /** 2.4 重复注解
  * 自从Java 5引入了注解机制，这一特性就变得非常流行并且广为使用。
  * 然而，使用注解的一个限制是相同的注解在同一位置只能声明一次，不能声明多次。
  * Java 8打破了这条规则，引入了重复注解机制，这样相同的注解可以在同一地方声明多次。
  *
  * 重复注解机制本身必须用@Repeatable注解。事实上，这并不是语言层面上的改变，更多的是编译器的技巧，底层的原理保持不变。
  * 让我们看一个快速入门的例子：
- * package com.javacodegeeks.java8.repeatable.annotations;
- *
- * import java.lang.annotation.ElementType;
- * import java.lang.annotation.Repeatable;
- * import java.lang.annotation.Retention;
- * import java.lang.annotation.RetentionPolicy;
- * import java.lang.annotation.Target;
- *
- * public class RepeatingAnnotations {
- *     @Target( ElementType.TYPE )
- *     @Retention( RetentionPolicy.RUNTIME )
- *     public @interface Filters {
- *         Filter[] value();
- *     }
- *
- *     @Target( ElementType.TYPE )
+ */
+
+//  public class RepeatingAnnotations {
+//      @Target( ElementType.TYPE )
+//      @Retention( RetentionPolicy.RUNTIME )
+//      public @interface Filters {
+//          Filter[] value();
+//      }
+
+ /**     @Target( ElementType.TYPE )
  *     @Retention( RetentionPolicy.RUNTIME )
  *     @Repeatable( Filters.class )
- *     public @interface Filter {
- *         String value();
- *     };
- *
- *     @Filter( "filter1" )
- *     @Filter( "filter2" )
- *     public interface Filterable {
- *     }
- *
- *     public static void main(String[] args) {
- *         for( Filter filter: Filterable.class.getAnnotationsByType( Filter.class ) ) {
- *             System.out.println( filter.value() );
- *         }
- *     }
- * }
- * 正如我们看到的，这里有个使用@Repeatable( Filters.class )注解的注解类Filter，Filters仅仅是Filter注解的数组，
- * 但Java编译器并不想让程序员意识到Filters的存在。这样，接口Filterable就拥有了两次Filter（并没有提到Filter）注解。
- * 同时，反射相关的API提供了新的函数getAnnotationsByType()来返回重复注解的类型
- *（请注意Filterable.class.getAnnotation( Filters.class )
- * 经编译器处理后将会返回Filters的实例）。
- *
- * 程序输出结果如下：
- * filter1
- * filter2
- * 更多详情请参考官方文档
- *
+ */
+     public @interface Filter {
+          String value();
+      }
 
- * 2.5 更好的类型推测机制
- * Java 8在类型推测方面有了很大的提高。在很多情况下，编译器可以推测出确定的参数类型，这样就能使代码更整洁。
- * 让我们看一个例子：
- * package com.javacodegeeks.java8.type.inference;
- *
- * public class Value< T > {
- *     public static< T > T defaultValue() {
- *         return null;
- *     }
- *
- *     public T getOrDefault( T value, T defaultValue ) {
- *         return ( value != null ) ? value : defaultValue;
- *     }
- * }
- * 这里是Value< String >类型的用法。
- * package com.javacodegeeks.java8.type.inference;
- *
- * public class TypeInference {
- *     public static void main(String[] args) {
- *         final Value< String > value = new Value<>();
- *         value.getOrDefault( "22", Value.defaultValue() );
- *     }
- * }
- * Value.defaultValue()的参数类型可以被推测出，所以就不必明确给出。
- * 在Java 7中，相同的例子将不会通过编译，正确的书写方式是 Value.< String >defaultValue()。
- *
+//      @Filter( "filter1" )
+      @Filter( "filter2" )
+      public interface Filterable {
+      }
 
- * 2.6 扩展注解的支持
- * Java 8扩展了注解的上下文。现在几乎可以为任何东西添加注解：局部变量、泛型类、父类与接口的实现，就连方法的异常也能添加注解。
- * 下面演示几个例子：
- * package com.javacodegeeks.java8.annotations;
- *
- * import java.lang.annotation.ElementType;
- * import java.lang.annotation.Retention;
- * import java.lang.annotation.RetentionPolicy;
- * import java.lang.annotation.Target;
- * import java.util.ArrayList;
- * import java.util.Collection;
- *
- * public class Annotations {
- *     @Retention( RetentionPolicy.RUNTIME )
- *     @Target( { ElementType.TYPE_USE, ElementType.TYPE_PARAMETER } )
- *     public @interface NonEmpty {
- *     }
- *
- *     public static class Holder< @NonEmpty T > extends @NonEmpty Object {
- *         public void method() throws @NonEmpty Exception {
- *         }
- *     }
- *
- *     @SuppressWarnings( "unused" )
- *     public static void main(String[] args) {
- *         final Holder< String > holder = new @NonEmpty Holder< String >();
- *         @NonEmpty Collection<  @ NonEmpty  S tring > strings = new ArrayList<>();
- *     }
- * }
- * ElementType.TYPE_USE和ElementType.TYPE_PARAMETER是两个新添加的用于描述适当的注解上下文的元素类型。
- * 在Java语言中，注解处理API也有小的改动来识别新增的类型注解。
+      public static void Test3() {
+          for( Filter filter: Filterable.class.getAnnotationsByType( Filter.class ) ) {
+              System.out.println( filter.value() );
+          }
+      }
+  }
+// 正如我们看到的，这里有个使用@Repeatable( Filters.class )注解的注解类Filter，Filters仅仅是Filter注解的数组，
+// * 但Java编译器并不想让程序员意识到Filters的存在。这样，接口Filterable就拥有了两次Filter（并没有提到Filter）注解。
+// * 同时，反射相关的API提供了新的函数getAnnotationsByType()来返回重复注解的类型
+// *（请注意Filterable.class.getAnnotation( Filters.class )
+// * 经编译器处理后将会返回Filters的实例）。
+// * 程序输出结果如下：
+// * filter1
+// * filter2
+// * 更多详情请参考官方文档
 
- * 3. Java编译器的新特性
+
+//  2.5 更好的类型推测机制
+// * Java 8在类型推测方面有了很大的提高。在很多情况下，编译器可以推测出确定的参数类型，这样就能使代码更整洁。
+// * 让我们看一个例子：
+// package com.javacodegeeks.java8.type.inference;
+
+//  public class Value< T > {
+//      public static< T > T defaultValue() {
+//          return null;
+//      }
+//
+//      public T getOrDefault( T value, T defaultValue ) {
+//          return ( value != null ) ? value : defaultValue;
+//      }
+//  }
+// * 这里是Value< String >类型的用法。
+//      public static void Test4() {
+//          final Value< String > value = new Value<>();
+//          value.getOrDefault( "22", Value.defaultValue() );
+//      }
+
+// * Value.defaultValue()的参数类型可以被推测出，所以就不必明确给出。
+// * 在Java 7中，相同的例子将不会通过编译，正确的书写方式是 Value.< String >defaultValue()。
+
+
+  // 2.6 扩展注解的支持
+// * Java 8扩展了注解的上下文。现在几乎可以为任何东西添加注解：局部变量、泛型类、父类与接口的实现，就连方法的异常也能添加注解。
+// * 下面演示几个例子：
+//  package com.javacodegeeks.java8.annotations;
+
+
+
+
+//      @Retention( RetentionPolicy.RUNTIME )
+//      @Target( { ElementType.TYPE_USE, ElementType.TYPE_PARAMETER } )
+//      public @interface NonEmpty {
+//      }
+
+//      public static class Holder< @NonEmpty T > extends @NonEmpty Object {
+//          public void method() throws @NonEmpty Exception {
+//          }
+//      }
+
+//      @SuppressWarnings( "unused" )
+//      public static void main(String[] args) {
+//          final Holder< String > holder = new @NonEmpty Holder< String >();
+//          @NonEmpty Collection<  @ NonEmpty  String > strings = new ArrayList<>();
+//      }
+
+// * ElementType.TYPE_USE和ElementType.TYPE_PARAMETER是两个新添加的用于描述适当的注解上下文的元素类型。
+// * 在Java语言中，注解处理API也有小的改动来识别新增的类型注解。
+
+ /** 3. Java编译器的新特性
  * 3.1 参数名字
  * 很长一段时间里，Java程序员一直在发明不同的方式使得方法参数的名字能保留在Java字节码中，并且能够在运行时获取它们（比如，Paranamer类库）。
  * 最终，在Java 8中把这个强烈要求的功能添加到语言层面（通过反射API与Parameter.getName()方法）与字节码文件（通过新版的javac的–parameters选项）中。
  *
- * package com.javacodegeeks.java8.parameter.names;
+ /* package com.javacodegeeks.java8.parameter.names;
  *
  * import java.lang.reflect.Method;
  * import java.lang.reflect.Parameter;
@@ -721,5 +698,6 @@ public class LambdaThree {
  * 现在把生产环境迁移到Java 8还为时尚早，但是在接下来的几个月里，它会被大众慢慢的接受。
  * 毫无疑问，现在是时候让你的代码与Java 8兼容，并且在Java 8足够安全稳定的时候迁移到Java 8。
 */
-}
+
+
 

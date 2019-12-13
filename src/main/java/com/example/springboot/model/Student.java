@@ -17,4 +17,10 @@ public class Student implements Serializable {
     private String name = "昴";
     @Value("23")
     private Integer age = 23;
+    public Student() {
+    }
+    public Student(String name,Integer age) {
+        this.setName(name);
+        this.setAge(age);
+    }
 }

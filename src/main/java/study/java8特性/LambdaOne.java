@@ -8,67 +8,43 @@ import java.util.function.Predicate;
 import java.util.function.Supplier;
 /**
  * 2.什么是Lambda表达式
- *
+ * <p>
  * 带有参数变量的表达式，是一段可以传递的代码，可以被一次或多次执行
- *
+ * <p>
  * 是一种精简的字面写法，其实就是把匿名内部类中“一定”要做的工作省略掉
- *
+ * <p>
  * 然后由JVM通过推导把简化的表达式还原
- *
- * 格式：  (parameters参数) -> expression表达式或方法体
- *
+ * <p>
+ * 格式： 
+ * (parameters参数) -> expression表达式或方法体
+ * <p>
  * paramaters：
- *
+ * <p>
  * 类似方法中的形参列表，这里的参数是函数式接口里的参数
- *
+ * <p>
  * ->：可理解为“被用于”的意思
- *
+ * <p>
  * 方法体：
- *
+ * <p>
  * 可以是表达式也可以代码块，是函数式接口里方法的实现
- *
+ * <p>
  * 如果负责运算的代码无法用表达式表示，可以使用编写方法实现
- *
+ * <p>
  * 但必须用{}包围并按需明确使用 return语句
- *
+ * <p>
  * 需求：对字符串数组按字符串长度排序
  */
 
 
 /**
- * @ClassName Lambda
+ * @ClassName LambdaOne
  * @Author zhaofu
  * @Date 2019/8/1
  * @Version V1.0
  **/
-public class Lambda {
+public class LambdaOne {
 
     public static void main(String[] args) {
-        Optional<String> fullName = Optional.ofNullable(null);
-        System.out.println("1    Full Name is set? " + fullName.isPresent());
-        System.out.println("2    Full Name: " + fullName.orElseGet(() -> "[     none]"));
-        System.out.println(fullName.map(s -> "Hey " + s + "!").orElse("Hey Stranger!   3 "));
-
-        Arrays.asList("1:", "b", "d").forEach(System.out::println);
-        Arrays.asList("2:", "b", "d").forEach(e -> System.out.println(e));
-        Arrays.asList("3:", "b", "d").forEach((String e) -> System.out.println(e));
-        Arrays.asList("x", "b", "d").forEach(e -> {
-            System.out.print("   1:  "+e+ "--       ");
-            System.out.print("   2:  "+e+ "--       ");
-        });
-        System.out.println("       -->>>>>>>>>>>>>>>-------------------------------");
-        String[] atp = {"1", "2", "3", "4", "5", "6", "7", "8"};
-        List<String> players = Arrays.asList(atp);
-        // 以前的循环方式
-        for (String player : players) {
-            System.out.print(player + "; ");
-        }
-        // 使用 lambda 表达式以及函数操作(functional operation)
-        players.forEach((player) -> System.out.print(player + "; "));
-        // 在 Java 8 中使用双冒号操作符(double colon operator)
-        players.forEach(System.out::println);
-        System.out.println("________________________________________________________");
-
         // 定义字符串数组
         String[] strArr = {"abc", "cd", "abce", "a"};
         // 传统方法
@@ -83,6 +59,7 @@ public class Lambda {
         for (String s : strArr) {
             System.out.println(s);
         }
+
         System.out.println("-----------------------------");
         // Lambda表达式
         Arrays.sort(strArr, (s1, s2) -> Integer.compare(s2.length(), s1.length()));
@@ -91,23 +68,31 @@ public class Lambda {
             System.out.println(s);
         }
         System.out.println("----------------------------");
-    }
-    /**
-     * 需求：用Lambda实现多线程
-     * */
-/*    public static void main(String[] args) {
+
+        /**
+         * 需求：用Lambda实现多线程
+         * */
+
         // Lambda表达式
         new Thread(() -> System.out.println(-1 + "hello world")).start();
-
         System.out.println("----------------");
 
         // 方法体
         new Thread(() -> {
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 5; i++) {
                 System.out.println(i + "hello world");
             }
         }).start();
-    }*/
+        System.out.println("Test();--------");
+        Test();
+        System.out.println("Test1();--------");
+        Test1();
+        System.out.println("Test2();--------");
+        Test2();
+        System.out.println("Test3();--------");
+        Test3();
+
+    }
 /**
  * 3.何时使用
  *
@@ -134,10 +119,10 @@ public class Lambda {
  * b.用户自定义函数接口(注解必须有，表达式是直接通过参数列表来实现的，只能有一个有效方法)
  *
  * */
-/*    @FunctionalInterface
+    @FunctionalInterface
     public interface MyInterface {
         String info(String tip);
-    }*/
+    }
 /**
  *
  * 5.公共定义的函数式接口
@@ -160,8 +145,7 @@ public class Lambda {
  *
  * */
 
-
-/*public static void main(String[] args) {
+public static void Test() {
     // 定义字符串
     String str = "hello--world";
 
@@ -170,7 +154,7 @@ public class Lambda {
     int length = testFun(str, (s) -> s.length());
 
     System.out.println(length);
-}*/
+}
 
     /**
      * @param str 输入参数
@@ -180,6 +164,7 @@ public class Lambda {
     public static int testFun(String str, Function<String, Integer> fun) {
         // 执行
         Integer length = fun.apply(str);
+
         return length;
     }
 
@@ -205,13 +190,13 @@ public class Lambda {
  */
 
 
-/*public static void main(String[] args) {
+public static void Test1() {
     // 创建字符串
     String str = "hello world";
 
     // 调用
     testCon(str, (s) -> System.out.println(s));
-}*/
+}
 
     /**
      * @param str 传入参数
@@ -233,7 +218,7 @@ public class Lambda {
  * 使用get()方法获得这个返回值
  *
  * */
-/*public static void main(String[] args) {
+public static void Test2() {
     // 创建字符串
     String str = "hello world";
 
@@ -241,7 +226,7 @@ public class Lambda {
     String sup = testSup(() -> str);
 
     System.out.println(sup);
-}*/
+}
 
     /**
      * @param sup
@@ -249,7 +234,7 @@ public class Lambda {
      */
     public static String testSup(Supplier<String> sup) {
         // 执行
-        String s = sup.get()+"  xxx";
+        String s = sup.get() + "  xxx";
         return s;
     }
 
@@ -265,14 +250,14 @@ public class Lambda {
  * 需求：输入字符串，判断长度是否大于0
  */
 
-/*public static void main(String[] args) {
+public static void Test3() {
     // 创建字符串
     String str = "hello world";
 
     // 调用
     boolean flag = testPre(str, (s) -> s.length() > 0);
     System.out.println(flag);
-}*/
+}
 
     /**
      * @param str
@@ -294,11 +279,13 @@ public class Lambda {
  *
  * b.与集合类批处理操作结合，实现内部迭代，并充分利用现代多核CPU进行并行计算。之前集合类的迭代都是外部的，
  * 即客户代码。而内部迭代意味着由Java类库来进行迭代，而不是客户代码
+
  * 7.和匿名内部类的区别
  *
  * a.在lambda中，this不是指向lambda表达式产生的那个对象，而是它的外部对象
  *
  * b.Java 编译器编译 Lambda 表达式并将他们转化为类里面的私有函数，它使用 Java 7 中新加的 invokedynamic 指令动态绑定该方法，
  * 但每一个匿名内部类编译器会为其创建一个类文件
+ *
  * */
 }

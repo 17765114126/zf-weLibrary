@@ -15,32 +15,34 @@ import java.util.function.Predicate;
  **/
 public class LambdaTwo {
 /**
-* 1. 引言
-*
+1. 引言
+
 * 在 Java 8 以前，若我们想要把某些功能传递给某些方法，总要去写匿名类。以前注册事件监听器的写法与下面的示例代码就很像：
-*
-* manager.addScheduleListener(new ScheduleListener() {
-*
-* @Override public void onSchedule(ScheduleEvent e) {
-* // Event listener implementation goes here...
-* }
-* });
-*
+*/
+// manager.addScheduleListener(new ScheduleListener() {
+//
+// @Override public void onSchedule(ScheduleEvent e) {
+// // Event listener implementation goes here...
+// }
+// });
+/**
 * 这里我们添加了一些自定义代码到 Schedule 监听器中，需要先定义匿名内部类，然后传递一些功能到 onSchedule 方法中。
 *
 * 正是 Java 在作为参数传递普通方法或功能的限制，Java 8 增加了一个全新语言级别的功能，称为 Lambda 表达式。
 
-* 2. 为什么 Java 需要 Lambda 表达式
-*
-* Java 是面向对象语言，除了原始数据类型之处，Java 中的所有内容都是一个对象。而在函数式语言中，我们只需要给函数分配变量，并将这个函数作为参数传递给其它函数就可实现特定的功能。
+2. 为什么 Java 需要 Lambda 表达式
+
+* Java 是面向对象语言，除了原始数据类型之处，Java 中的所有内容都是一个对象。
+* 而在函数式语言中，我们只需要给函数分配变量，并将这个函数作为参数传递给其它函数就可实现特定的功能。
 * JavaScript 就是功能编程语言的典范（闭包）。
 *
 * Lambda 表达式的加入，使得 Java 拥有了函数式编程的能力。在其它语言中，Lambda 表达式的类型是一个函数；
 * 但在 Java 中，Lambda 表达式被表示为对象，因此它们必须绑定到被称为功能接口的特定对象类型。
 
-* 3. Lambda 表达式简介
-*
-* Lambda 表达式是一个匿名函数（对于 Java 而言并不很准确，但这里我们不纠结这个问题）。简单来说，这是一种没有声明的方法，即没有访问修饰符，返回值声明和名称。
+3. Lambda 表达式简介
+
+* Lambda 表达式是一个匿名函数（对于 Java 而言并不很准确，但这里我们不纠结这个问题）。
+* 简单来说，这是一种没有声明的方法，即没有访问修饰符，返回值声明和名称。
 *
 * 在仅使用一次方法的地方特别有用，方法定义很短。它为我们节省了，如包含类声明和编写单独方法的工作。
 *
@@ -58,7 +60,7 @@ public class LambdaTwo {
 * () -> 42
 * () -> { return 3.1415 };
 
-* 3.1 Lambda 表达式的结构
+3.1 Lambda 表达式的结构
 *
 * Lambda 表达式可以具有零个，一个或多个参数。
 * 可以显式声明参数的类型，也可以由编译器自动从上下文推断参数的类型。例如 (int a) 与刚才相同 (a)。
@@ -69,8 +71,8 @@ public class LambdaTwo {
 * 如果 Lambda 表达式的正文只有一条语句，则大括号可不用写，且表达式的返回值类型要与匿名函数的返回类型相同。
 * 如果 Lambda 表达式的正文有一条以上的语句必须包含在大括号（代码块）中，且表达式的返回值类型要与匿名函数的返回类型相同。
 
-* 4. 方法引用
-*
+4. 方法引用
+
 * 4.1 从 Lambda 表达式到双冒号操作符
 *
 * 使用 Lambda 表达式，我们已经看到代码可以变得非常简洁。
@@ -90,7 +92,7 @@ public class LambdaTwo {
 *
 * 双冒号（::）操作符是 Java 中的方法引用。当我们使用一个方法的引用时，目标引用放在 :: 之前，目标引用提供的方法名称放在 :: 之后，即 目标引用::方法。比如：
 * Person::getAge;
- *
+*
 * 在 Person 类中定义的方法 getAge 的方法引用。
 *
 * 然后我们可以使用 Function 对象进行操作：
@@ -115,12 +117,12 @@ public class LambdaTwo {
 * Runnable r = () -> System.out.println("hello world");
 */
 
-/*public static void main(String[] args) {
+public static void main(String[] args) {
     Runnable r = () -> System.out.println("hello world");
     new Thread(
             () -> System.out.println("hello world")
     ).start();
-}*/
+}
 
 /**
 * 当我们不指定功能接口时，这种类型的转换会被编译器自动处理。例如：
@@ -141,7 +143,7 @@ public class LambdaTwo {
 */
 public interface WorkerInterface {
 
-    //public void doSomeWork();
+    public void doSomeWork();
 
 }
 
@@ -177,7 +179,7 @@ public interface WorkerInterfaceThree {
     public void doWork();
 }
 
-/*    public static void main(String[] args) {
+    public static void Test () {
         // 通过匿名内部类调用
         WorkerInterfaceThree work = new WorkerInterfaceThree() {
             @Override
@@ -192,7 +194,7 @@ public interface WorkerInterfaceThree {
         // 我们可以将 Lambda 表达式赋值给一个变量，就可像其它对象一样调用。
         work = () -> System.out.println("通过 Lambda 表达式调用");
         work.doWork();
-    }*/
+    }
 
 /**
 * 6. Lambda 表达式的例子
@@ -201,7 +203,7 @@ public interface WorkerInterfaceThree {
 *
 * 线程可以初始化如下：
 */
-/*public static void main(String[] args) {
+public static void Test1() {
     // Old way
     new Thread(new Runnable() {
         @Override
@@ -214,7 +216,7 @@ public interface WorkerInterfaceThree {
     new Thread(
             () -> System.out.println("Hello world--")
     ).start();
-}*/
+}
 
 /**
 * 我们在使用IDEA的时候，如果写出Old way的代码，IDEA会提示我们将其转换为Lambda表达式的形式，为IDEA点赞！
@@ -227,19 +229,19 @@ public interface WorkerInterfaceThree {
 *
 * 事件处理可以用 Java 8 使用 Lambda 表达式来完成。以下代码显示了将 ActionListener 添加到 UI 组件的新旧方式：
 */
-/*public static void main(String[] args) {
-    // Old way
-*//*    button.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            System.out.println("Hello world");
-        }
-    });
-
-    // New way
-    button.addActionListener((e) -> {
-        System.out.println("Hello world");
-    });*//*
+public static void Test2(String[] args) {
+//    // Old way
+//    button.addActionListener(new ActionListener() {
+//        @Override
+//        public void actionPerformed(ActionEvent e) {
+//            System.out.println("Hello world");
+//        }
+//    });
+//
+//    // New way
+//    button.addActionListener((e) -> {
+//        System.out.println("Hello world");
+//    });
 
 
     // old way
@@ -253,7 +255,7 @@ public interface WorkerInterfaceThree {
 
     // 使用 :: 的 Lambda 表达式
     list.forEach(System.out::println);
-}*/
+}
 
 /**
 * 6.3 遍例输出（方法引用）
@@ -284,7 +286,7 @@ public interface WorkerInterfaceThree {
 *
 * 输出通过逻辑判断的数据。
 */
-/*public static void main(String[] args) {
+public static void Test3() {
     List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7);
 
     System.out.print("输出所有数字：");
@@ -301,7 +303,7 @@ public interface WorkerInterfaceThree {
 
     System.out.print("输出大于 5 的数字：");
     evaluate(list, (n) -> n > 5);
-}*/
+}
 
     public static void evaluate(List<Integer> list, Predicate<Integer> predicate) {
         for (Integer n : list) {
@@ -321,7 +323,7 @@ public interface WorkerInterfaceThree {
 * 下面的例子，我们将 Lambda 表达式 x -> x*x 传递给 map() 方法，将其应用于流的所有元素。之后，我们使用 forEach打印列表的所有元素。
 */
 // old way
-public static void main(String[] args) {
+public static void Test4() {
     List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7);
     for (Integer n : list) {
         int x = n * n;
