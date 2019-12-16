@@ -182,20 +182,22 @@ public class CollectionStudy {
      *   如果不知道用哪个List用ArrayList
      * 如果知道是用集合但不知道用哪个用ArrayList
      */
-    // 二 、Collection集合和List集合迭代器遍历实例
-
-    //Collection集合中的方法，子集合都可以用
-    //	Iterator<E> iterator()迭代器，集合的专用方式子集合都可以用
-    //	Object next()获取当前元素，并移动到下一个位置
-    //	boolean hasNext()判断此位置是否有元素
-
-    //List集合中的方法
-    //	void add(int index,Object element)在指定位置添加元素（原索引处的元素后延）
-    //	Object get(int index)获取指定位置的元素
-
-    //list迭代器中的特有方法
-    //	Object previous ()返回此处位置的前一个的元素，并移动到前一个位置。
-    //	boolean hasPrevious()判断此处的前一个位置是否有元素
+    /**
+     * 二 、Collection集合和List集合迭代器遍历实例
+     *
+     *     Collection集合中的方法，子集合都可以用
+     *     	Iterator<E> iterator()迭代器，集合的专用方式子集合都可以用
+     *     	Object next()获取当前元素，并移动到下一个位置
+     *     	boolean hasNext()判断此位置是否有元素
+     *
+     *     List集合中的方法
+     *     	void add(int index,Object element)在指定位置添加元素（原索引处的元素后延）
+     *     	Object get(int index)获取指定位置的元素
+     *
+     *     list迭代器中的特有方法
+     *     	Object previous ()返回此处位置的前一个的元素，并移动到前一个位置。
+     *     	boolean hasPrevious()判断此处的前一个位置是否有元素
+     */
     public static void main(String[] args) {
 
         //Collection集合的遍历
@@ -320,30 +322,30 @@ public class CollectionStudy {
         // 2、比较器排序
         //TreeSet类存储对象，比较器排序Variable 's1' is already defined in the scope
         //规定:按照年龄进行排序
-//
-//        TreeSet<Student> ts1 = new TreeSet<Student>(new Comparator<Student>() {
-//            //匿名内部类实现比较器排序接口
-//            public int compare(Student s1, Student s2) {
-//                int num1 = s1.getAge() - s2.getAge();
-//                int num2 = num1 == 0 ? s1.getName().compareTo(s2.getName()) : num1;
-//                return num2;
-//            }
-//        });
-//
-//        Student q1 = new Student("zfliu", 18);
-//        Student q2 = new Student("zfliu", 20);
-//        Student q3 = new Student("zfliu", 18);
-//        Student q4 = new Student("ZFLIU", 18);
-//        Student q5 = new Student("Java", 18);
-//        ts1.add(q1);
-//        ts1.add(q2);
-//        ts1.add(q3);
-//        ts1.add(q4);
-//        ts1.add(q5);
-//
-//        for (Student s : ts1) {
-//            System.out.println(s.getName() + s.getAge());
-//        }
+
+        TreeSet<Student> ts1 = new TreeSet<Student>(new Comparator<Student>() {
+            //匿名内部类实现比较器排序接口
+            public int compare(Student s1, Student s2) {
+                int num1 = s1.getAge() - s2.getAge();
+                int num2 = num1 == 0 ? s1.getName().compareTo(s2.getName()) : num1;
+                return num2;
+            }
+        });
+
+        Student q1 = new Student("zfliu", 18);
+        Student q2 = new Student("zfliu", 20);
+        Student q3 = new Student("zfliu", 18);
+        Student q4 = new Student("ZFLIU", 18);
+        Student q5 = new Student("Java", 18);
+        ts1.add(q1);
+        ts1.add(q2);
+        ts1.add(q3);
+        ts1.add(q4);
+        ts1.add(q5);
+
+        for (Student s : ts1) {
+            System.out.println(s.getName() + s.getAge());
+        }
     }
 
     /**
