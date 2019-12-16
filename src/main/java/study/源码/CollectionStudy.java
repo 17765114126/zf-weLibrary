@@ -320,30 +320,30 @@ public class CollectionStudy {
         // 2、比较器排序
         //TreeSet类存储对象，比较器排序Variable 's1' is already defined in the scope
         //规定:按照年龄进行排序
-
-        TreeSet<Student> ts1 = new TreeSet<Student>(new Comparator<Student>() {
-            //匿名内部类实现比较器排序接口
-            public int compare(Student s1, Student s2) {
-                int num1 = s1.getAge() - s2.getAge();
-                int num2 = num1 == 0 ? s1.getName().compareTo(s2.getName()) : num1;
-                return num2;
-            }
-        });
-
-        Student q1 = new Student("zfliu", 18);
-        Student q2 = new Student("zfliu", 20);
-        Student q3 = new Student("zfliu", 18);
-        Student q4 = new Student("ZFLIU", 18);
-        Student q5 = new Student("Java", 18);
-        ts1.add(q1);
-        ts1.add(q2);
-        ts1.add(q3);
-        ts1.add(q4);
-        ts1.add(q5);
-
-        for (Student s : ts1) {
-            System.out.println(s.getName() + s.getAge());
-        }
+//
+//        TreeSet<Student> ts1 = new TreeSet<Student>(new Comparator<Student>() {
+//            //匿名内部类实现比较器排序接口
+//            public int compare(Student s1, Student s2) {
+//                int num1 = s1.getAge() - s2.getAge();
+//                int num2 = num1 == 0 ? s1.getName().compareTo(s2.getName()) : num1;
+//                return num2;
+//            }
+//        });
+//
+//        Student q1 = new Student("zfliu", 18);
+//        Student q2 = new Student("zfliu", 20);
+//        Student q3 = new Student("zfliu", 18);
+//        Student q4 = new Student("ZFLIU", 18);
+//        Student q5 = new Student("Java", 18);
+//        ts1.add(q1);
+//        ts1.add(q2);
+//        ts1.add(q3);
+//        ts1.add(q4);
+//        ts1.add(q5);
+//
+//        for (Student s : ts1) {
+//            System.out.println(s.getName() + s.getAge());
+//        }
     }
 
     /**
