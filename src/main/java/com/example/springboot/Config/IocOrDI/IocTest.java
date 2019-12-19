@@ -21,6 +21,7 @@ public class IocTest {
         System.out.println(user.getId());
         System.out.println(user.getNote());
         System.out.println(user.getUserName());
+        System.out.println("---------------");
         /*DI测试--未完成*/
         Person person = ctx.getBean(BussinessPerson.class);
         person.service();

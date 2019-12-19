@@ -1,6 +1,7 @@
 package com.example.springboot.Config.IocOrDI;
 
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.FilterType;
 
 /**
  * @ClassName AppConfig
@@ -13,5 +14,7 @@ import org.springframework.context.annotation.ComponentScan;
  *
  * excludeFilters = {@Filter({IocTest.class})}
  **/
-@ComponentScan(basePackages = "com.example.springboot.model")
+@ComponentScan(basePackages = "com.example.springboot.model",
+        basePackageClasses = {IocTest.class},
+        excludeFilters = @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = IocTest.class))
 public class AppConfig {}
