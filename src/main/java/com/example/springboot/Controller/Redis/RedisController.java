@@ -1,4 +1,4 @@
-package com.example.springboot.Controller;
+package com.example.springboot.Controller.Redis;
 
 import com.example.springboot.model.Student;
 import com.example.springboot.util.RedisUtil;
@@ -34,6 +34,7 @@ public class RedisController {
             student.setAge(18);
             log.info("Redis启动日志------------------" + student.toString());
             redisUtil.set("s", student.getName());
+            redisUtil.set("s","555",1000 * 50);
             String s1 = redisUtil.get("s").toString();
             System.out.println(s1);
         } catch (Exception e) {

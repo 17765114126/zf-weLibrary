@@ -1,4 +1,4 @@
-package study.源码;
+package study.数组集合;
 
 import java.util.HashSet;
 import java.util.Set;

@@ -1,4 +1,4 @@
-package study.源码;
+package study.数组集合;
 
 import com.example.springboot.model.Student;
 import java.util.*;

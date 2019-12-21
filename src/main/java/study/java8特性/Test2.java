@@ -1,9 +1,6 @@
 package study.java8特性;
 
-import org.springframework.util.Assert;
-
 import java.util.function.*;
-import java.util.stream.Stream;
 
 /**
  * @ClassName Test3

@@ -1,7 +1,5 @@
 package study.java8特性;
 
-import com.example.springboot.Controller.Activemq.Consumer;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;

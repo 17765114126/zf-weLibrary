@@ -1,11 +1,7 @@
 package study.java8特性;
 
-import com.example.springboot.Controller.Activemq.Consumer;
 import com.example.springboot.model.Student;
-import lombok.Data;
 
-import java.awt.event.ActionEvent;
-import java.beans.EventHandler;
 import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
