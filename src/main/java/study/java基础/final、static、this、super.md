@@ -135,22 +135,22 @@ public class Sub extends Super {
 ```java
 public class StaticBean {
 
-    String name;
-    静态变量
-    static int age;
-
-    public StaticBean(String name) {
-        this.name = name;
-    }
-    静态方法
-    static void SayHello() {
-        System.out.println(Hello i am java);
-    }
-    @Override
-    public String toString() {
-        return StaticBean{ +
-                name=' + name + ''' + age + age +
-                '}';
+        String name;
+        //静态变量
+        static int age;
+    
+        public StaticBean(String name) {
+            this.name = name;
+        }
+        //静态方法
+        static void SayHello() {
+            System.out.println(Hello i am java);
+        }
+        @Override
+        public String toString() {
+            return StaticBean{name=' + name + ''' + age + age +
+                    '}';
+        }
     }
 }
 ```
@@ -291,7 +291,7 @@ class Foo {
 
 不同点： 静态代码块在非静态代码块之前执行(静态代码块—非静态代码块—构造方法)。静态代码块只在第一次new执行一次，之后不再执行，而非静态代码块在每new一次就执行一次。 非静态代码块可在普通方法中定义(不过作用不大)；而静态代码块不行。 
 
-一般情况下,如果有些代码比如一些项目最常用的变量或对象必须在项目启动的时候就执行的时候,需要使用静态代码块,这种代码是主动执行的。如果我们想要设计不需要创建对象就可以调用类中的方法，例如：Arrays类，Character类，String类等，就需要使用静态方法, 两者的区别是 静态代码块是自动执行的而静态方法是被调用的时候才执行的. 
+一般情况下,如果有些代码比如一些项目最常用的变量或对象必须在项目启动的时候就执行的时候,需要使用静态代码块,这种代码是主动执行的。如果我们想要设计不需要创建对象就可以调用类中的方法，例如：Arrays类，Character类，String类等，就需要使用静态方法, 两者的区别是 静态代码块是自动执行的而非静态方法是被调用的时候才执行的. 
 
 Example
 

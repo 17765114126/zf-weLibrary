@@ -392,21 +392,6 @@ G1 收集器的运作大致分为以下几个步骤：
 - https://my.oschina.net/hosee/blog/644618
 - <https://docs.oracle.com/javase/specs/jvms/se8/html/index.html>
 
-## 公众号
-
-如果大家想要实时关注我更新的文章以及分享的干货的话，可以关注我的公众号。
-
-**《Java面试突击》:** 由本文档衍生的专为面试而生的《Java面试突击》V2.0 PDF 版本[公众号](#公众号)后台回复 **"Java面试突击"** 即可免费领取！
-
-**Java工程师必备学习资源:** 一些Java工程师常用学习资源[公众号](#公众号)后台回复关键字 **“1”** 即可免费无套路获取。 
-
-![我的公众号](https://user-gold-cdn.xitu.io/2018/11/28/167598cd2e17b8ec?w=258&h=258&f=jpeg&s=27334)
-
-
-
-
-
-
 
 
 
