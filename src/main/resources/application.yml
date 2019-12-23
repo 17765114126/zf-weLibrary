@@ -7,16 +7,51 @@ spring:
     view:
       prefix: /WEB-INF/
       suffix: .jsp
+  datasource:
+    url: jdbc:mysql://rm-bp14f94yt54bl7l54o.mysql.rds.aliyuncs.com:3306/db_dora_syj?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+    userName: dorabox_dba
+    password: dora123456!@#$%^
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      max-active: 5
+      min-idle: 1
+      initial-size: 1
+      max-wait: 60000
+      time-between-eviction-runs-millis: 360000
+      minEvictableIdleTimeMillis: 360000
+#springboot 使用spring.profiles.active 区分不同环境下配置文件
+#  profiles: active=@env@
 
-#配置Rabbitmq的安装地址、端口以及账户信息
-  rabbitmq:
-    name: spirng-boot-rabbitmq
-    rabbitmq: host=127.0.0.1
-    port: 5672
-    username: admin
-    password: admin
 
-#配置文件传输
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  global-config:
+    db-config.table-prefix: tbl_
+  config.db-config:
+    id-type: auto
+
+  configuration.log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+#数据库连接
+#  datasource:
+#    driver-class-name: com.
+#    url: 120.0.0.1:3306
+#    username: root
+#    password: root
+#    filters: wall,mergeStat
+#    data-source-name: springboot
+
+# 去除启动时大量的Positive matches信息
+logging.level.org.springframework.boot.autoconfigure: ERROR
+
+#配置日志级别
+logging:
+  level: info
+  file: home/logs.log
+
+  #配置文件传输
   servlet:
     multipart:
       enabled: true
@@ -26,12 +61,21 @@ spring:
       #总数据的大小
       max-request-size: 1000MB
 
-#redis配置
+  #配置Rabbitmq的安装地址、端口以及账户信息
+  rabbitmq:
+    name: spirng-boot-rabbitmq
+    rabbitmq: host=127.0.0.1
+    port: 5672
+    username: admin
+    password: admin
+
+  #redis配置
   redis:
     host: 127.0.0.1
     port: 6379
     password:
-#spring-security
+
+  #spring-security
   #自定义用户名和密码
 #  security:
 #    user:
@@ -50,20 +94,3 @@ spring:
 #      min-idle: 0
 #      timeout: 5000
 #    database: 0
-
-# 去除启动时大量的Positive matches信息
-logging.level.org.springframework.boot.autoconfigure: ERROR
-
-#配置日志级别
-logging:
-  level: debug
-
-#数据库连接
-#  datasource:
-#    driver-class-name: com.
-#    url: 120.0.0.1:3306
-#    username: root
-#    password: root
-#    filters: wall,mergeStat
-#    data-source-name: springboot
-

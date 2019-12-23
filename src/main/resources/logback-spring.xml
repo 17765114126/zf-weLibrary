@@ -50,7 +50,7 @@
 
     <!--系统日志全部写在一个文件会导致文件越来越大，这时候可以用文件日志来切分控制台日志，在logback.xml中添加：-->
     <appender name="dailyRollingFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <File>home/logs.log</File>
+        <File>${logging.file}</File>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- daily rollover -->
             <FileNamePattern>logback.%d{yyyy-MM-dd}.log</FileNamePattern>
