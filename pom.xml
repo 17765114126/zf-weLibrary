@@ -196,29 +196,29 @@
     </dependencies>
 
     <!--springboot 使用spring.profiles.active 区分不同环境下配置文件-->
-    <!--<profiles>-->
-        <!--<profile>-->
-            <!--<id>testing</id>-->
-            <!--<properties>-->
-                <!--<env>dev</env>-->
-            <!--</properties>-->
-            <!--<activation>-->
-                <!--<activeByDefault>true</activeByDefault>-->
-            <!--</activation>-->
-        <!--</profile>-->
-        <!--<profile>-->
-            <!--<id>staging</id>-->
-            <!--<properties>-->
-                <!--<env>pre</env>-->
-            <!--</properties>-->
-        <!--</profile>-->
-        <!--<profile>-->
-            <!--<id>production</id>-->
-            <!--<properties>-->
-                <!--<env>prod</env>-->
-            <!--</properties>-->
-        <!--</profile>-->
-    <!--</profiles>-->
+    <profiles>
+        <profile>
+            <id>testing</id>
+            <properties>
+                <env>dev</env>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>staging</id>
+            <properties>
+                <env>pre</env>
+            </properties>
+        </profile>
+        <profile>
+            <id>production</id>
+            <properties>
+                <env>prod</env>
+            </properties>
+        </profile>
+    </profiles>
     <build>
         <plugins>
             <plugin>
