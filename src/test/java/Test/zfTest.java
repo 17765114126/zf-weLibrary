@@ -64,6 +64,18 @@ public class zfTest {
 
     @Test
     public static void main(String[] args) {
+        //每个类加载都有一个父类加载器
+        ClassLoader classLoader = zfTest.class.getClassLoader();
+        System.out.println("1ClassLoader :"+classLoader);
+        ClassLoader parent = zfTest.class.getClassLoader().getParent();
+        System.out.println("2Parent :" + parent);
+        ClassLoader parent1 = zfTest.class.getClassLoader().getParent().getParent();
+        System.out.println("3Parent tow :" +parent1 );
+        //AppClassLoader的父类加载器为ExtClassLoader
+        // ExtClassLoader的父类加载器为null，
+        // null并不代表ExtClassLoader没有父类加载器，
+        // 而是 BootstrapClassLoader 。
+
     }
 
     /**
