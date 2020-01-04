@@ -1,6 +1,7 @@
 package com.example.springboot.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -32,4 +33,6 @@ public class User {
     private Date date;
     @Email(message = "邮箱格式错误")
     private String email;
+    @JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)//字段为null此字段不反悔
+    private String invalid;
 }

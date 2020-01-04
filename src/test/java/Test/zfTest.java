@@ -15,6 +15,7 @@ import java.time.LocalTime;
 import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * @ClassName zfTest
@@ -44,6 +45,13 @@ public class zfTest {
         }
 
     }
+    //生成随机
+    public static String getIsvNo(String prefix) {
+        long time = System.currentTimeMillis();
+        int random = new Random().nextInt(89) + 10;
+        return prefix + time + random;
+    }
+
     @Test
     public static String aesEncrypt(){
         String key = "zhaofu";
