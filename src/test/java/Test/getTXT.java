@@ -1,0 +1,45 @@
+package Test;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import java.io.*;
+
+/**
+ * @ClassName getTXT
+ * @Author zhaofu
+ * @Date 2020/3/9
+ * @Version V1.0
+ **/
+@RunWith(SpringRunner.class)
+public class getTXT {
+    public static final int LINELENGTH = 60;//自定义行的长度
+
+    @Test
+    public static void main(String[] args) {
+        File file = new File("E:/321.txt");
+        try {
+//            BufferedReader in = new BufferedReader(new FileReader(file));
+            InputStreamReader isr = new InputStreamReader(new FileInputStream(file), "GBK");
+            BufferedReader in = new BufferedReader(isr);
+            String str;
+            int i = 1;
+            while ((str = in.readLine()) != null) {
+                if (str.isEmpty()) continue;
+//                if (i > 62000 && i <= 63000) {//控制台一次打印不了全部内容，后面的会把前面的覆盖
+                    while (str.length() > LINELENGTH) {//将长的行自动换行
+                        System.out.println(i + "t" + str.substring(0, LINELENGTH));
+                        str = str.substring(LINELENGTH);
+                    }
+                    System.out.println("------------->"+i + "t" + str);//记录当前第几行，便于下次阅读
+                }
+                i++;
+//            }
+            in.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+//    原文链接：https://blog.csdn.net/u011475002/article/details/44943439
+}
