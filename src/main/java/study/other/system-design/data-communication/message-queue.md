@@ -117,13 +117,13 @@
 ### 4.3 JMS vs AMQP
 
 
-|对比方向| JMS | AMQP |
-| :-------- | --------:| :--: |
-| 定义| Java API | 协议 |
-| 跨语言 | 否 | 是 |
-| 跨平台 | 否 | 是 |
-| 支持消息类型 | 提供两种消息模型：①Peer-2-Peer;②Pub/sub| 提供了五种消息模型：①direct exchange；②fanout exchange；③topic change；④headers exchange；⑤system exchange。本质来讲，后四种和JMS的pub/sub模型没有太大差别，仅是在路由机制上做了更详细的划分；|
-|支持消息类型| 支持多种消息类型 ，我们在上面提到过| byte[]（二进制）|
+    |对比方向| JMS | AMQP |
+    | :-------- | --------:| :--: |
+    | 定义| Java API | 协议 |
+    | 跨语言 | 否 | 是 |
+    | 跨平台 | 否 | 是 |
+    | 支持消息类型 | 提供两种消息模型：①Peer-2-Peer;②Pub/sub| 提供了五种消息模型：①direct exchange；②fanout exchange；③topic change；④headers exchange；⑤system exchange。本质来讲，后四种和JMS的pub/sub模型没有太大差别，仅是在路由机制上做了更详细的划分；|
+    |支持消息类型| 支持多种消息类型 ，我们在上面提到过| byte[]（二进制）|
 
 **总结：**
 

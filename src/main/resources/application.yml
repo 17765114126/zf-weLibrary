@@ -8,9 +8,9 @@ spring:
       prefix: /WEB-INF/
       suffix: .jsp
   datasource:
-    url: jdbc:mysql://rm-bp14f94yt54bl7l54o.mysql.rds.aliyuncs.com:3306/db_dora_syj?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
-    userName: dorabox_dba
-    password: dora123456!@#$%^
+    url: jdbc:mysql://rm-8vb13nmd5388n09m6wo.mysql.zhangbei.rds.aliyuncs.com:3306/zhaofu?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+    userName: zhaofu
+    password: 2MiaoMiao
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
     druid:

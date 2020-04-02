@@ -1,10 +1,7 @@
 package com.example.springboot.Controller.LoginController;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -18,22 +15,20 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class IndexController {
 
+    // 预先设置好的正确的用户名和密码，用于登录验证
+    private String rightUserName = "admin";
+    private String rightPassword = "123";
     /**
      * 登录
-     *
      * @return
      */
     @RequestMapping("/index")
     public String index() {
         return "login";
     }
-    // 预先设置好的正确的用户名和密码，用于登录验证
-    private String rightUserName = "admin";
-    private String rightPassword = "123";
 
     /**
      * 登录校验
-     *
      * @param request
      * @return
      */

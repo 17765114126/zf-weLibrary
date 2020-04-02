@@ -4,15 +4,8 @@ import com.example.springboot.util.AESEncryptUtil;
 import com.example.springboot.util.Md5Util;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -45,10 +38,12 @@ public class zfTest {
         }
 
     }
-    //生成随机
+
+    //生成随机数字
     public static String getIsvNo(String prefix) {
         long time = System.currentTimeMillis();
-        int random = new Random().nextInt(89) + 10;
+        int random = new Random().nextInt(100000);
+        System.out.println(random);
         return prefix + time + random;
     }
 
@@ -68,8 +63,6 @@ public class zfTest {
         return AESToken;
     }
 
-
-
     @Test
     public static void main(String[] args) {
         //每个类加载都有一个父类加载器
@@ -83,7 +76,9 @@ public class zfTest {
         // ExtClassLoader的父类加载器为null，
         // null并不代表ExtClassLoader没有父类加载器，
         // 而是 BootstrapClassLoader 。
-
+        String prefix = "123";
+        String isvNo = getIsvNo(prefix);
+        System.out.println(isvNo);
     }
 
     /**

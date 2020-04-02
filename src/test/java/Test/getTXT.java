@@ -18,7 +18,7 @@ public class getTXT {
 
     @Test
     public static void main(String[] args) {
-        //共 24869 行，目前读到 2187 行
+        //共 24869 行，目前读到 2214 行
         File file = new File("E:/321.txt");
         try {
 //            BufferedReader in = new BufferedReader(new FileReader(file));
