@@ -57,25 +57,25 @@ logging:
   level: info
   file: home/logs.log
 
-  #配置文件传输
-  servlet:
-    multipart:
-      enabled: true
-      file-size-threshold: 0
-      #单个数据的大小
-      max-file-size: 500MB
-      #总数据的大小
-      max-request-size: 1000MB
+#配置文件传输
+servlet:
+  multipart:
+    enabled: true
+    file-size-threshold: 0
+    #单个数据的大小
+    max-file-size: 500MB
+    #总数据的大小
+    max-request-size: 1000MB
 
-  #配置Rabbitmq的安装地址、端口以及账户信息
-  rabbitmq:
-    name: spirng-boot-rabbitmq
-    rabbitmq: host=127.0.0.1
-    port: 5672
-    username: admin
-    password: admin
+#配置Rabbitmq的安装地址、端口以及账户信息
+rabbitmq:
+  name: spirng-boot-rabbitmq
+  rabbitmq: host=127.0.0.1
+  port: 5672
+  username: admin
+  password: admin
 
-
+host111 : 42864
 
   #spring-security
   #自定义用户名和密码
