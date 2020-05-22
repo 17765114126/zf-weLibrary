@@ -20,6 +20,12 @@ spring:
       max-wait: 60000
       time-between-eviction-runs-millis: 360000
       minEvictableIdleTimeMillis: 360000
+
+  #redis配置
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: 22
 #springboot 使用spring.profiles.active 区分不同环境下配置文件
 #  profiles: active=@env@
 
@@ -69,11 +75,7 @@ logging:
     username: admin
     password: admin
 
-  #redis配置
-  redis:
-    host: 127.0.0.1
-    port: 6379
-    password:
+
 
   #spring-security
   #自定义用户名和密码
@@ -94,7 +96,3 @@ logging:
 #      min-idle: 0
 #      timeout: 5000
 #    database: 0
-  person:
-    name: kundy
-    age: 13
-    sex: male
