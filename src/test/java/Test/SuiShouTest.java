@@ -1,6 +1,8 @@
 package Test;
 
+import com.alibaba.fastjson.JSON;
 import com.example.springboot.model.Person;
+import com.example.springboot.util.MathUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +37,28 @@ public class SuiShouTest {
     public void test2() {
         Person person = new Person();
         System.out.println(person.getName());
+
+
+        //将返回对象数据转换
+        String s = person.toString();
+        String s1 = JSON.toJSONString(s);
+
+    }
+    @Test
+    public void tese3() {
+
+        float payMoney = 100;
+        Integer num = 2;
+
+        double sum = 0;
+        for (int i = 0; i < 2; i++) {
+            double mul = MathUtil.mul(payMoney, num);
+            sum = MathUtil.add(sum, mul);
+        }
+        System.out.println("------------------------------------");
+        System.out.println(sum);
+
+
 
     }
 

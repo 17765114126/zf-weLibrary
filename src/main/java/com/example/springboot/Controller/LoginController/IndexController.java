@@ -47,15 +47,16 @@ public class IndexController {
         }
         // 前端传回的密码实际为用户输入的：用户名（小写）+ 密码（小写）组合的字符串生成的md5值
         // 此处先通过后台保存的正确的用户名和密码计算出正确的md5值，然后和前端传回来的作比较
-  /*      String md5info = rightUserName.toLowerCase() + rightPassword.toLowerCase();
+  /*      String md5info = rightUserName.toLowerCase() + rightPassword.toLowerCase( );
         String realPassword = DigestUtils.md5DigestAsHex(md5info.getBytes());
         if (!password.equals(realPassword)) {
             return "login";
         }*/
 
-        //return "views/hello";
+        //return "redirect:/hello";
         return "login";
     }
+
 
     /**
      * 注销登录
