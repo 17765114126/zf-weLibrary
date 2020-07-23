@@ -21,7 +21,7 @@ import java.util.Optional;
  * @Date 2020/3/3
  * @Version V1.0
  **/
-@RunWith(SpringRunner.class)
+//@RunWith(SpringRunner.class)
 public class SuiShouTest {
     @Test
     public void test1() {
@@ -44,6 +44,7 @@ public class SuiShouTest {
         String s1 = JSON.toJSONString(s);
 
     }
+
     @Test
     public void tese3() {
 
@@ -58,8 +59,16 @@ public class SuiShouTest {
         System.out.println("------------------------------------");
         System.out.println(sum);
 
-
-
     }
 
+    @Test
+    public void test4() {
+        String string = "广东省汕头市澄海区盐鸿镇国道324线春天湖工业区鸿一路段树业毛织";
+        int length = string.length();
+        if (length >40){
+            System.out.println("大于四十");
+        }else {
+            System.out.println("小于40");
+        }
+    }
 }

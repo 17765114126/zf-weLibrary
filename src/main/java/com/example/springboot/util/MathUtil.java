@@ -47,6 +47,21 @@ public class MathUtil { //默认除法运算精度
     }
 
     /**
+     * 提供精确的减法运算。
+     *
+     * @param v1
+     *            被减数
+     * @param v2
+     *            减数
+     * @return 两个参数的差
+     */
+    public static Float subFloat(Float v1, Float v2) {
+        BigDecimal f1 = new BigDecimal(Float.toString(v1));
+        BigDecimal f2 = new BigDecimal(Float.toString(v2));
+        return f1.subtract(f2).floatValue();
+    }
+
+    /**
      * 提供精确的乘法运算。
      *
      * @param v1 被乘数
