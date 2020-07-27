@@ -1,5 +1,9 @@
 package study.java提高篇.四舍五入;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 /**
  * @ClassName Test
  * @Author zhaofu
@@ -11,10 +15,55 @@ public class Test {
     public static void main(String[] args) {
         System.out.println("12.5的四舍五入值：" + Math.round(12.5));
         System.out.println("-12.5的四舍五入值：" + Math.round(-12.5));
-    }
+
 //    Output:
 //            12.5的四舍五入值：13
 //            -12.5的四舍五入值：-12
+
+
+//保留位
+//方式一：四舍五入
+
+        double f = 111231.5585;
+        BigDecimal b = new BigDecimal(f);
+        double f1 = b.setScale(2, RoundingMode.HALF_UP).doubleValue();
+        System.out.println(f1);
+//在这里使用 BigDecimal ，并且采用 setScale 方法来设置精确度，同时使用 RoundingMode.HALF_UP 表示使用最近数字舍入法则来近似计算。
+// 在这里我们可以看出 BigDecimal 和四舍五入是绝妙的搭配。
+//
+//方式二：
+//
+        DecimalFormat df = new DecimalFormat("#.00");
+//    df.format(你要格式化的数字);
+//例：
+        String format = new DecimalFormat("#.00").format(3.1415926);
+        System.out.println(format);
+//
+//.00 表示两位小数 #.0000四位小数 以此类推…
+
+//方式三：
+
+        double d = 3.1415926;
+
+        String result = String.format("%.2f");
+        System.out.println(result);
+//    %.2f %. 表示 小数点前任意位数   2 表示两位小数 格式后的结果为f 表示浮点型。
+
+//方式四：
+//此外如果使用 struts 标签做输出的话，有个 format 属性,设置为 format=”0.00″就是保留两位小数
+//
+//例如：
+//
+//
+//    <bean:write name="entity" property="dkhAFSumPl"  format="0.00" />
+//
+//    或者
+//
+//    <fmt:formatNumber type="number" value="${10000.22/100}" maxFractionDigits="0"/>
+//
+//    maxFractionDigits表示保留的位数
+    }
+
 }
 
 //这是四舍五入的经典案例，从这儿结果中我们发现这两个绝对值相同的数字，为何近似值会不同呢？其实这与 Math.round 采用的四舍五入规则来决定。
@@ -62,6 +111,8 @@ public class Test {
 //            }
 //    Output:
 //    季利息是：562.50
+
+
 //在上面简单地介绍了银行家舍入法，目前 Java 支持7中舍入法：
 //
 //1、 ROUND_UP：远离零方向舍入。向绝对值最大的方向舍入，只要舍弃位非0即进位。

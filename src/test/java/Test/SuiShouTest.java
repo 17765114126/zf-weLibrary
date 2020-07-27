@@ -38,7 +38,6 @@ public class SuiShouTest {
         Person person = new Person();
         System.out.println(person.getName());
 
-
         //将返回对象数据转换
         String s = person.toString();
         String s1 = JSON.toJSONString(s);
@@ -65,9 +64,9 @@ public class SuiShouTest {
     public void test4() {
         String string = "广东省汕头市澄海区盐鸿镇国道324线春天湖工业区鸿一路段树业毛织";
         int length = string.length();
-        if (length >40){
+        if (length > 40) {
             System.out.println("大于四十");
-        }else {
+        } else {
             System.out.println("小于40");
         }
     }

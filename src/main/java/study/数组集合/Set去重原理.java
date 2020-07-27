@@ -1,4 +1,4 @@
-package study.java提高篇.数组集合;
+package study.数组集合;
 
 import java.util.HashSet;
 import java.util.Set;
