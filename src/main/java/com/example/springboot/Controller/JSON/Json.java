@@ -1,4 +1,4 @@
-package com.example.springboot.Controller;
+package com.example.springboot.Controller.JSON;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;

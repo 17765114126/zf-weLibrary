@@ -1,4 +1,4 @@
-package study.JSON;
+package com.example.springboot.Controller.JSON;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;

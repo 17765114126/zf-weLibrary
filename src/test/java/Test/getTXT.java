@@ -18,7 +18,7 @@ public class getTXT {
 
     @Test
     public static void main(String[] args) {
-        //共 24869 行，目前读到 2214 行
+        //毛选共 24869 行，目前读到 2214 行
         int currRead = 2214;
         File file = new File("E:/321.txt");
         try {
@@ -49,5 +49,4 @@ public class getTXT {
             e.printStackTrace();
         }
     }
-//    原文链接：https://blog.csdn.net/u011475002/article/details/44943439
 }

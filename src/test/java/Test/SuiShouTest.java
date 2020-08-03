@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Optional;
+import java.util.*;
 
 /**
  * @ClassName SuiShouTest
@@ -69,5 +69,23 @@ public class SuiShouTest {
         } else {
             System.out.println("小于40");
         }
+
+        String str = "1234567.txt";
+        if (str.indexOf(".tx") != -1) {
+            System.out.println("包含该字符串");
+        } else {
+            System.out.println("不包含该字符串");
+        }
     }
+
+    @Test
+    public void test5(){
+        List objects = new ArrayList(10);
+        List list = Collections.synchronizedList(new ArrayList(10));
+
+        Map map = new HashMap(16);
+        map.put("1",1);
+
+    }
+
 }
