@@ -6,9 +6,21 @@ package study.Socket;
  */
 public class TCPSocket编程 {
 //TCP 的 Java 支持
-//协议相当于相互通信的程序间达成的一种约定，它规定了分组报文的结构、交换方式、包含的意义以及怎样对报文所包含的信息进行解析，TCP/IP 协议族有 IP 协议、TCP 协议和 UDP 协议。现在 TCP/IP 协议族中的主要 socket 类型为流套接字（使用 TCP 协议）和数据报套接字（使用 UDP 协议）。
+//协议相当于相互通信的程序间达成的一种约定，
+// 它规定了分组报文的结构、交换方式、包含的意义以及怎样对报文所包含的信息进行解析，
+// TCP/IP 协议族有 IP 协议、TCP 协议和 UDP 协议。
+// 现在 TCP/IP 协议族中的主要 socket 类型为流套接字（使用 TCP 协议）和数据报套接字（使用 UDP 协议）。
 
-//TCP 协议提供面向连接的服务，通过它建立的是可靠地连接。Java 为 TCP 协议提供了两个类：Socke 类和 ServerSocket 类。一个 Socket 实例代表了 TCP 连接的一个客户端，而一个 ServerSocket 实例代表了 TCP 连接的一个服务器端，一般在 TCP Socket 编程中，客户端有多个，而服务器端只有一个，客户端 TCP 向服务器端 TCP 发送连接请求，服务器端的 ServerSocket 实例则监听来自客户端的 TCP 连接请求，并为每个请求创建新的 Socket 实例，由于服务端在调用 accept（）等待客户端的连接请求时会阻塞，直到收到客户端发送的连接请求才会继续往下执行代码，因此要为每个 Socket 连接开启一个线程。服务器端要同时处理 ServerSocket 实例和 Socket 实例，而客户端只需要使用 Socket 实例。另外，每个 Socket 实例会关联一个 InputStream 和 OutputStream 对象，我们通过将字节写入套接字的 OutputStream 来发送数据，并通过从 InputStream 来接收数据。
+//TCP 协议提供面向连接的服务，通过它建立的是可靠地连接。
+// Java 为 TCP 协议提供了两个类：Socke 类和 ServerSocket 类。
+// 一个 Socket 实例代表了 TCP 连接的一个客户端，而一个 ServerSocket 实例代表了 TCP 连接的一个服务器端，
+// 一般在 TCP Socket 编程中，客户端有多个，而服务器端只有一个，客户端 TCP 向服务器端 TCP 发送连接请求，
+// 服务器端的 ServerSocket 实例则监听来自客户端的 TCP 连接请求，并为每个请求创建新的 Socket 实例，
+// 由于服务端在调用 accept（）等待客户端的连接请求时会阻塞，直到收到客户端发送的连接请求才会继续往下执行代码，
+// 因此要为每个 Socket 连接开启一个线程。
+// 服务器端要同时处理 ServerSocket 实例和 Socket 实例，而客户端只需要使用 Socket 实例。
+// 另外，每个 Socket 实例会关联一个 InputStream 和 OutputStream 对象，
+// 我们通过将字节写入套接字的 OutputStream 来发送数据，并通过从 InputStream 来接收数据。
 
 //TCP 连接的建立步骤
 //客户端向服务器端发送连接请求后，就被动地等待服务器的响应。典型的 TCP 客户端要经过下面三步操作：
@@ -26,9 +38,13 @@ public class TCPSocket编程 {
 
 //调用 ServerSocket 的 accept（）方法以获取客户端连接，并通过其返回值创建一个 Socket 实例；
 
-//为返回的 Socket 实例开启新的线程，并使用返回的 Socket 实例的 I/O 流与客户端通信； 通信完成后，使用 Socket 类的 close（）方法关闭该客户端的套接字连接。
+//为返回的 Socket 实例开启新的线程，并使用返回的 Socket 实例的 I/O 流与客户端通信；
+// 通信完成后，使用 Socket 类的 close（）方法关闭该客户端的套接字连接。
+
 //TCP Socket Demo
-//下面给出一个客户端服务端 TCP 通信的 Demo，该客户端在 20006 端口请求与服务端建立 TCP 连接，客户端不断接收键盘输入，并将其发送到服务端，服务端在接收到的数据前面加上“echo”字符串，并将组合后的字符串发回给客户端，如此循环，直到客户端接收到键盘输入“bye”为止。
+//下面给出一个客户端服务端 TCP 通信的 Demo，该客户端在 20006 端口请求与服务端建立 TCP 连接，
+// 客户端不断接收键盘输入，并将其发送到服务端，服务端在接收到的数据前面加上“echo”字符串，并将组合后的字符串发回给客户端，
+// 如此循环，直到客户端接收到键盘输入“bye”为止。
 
 //客户端代码如下：
 

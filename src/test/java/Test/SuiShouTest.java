@@ -36,7 +36,13 @@ public class SuiShouTest {
     @Test
     public void test2() {
         Person person = new Person();
-        System.out.println(person.getName());
+
+        person.setSex(null);
+
+        System.out.println(person.getSex());
+        if (person.getSex() == null){
+            System.out.println("1");
+        }
 
         //将返回对象数据转换
         String s = person.toString();
@@ -80,12 +86,45 @@ public class SuiShouTest {
 
     @Test
     public void test5(){
-        List objects = new ArrayList(10);
-        List list = Collections.synchronizedList(new ArrayList(10));
+//        List objects = new ArrayList(10);
+//        List list = Collections.synchronizedList(new ArrayList(10));
+//
+//        Map map = new HashMap(16);
+//        map.put("1",1);
 
-        Map map = new HashMap(16);
-        map.put("1",1);
-
+        System.out.println(Math.ceil(9.1));
+        yqhGetPrice(100.6);
     }
 
+    /**
+     * 一起火计算价格
+     *
+     * @param xyPrice
+     * @return
+     */
+    public Map<String, Object> yqhGetPrice(Double xyPrice) {//进货价
+        xyPrice = MathUtil.toInteger(xyPrice * 0.95);//打九五折并取整数
+        if (xyPrice <= 100) {
+            xyPrice = xyPrice * 3;
+        } else if (xyPrice > 100) {
+            xyPrice = xyPrice * 2.7;
+        }
+        String tempPrice = String.valueOf((int) Math.ceil(xyPrice));
+        int i = Integer.parseInt(tempPrice.substring(tempPrice.length() - 1));
+        if (i == 0 || i == 1 || i == 2 || i == 3 || i == 4 || i == 5 || i == 6) {
+            i = 6;
+        } else if (i == 7 || i == 8) {
+            i = 8;
+        } else if (i == 9) {
+            i = 9;
+        }
+        String xsPrice = tempPrice.substring(0, tempPrice.length() - 1) + String.valueOf(i);
+        String hxPrice = String.valueOf(Math.round(Float.parseFloat(xsPrice) * 2.1));
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("clos4", hxPrice);
+        map.put("clos5", xsPrice);
+        System.out.println(hxPrice);
+        System.out.println(xsPrice);
+        return map;
+    }
 }
