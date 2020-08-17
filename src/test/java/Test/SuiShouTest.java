@@ -95,6 +95,10 @@ public class SuiShouTest {
         System.out.println(Math.ceil(9.1));
         yqhGetPrice(100.6);
     }
+@Test
+public void test7(){
+    System.out.println("qaazsdd");
+}
 
     /**
      * 一起火计算价格
