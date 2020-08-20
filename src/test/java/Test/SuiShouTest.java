@@ -131,4 +131,13 @@ public void test7(){
         System.out.println(xsPrice);
         return map;
     }
+
+    @Test
+    public void Test8(){
+        String expressNumber = "  1213    3134  12  ";
+        String s = expressNumber.replaceAll(" ", "");
+        System.out.println(expressNumber);
+        System.out.println(s);
+
+    }
 }
