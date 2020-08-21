@@ -1,5 +1,8 @@
 package study.java提高篇.集合.LinkedList;
 
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * @ClassName 概述
  * @Author zhaofu
@@ -8,39 +11,41 @@ package study.java提高篇.集合.LinkedList;
  **/
 public class 概述 {
     //一、概述
-    //LinkedList 与 ArrayList 一样实现 List 接口，只是 ArrayList 是 List 接口的大小可变数组的实现，LinkedList 是 List 接口链表的实现。基于链表实现的方式使得 LinkedList 在插入和删除时更优于 ArrayList，而随机访问则比 ArrayList 逊色些。
-    //
+    //LinkedList 与 ArrayList 一样实现 List 接口，只是 ArrayList 是 List 接口的大小可变数组的实现，LinkedList 是 List 接口链表的实现。
+    // 基于链表实现的方式使得 LinkedList 在插入和删除时更优于 ArrayList，而随机访问则比 ArrayList 逊色些。
+
     //LinkedList 实现所有可选的列表操作，并允许所有的元素包括 null。
-    //
-    //除了实现 List 接口外，LinkedList 类还为在列表的开头及结尾 get、remove 和 insert 元素提供了统一的命名方法。这些操作允许将链接列表用作堆栈、队列或双端队列。
-    //
+
+    //除了实现 List 接口外，LinkedList 类还为在列表的开头及结尾 get、remove 和 insert 元素提供了统一的命名方法。
+    // 这些操作允许将链接列表用作堆栈、队列或双端队列。
+
     //此类实现 Deque 接口，为 add、poll 提供先进先出队列操作，以及其他堆栈和双端队列操作。
-    //
+
     //所有操作都是按照双重链接列表的需要执行的。在列表中编索引的操作将从开头或结尾遍历列表（从靠近指定索引的一端）。
-    //
+
     //同时，与 ArrayList 一样此实现不是同步的。
-    //
+
     //（以上摘自JDK 6.0 API）。
-    //
+
     //二、源码分析
     //2.1、定义
     //首先我们先看 LinkedList 的定义：
-    //
-    //
+
+
     //    public class LinkedList<E>
     //        extends AbstractSequentialList<E>
     //        implements List<E>, Deque<E>, Cloneable, java.io.Serializable
     //从这段代码中我们可以清晰地看出 LinkedList 继承 AbstractSequentialList，实现 List、Deque、Cloneable、Serializable。其中 AbstractSequentialList 提供了 List 接口的骨干实现，从而最大限度地减少了实现受“连续访问”数据存储（如链接列表）支持的此接口所需的工作,从而以减少实现 List 接口的复杂度。Deque 一个线性 collection，支持在两端插入和移除元素，定义了双端队列的操作。
-    //
+
     //2.2、属性
     //在 LinkedList 中提供了两个基本属性 size、header。
-    //
-    //
+
+
     //    private transient Entry<E> header = new Entry<E>(null, null, null);
     //    private transient int size = 0;
     //其中 size 表示的 LinkedList 的大小，header 表示链表的表头，Entry 为节点对象。
-    //
-    //
+
+
     //    private static class Entry<E> {
     //            E element;        //元素节点
     //            Entry<E> next;    //下一个元素
@@ -56,15 +61,14 @@ public class 概述 {
     //
     //2.3、构造方法
     //LinkedList 提供了两个构造方法：LinkedList() 和 LinkedList(Collection<? extends E> c)。
-    //
-    //
+
     //    /**
     //     *  构造一个空列表。
     //     */
     //        public LinkedList() {
     //            header.next = header.previous = header;
     //        }
-    //
+
     //    /**
     //     *  构造一个包含指定 collection 中的元素的列表，这些元素按其 collection 的迭代器返回的顺序排列。
     //     */
@@ -73,10 +77,12 @@ public class 概述 {
     //            addAll(c);
     //        }
     //LinkedList() 构造一个空列表。里面没有任何元素，仅仅只是将 header 节点的前一个元素、后一个元素都指向自身。
-    //
-    //LinkedList(Collection<? extends E> c)： 构造一个包含指定 collection 中的元素的列表，这些元素按其 collection 的迭代器返回的顺序排列。该构造函数首先会调用 LinkedList()，构造一个空列表，然后调用了 addAll() 方法将 Collection 中的所有元素添加到列表中。以下是 addAll() 的源代码：
-    //
-    //
+
+    //LinkedList(Collection<? extends E> c)： 构造一个包含指定 collection 中的元素的列表，这些元素按其 collection 的迭代器返回的顺序排列。
+    // 该构造函数首先会调用 LinkedList()，构造一个空列表，然后调用了 addAll() 方法将 Collection 中的所有元素添加到列表中。
+    // 以下是 addAll() 的源代码：
+
+
     //    /**
     //     *  添加指定 collection 中的所有元素到此列表的结尾，顺序是指定 collection 的迭代器返回这些元素的顺序。
     //     */
@@ -118,8 +124,8 @@ public class 概述 {
     //            return true;
     //        }
     //在 addAll() 方法中，涉及到了两个方法，一个是 entry(int index)，该方法为 LinkedList 的私有方法，主要是用来查找 index 位置的节点元素。
-    //
-    //
+
+
     //    /**
     //     * 返回指定位置(若存在)的节点元素
     //     */
@@ -140,11 +146,11 @@ public class 概述 {
     //            return e;
     //        }
     //从该方法有两个遍历方向中我们也可以看出 LinkedList 是双向链表，这也是在构造方法中为什么需要将 header 的前、后节点均指向自己。
-    //
+
     //如果对数据结构有点了解，对上面所涉及的内容应该问题，我们只需要清楚一点：LinkedList 是双向链表，其余都迎刃而解。
-    //
+
     //由于篇幅有限，下面将就 LinkedList 中几个常用的方法进行源码分析。
-    //
+
     //2.4、增加方法
     //add(E e): 将指定元素添加到此列表的结尾。
     //
@@ -154,8 +160,7 @@ public class 概述 {
     //            return true;
     //        }
     //该方法调用 addBefore 方法，然后直接返回 true，对于 addBefore() 而已，它为 LinkedList 的私有方法。
-    //
-    //
+
     //    private Entry<E> addBefore(E e, Entry<E> entry) {
     //            //利用Entry构造函数构建一个新节点 newEntry，
     //            Entry<E> newEntry = new Entry<E>(e, entry, entry.previous);
@@ -169,23 +174,23 @@ public class 概述 {
     //            return newEntry;
     //        }
     //在 addBefore 方法中无非就是做了这件事：构建一个新节点 newEntry，然后修改其前后的引用。
-    //
+
     //LinkedList 还提供了其他的增加方法：
-    //
+
     //add(int index, E element)：在此列表中指定的位置插入指定的元素。
-    //
+
     //addAll(Collection<? extends E> c)：添加指定 collection 中的所有元素到此列表的结尾，顺序是指定 collection 的迭代器返回这些元素的顺序。
-    //
+
     //addAll(int index, Collection<? extends E> c)：将指定 collection 中的所有元素从指定位置开始插入此列表。
-    //
+
     //AddFirst(E e): 将指定元素插入此列表的开头。
-    //
+
     //addLast(E e): 将指定元素添加到此列表的结尾。
-    //
+
     //2.5、移除方法
     //remove(Object o)：从此列表中移除首次出现的指定元素（如果存在）。该方法的源代码如下：
-    //
-    //
+
+
     //    public boolean remove(Object o) {
     //            if (o==null) {
     //                for (Entry<E> e = header.next; e !=  header; e = e.next) {
@@ -205,15 +210,15 @@ public class 概述 {
     //            return false;
     //        }
     //该方法首先会判断移除的元素是否为 null，然后迭代这个链表找到该元素节点，最后调用 remove(Entry e)，remove(Entry e) 为私有方法，是 LinkedList 中所有移除方法的基础方法，如下：
-    //
-    //
+
+
     //    private E remove(Entry<E> e) {
     //            if (e == header)
     //                throw new NoSuchElementException();
-    //
+
     //            //保留被移除的元素：要返回
     //            E result = e.element;
-    //
+
     //            //将该节点的前一节点的next指向该节点后节点
     //            e.previous.next = e.next;
     //            //将该节点的后一节点的previous指向该节点的前节点
@@ -227,33 +232,33 @@ public class 概述 {
     //            return result;
     //        }
     //其他的移除方法：
-    //
+
     //clear()： 从此列表中移除所有元素。
-    //
+
     //remove()：获取并移除此列表的头（第一个元素）。
-    //
+
     //remove(int index)：移除此列表中指定位置处的元素。
-    //
+
     //remove(Objec o)：从此列表中移除首次出现的指定元素（如果存在）。
-    //
+
     //removeFirst()：移除并返回此列表的第一个元素。
-    //
+
     //removeFirstOccurrence(Object o)：从此列表中移除第一次出现的指定元素（从头部到尾部遍历列表时）。
-    //
+
     //removeLast()：移除并返回此列表的最后一个元素。
-    //
+
     //removeLastOccurrence(Object o)：从此列表中移除最后一次出现的指定元素（从头部到尾部遍历列表时）。
-    //
+
     //2.6、查找方法
     //对于查找方法的源码就没有什么好介绍了，无非就是迭代，比对，然后就是返回当前值。
-    //
+
     //get(int index)：返回此列表中指定位置处的元素。
-    //
+
     //getFirst()：返回此列表的第一个元素。
-    //
+
     //getLast()：返回此列表的最后一个元素。
-    //
+
     //indexOf(Object o)：返回此列表中首次出现的指定元素的索引，如果此列表中不包含该元素，则返回 -1。
-    //
+
     //lastIndexOf(Object o)：返回此列表中最后出现的指定元素的索引，如果此列表中不包含该元素，则返回 -1。
 }

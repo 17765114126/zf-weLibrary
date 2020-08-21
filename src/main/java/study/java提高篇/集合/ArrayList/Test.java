@@ -1,5 +1,9 @@
 package study.java提高篇.集合.ArrayList;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 /**
  * @ClassName 概述
  * @Author zhaofu
@@ -98,9 +102,8 @@ public class Test {
 //        return true;
 //        }
 //这里 ensureCapacity() 方法是对 ArrayList 集合进行扩容操作，elementData(size++) = e，将列表末尾元素指向e。
-//
-//add(int index, E element)：将指定的元素插入此列表中的指定位置。
 
+//add(int index, E element)：将指定的元素插入此列表中的指定位置。
 
 //    public void add(int index, E element) {
 //            //判断索引位置是否正确
@@ -125,7 +128,6 @@ public class Test {
 // 这里需要进行数组数据的右移，这是非常麻烦和耗时的，所以如果指定的数据集合需要进行大量插入（中间插入）操作，推荐使用 LinkedList。
 
 //addAll(Collection<? extends E> c)：按照指定 collection 的迭代器所返回的元素顺序，将该 collection 中的所有元素添加到此列表的尾部。
-
 
 //    public boolean addAll(Collection<? extends E> c) {
 //            // 将集合C转换成数组
@@ -189,7 +191,6 @@ public class Test {
 // removeAll() 四个方法进行元素的删除。
 
 //remove(int index)：移除此列表中指定位置上的元素。
-
 
 //    public E remove(int index) {
 //            //位置验证
@@ -257,7 +258,6 @@ public class Test {
 //                elementData[--size] = null;
 //        }
 //removeAll()：是继承自 AbstractCollection 的方法，ArrayList 本身并没有提供实现。
-
 
 //    public boolean removeAll(Collection<?> c) {
 //            boolean modified = false;

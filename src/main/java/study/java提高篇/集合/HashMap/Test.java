@@ -1,5 +1,9 @@
 package study.java提高篇.集合.HashMap;
 
+import java.util.AbstractMap;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @ClassName 概述
  * @Author zhaofu
@@ -38,7 +42,7 @@ public class Test {
 // 系统默认负载因子为 0.75，一般情况下我们是无需修改的。
 
 //HashMap 是一种支持快速存取的数据结构，要了解它的性能必须要了解它的数据结构。
-//
+
 //三、数据结构
 //我们知道在 Java 中最常用的两种结构是数组和模拟指针(引用)，几乎所有的数据结构都可以利用这两种来组合实现，HashMap 也是如此。
 // 实际上 HashMap 是一个“链表散列”，如下是它数据结构：
@@ -66,7 +70,7 @@ public class Test {
 //            int capacity = 1;
 //            while (capacity < initialCapacity)
 //                capacity <<= 1;
-//
+
 //            this.loadFactor = loadFactor;
 //            //设置HashMap的容量极限，当HashMap的容量达到该极限时就会进行扩容操作
 //            threshold = (int) (capacity * loadFactor);
@@ -76,8 +80,7 @@ public class Test {
 //        }
 //从源码中可以看出，每次新建一个 HashMap 时，都会初始化一个 table 数组。
 // table 数组的元素为 Entry 节点。
-//
-//
+
 //    static class Entry<K,V> implements Map.Entry<K,V> {
 //            final K key;
 //            V value;
@@ -205,7 +208,12 @@ public class Test {
 // 该临界点在当 HashMap 中元素的数量等于 table 数组长度 * 加载因子。
 // 但是扩容是一个非常耗时的过程，因为它需要重新计算这些数据在新 table 数组中的位置并进行复制处理。
 // 所以如果我们已经预知 HashMap 中元素的个数，那么预设元素的个数能够有效的提高 HashMap 的性能。
-
+public static void main(String[] args) {
+    Map map = new HashMap<>();
+    Map map2 = new HashMap<>(16,1);
+    map.put("1",null);
+    map.get("1");
+}
 //五、读取实现：get(key)
 //相对于 HashMap 的存而言，取就显得比较简单了。
 // 通过 key 的 hash 值找到在 table 数组中的索引处的 Entry，然后返回该 key 对应的 value 即可。
