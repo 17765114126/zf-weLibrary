@@ -3,9 +3,14 @@ package com.example.springboot.Controller;
 import com.example.springboot.Config.自定义注解.MyLog;
 import com.example.springboot.model.Student;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.annotation.Resource;
 
 /**
  * @ClassName HelloController
@@ -41,4 +46,18 @@ public class HelloController {
         model.addAttribute("student", student);
         return "views/hello";
     }
+
+//    @Autowired
+//    private JavaMailSender mailSender;
+//
+//    @RequestMapping("/sendSimpleMail")
+//    public void sendSimpleMail() {
+//        SimpleMailMessage message = new SimpleMailMessage();
+//        message.setFrom("17765114126@163.com");
+//        message.setTo("17765114126@163.com");
+//        message.setSubject("主题：简单邮件");
+//        message.setText("测试邮件内容");
+//
+//        mailSender.send(message);
+//    }
 }

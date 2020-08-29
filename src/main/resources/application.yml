@@ -21,6 +21,20 @@ spring:
       time-between-eviction-runs-millis: 360000
       minEvictableIdleTimeMillis: 360000
 
+mail:
+  host: smtp.163.com
+  default-encoding: UTF-8
+  port: 25
+  username: 17765114126@163.com
+  password: YXIDYBPHLBGNCNQP
+  properties:
+    mail:
+      smtp:
+        auth: true
+        starttls:
+          enable: false
+          required: false
+
   #redis配置
   redis:
     host: 127.0.0.1

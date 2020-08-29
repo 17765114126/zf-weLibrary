@@ -140,4 +140,12 @@ public void test7(){
         System.out.println(s);
 
     }
+    @Test
+    public void Test9(){
+        int a = (int)(Math.random()*(9999-1000+1))+1000;//产生1000-9999的随机数
+        System.out.println(a);
+
+        int c = (int)(Math.random()*(9999-1000+1))+1000;
+        System.out.println(c);
+    }
 }

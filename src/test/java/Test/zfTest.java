@@ -20,6 +20,7 @@ import java.util.Random;
 public class zfTest {
     @Test
     public void test() {
+
         int ceil = (int) Math.ceil(26 / 20) + 1;
         List<Object> objects = new ArrayList<>();
 
@@ -65,6 +66,7 @@ public class zfTest {
 
     @Test
     public static void main(String[] args) {
+
         //每个类加载都有一个父类加载器
         ClassLoader classLoader = zfTest.class.getClassLoader();
         System.out.println("1ClassLoader :"+classLoader);
@@ -72,10 +74,10 @@ public class zfTest {
         System.out.println("2Parent :" + parent);
         ClassLoader parent1 = zfTest.class.getClassLoader().getParent().getParent();
         System.out.println("3Parent tow :" +parent1 );
-        //AppClassLoader的父类加载器为ExtClassLoader
-        // ExtClassLoader的父类加载器为null，
-        // null并不代表ExtClassLoader没有父类加载器，
-        // 而是 BootstrapClassLoader 。
+//        AppClassLoader的父类加载器为ExtClassLoader
+//         ExtClassLoader的父类加载器为null，
+//         null并不代表ExtClassLoader没有父类加载器，
+//         而是 BootstrapClassLoader 。
         String prefix = "123";
         String isvNo = getIsvNo(prefix);
         System.out.println(isvNo);

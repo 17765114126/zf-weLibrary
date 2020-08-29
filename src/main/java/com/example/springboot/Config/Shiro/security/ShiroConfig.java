@@ -23,9 +23,9 @@ import java.util.Map;
 @Configuration//容器启动初始化...
 public class ShiroConfig {
 
-    @Value("${spring.redis.host}:${spring.redis.port}")
+//    @Value("${spring.redis.host}:${spring.redis.port}")
     private String host;
-    @Value("${spring.redis.password}")
+//    @Value("${spring.redis.password}")
     private String password;
 
     @Bean//容器启动初始化...
