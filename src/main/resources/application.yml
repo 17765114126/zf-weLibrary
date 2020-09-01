@@ -21,19 +21,30 @@ spring:
       time-between-eviction-runs-millis: 360000
       minEvictableIdleTimeMillis: 360000
 
-mail:
-  host: smtp.163.com
-  default-encoding: UTF-8
-  port: 25
-  username: 17765114126@163.com
-  password: YXIDYBPHLBGNCNQP
-  properties:
-    mail:
+# 发送邮件配置
+#  spring.mail.host = smtp.163.com
+#  spring.mail.port =
+#  spring.mail.username = 17765114126@163.com
+#  spring.mail.password = YXIDYBPHLBGNCNQP
+#  spring.mail.default-encoding = UTF-8
+#  spring.mail.properties.mail.smtp.auth = true
+#  spring.mail.properties.mail.smtp.starttls.enable = true
+#  spring.mail.properties.mail.smtp.starttls.required = true
+#  spring.mail.properties.mail.smtp.ssl.enable = true
+
+  mail:
+    host: smtp.163.com
+    username: 17765114126@163.com #自己的邮箱账号
+    password: YXIDYBPHLBGNCNQP  #这个不是登录密码而是163授权登录的密码
+    default-encoding: UTF-8
+    properties:
       smtp:
         auth: true
         starttls:
-          enable: false
-          required: false
+          enable: true
+          required : true
+        ssl:
+          enable: true
 
   #redis配置
   redis:

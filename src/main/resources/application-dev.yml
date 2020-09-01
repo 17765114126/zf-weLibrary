@@ -12,7 +12,19 @@ spring:
       max-wait: 60000
       time-between-eviction-runs-millis: 360000
       minEvictableIdleTimeMillis: 360000
-
+  mail:
+    host: smtp.163.com
+    username: 17765114126@163.com #自己的邮箱账号
+    password: YXIDYBPHLBGNCNQP  #这个不是登录密码而是163授权登录的密码
+    default-encoding: UTF-8
+    properties:
+      smtp:
+        auth: true
+        starttls:
+          enable: true
+          required : true
+        ssl:
+          enable: true
 
 mybatis-plus:
   configuration.log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
@@ -25,3 +37,4 @@ mybatis-plus:
 #    password: root
 #    filters: wall,mergeStat
 #    data-source-name: springboot
+

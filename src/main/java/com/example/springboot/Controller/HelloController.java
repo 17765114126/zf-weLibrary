@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,7 @@ import javax.annotation.Resource;
  **/
 @Controller
 @Slf4j
+@Component
 public class HelloController {
 
     @RequestMapping("/hello")
@@ -47,7 +49,7 @@ public class HelloController {
         return "views/hello";
     }
 
-//    @Autowired
+//    @Resource
 //    private JavaMailSender mailSender;
 //
 //    @RequestMapping("/sendSimpleMail")
