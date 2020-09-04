@@ -40,14 +40,13 @@ public class SuiShouTest {
         person.setSex(null);
 
         System.out.println(person.getSex());
-        if (person.getSex() == null){
+        if (person.getSex() == null) {
             System.out.println("1");
         }
 
         //将返回对象数据转换
         String s = person.toString();
         String s1 = JSON.toJSONString(s);
-
     }
 
     @Test
@@ -63,7 +62,6 @@ public class SuiShouTest {
         }
         System.out.println("------------------------------------");
         System.out.println(sum);
-
     }
 
     @Test
@@ -85,7 +83,7 @@ public class SuiShouTest {
     }
 
     @Test
-    public void test5(){
+    public void test5() {
 //        List objects = new ArrayList(10);
 //        List list = Collections.synchronizedList(new ArrayList(10));
 //
@@ -95,10 +93,11 @@ public class SuiShouTest {
         System.out.println(Math.ceil(9.1));
         yqhGetPrice(100.6);
     }
-@Test
-public void test7(){
-    System.out.println("qaazsdd");
-}
+
+    @Test
+    public void test7() {
+        System.out.println("qaazsdd");
+    }
 
     /**
      * 一起火计算价格
@@ -133,19 +132,25 @@ public void test7(){
     }
 
     @Test
-    public void Test8(){
+    public void Test8() {
         String expressNumber = "  1213    3134  12  ";
         String s = expressNumber.replaceAll(" ", "");
         System.out.println(expressNumber);
         System.out.println(s);
-
     }
+
     @Test
-    public void Test9(){
-        int a = (int)(Math.random()*(9999-1000+1))+1000;//产生1000-9999的随机数
+    public void Test9() {
+        int a = (int) (Math.random() * (9999 - 1000 + 1)) + 1000;//产生1000-9999的随机数
         System.out.println(a);
 
-        int c = (int)(Math.random()*(9999-1000+1))+1000;
+        int c = (int) (Math.random() * (9999 - 1000 + 1)) + 1000;
         System.out.println(c);
+    }
+
+    @Test
+    public void Test10() {
+        boolean matches = "19165114126".matches("^((13[0-9])|(14[0,1,4-9])|(15[0-3,5-9])|(16[2,5,6,7])|(17[0-8])|(18[0-9])|(19[0-3,5-9]))\\d{8}$");
+        System.out.println(matches);
     }
 }
