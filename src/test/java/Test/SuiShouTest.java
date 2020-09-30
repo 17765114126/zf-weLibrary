@@ -3,16 +3,10 @@ package Test;
 import com.alibaba.fastjson.JSON;
 import com.example.springboot.model.Person;
 import com.example.springboot.util.MathUtil;
+import com.example.springboot.util.StringUtil;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.core.env.Environment;
-import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigDecimal;
 import java.util.*;
 
 /**
@@ -36,7 +30,6 @@ public class SuiShouTest {
     @Test
     public void test2() {
         Person person = new Person();
-
         person.setSex(null);
 
         System.out.println(person.getSex());
@@ -152,5 +145,33 @@ public class SuiShouTest {
     public void Test10() {
         boolean matches = "19165114126".matches("^((13[0-9])|(14[0,1,4-9])|(15[0-3,5-9])|(16[2,5,6,7])|(17[0-8])|(18[0-9])|(19[0-3,5-9]))\\d{8}$");
         System.out.println(matches);
+    }
+
+    @Test
+    public void Test11(){
+        String mobile = null;
+        if (StringUtil.isBlank(mobile)){
+            mobile = "2314";
+        }
+        System.out.println(mobile);
+    }
+
+    @Test
+    public void Test12(){
+        BigDecimal q = new BigDecimal(1.55);
+        BigDecimal a = new BigDecimal(1.45);
+        BigDecimal z = new BigDecimal(0.61);
+        BigDecimal bigDecimal = q.add(a).add(z);
+        float v = bigDecimal.floatValue();
+        System.out.println(v);
+
+        /**
+         * 小可以转大，大不可以转小
+         * */
+        Byte w = 2;
+        Double s = Double.valueOf(w);
+        System.out.println(s);
+        Integer integer = Integer.valueOf(w);
+
     }
 }

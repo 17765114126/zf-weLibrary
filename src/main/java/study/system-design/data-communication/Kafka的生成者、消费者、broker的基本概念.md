@@ -46,5 +46,4 @@
           注:
            Kafka的设计原理决定，对于一个topic，同一个group不能多于partition个数的consumer同时消费，否则将意味着某些                      consumer无法得到消息
     ————————————————
-    版权声明：本文为CSDN博主「u010020099」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
     原文链接：https://blog.csdn.net/u010020099/article/details/82290403
