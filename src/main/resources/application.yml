@@ -31,7 +31,6 @@ spring:
 #  spring.mail.properties.mail.smtp.starttls.enable = true
 #  spring.mail.properties.mail.smtp.starttls.required = true
 #  spring.mail.properties.mail.smtp.ssl.enable = true
-
   mail:
     host: smtp.163.com
     username: 17765114126@163.com #自己的邮箱账号
@@ -45,6 +44,7 @@ spring:
           required : true
         ssl:
           enable: true
+
 
   #redis配置
   redis:

@@ -4,6 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -23,8 +24,8 @@ public class SendEmailUtil {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-//    @Value("${spring.mail.username}")
-    private String from = "17765114126@163.com";
+    @Value("${spring.mail.username}")
+    private String from;
 
     @Autowired
     private JavaMailSender sender;

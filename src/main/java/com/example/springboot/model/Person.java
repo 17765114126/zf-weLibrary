@@ -19,6 +19,14 @@ public class Person {
     private String name;
     private Integer age;
     private String sex;
+    public Person() {
+    }
 
+    public Person(String name, Integer age, String sex) {
+        System.out.println(" 对象被创建了.............");
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+    }
 }
 
