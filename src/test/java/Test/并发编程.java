@@ -297,7 +297,7 @@ public class 并发编程 {
         public void run() {
             for (int i = 0; i < Long.MAX_VALUE; i++) {
                 i++;
-                System.out.println(Thread.currentThread().getName() +" :" + i);
+                System.out.println(Thread.currentThread().getName() + " :" + i);
             }
         }
 
@@ -313,7 +313,7 @@ public class 并发编程 {
             Integer i = 0;
             while (true) {
                 i++;
-                System.out.println(Thread.currentThread().getName() +" :" + i);
+                System.out.println(Thread.currentThread().getName() + " :" + i);
                 SleepUtils.second(100);
             }
         }
@@ -330,7 +330,7 @@ public class 并发编程 {
             while (true) {
                 synchronized (Waiting.class) {
                     i++;
-                    System.out.println(Thread.currentThread().getName() +" :" + i);
+                    System.out.println(Thread.currentThread().getName() + " :" + i);
                     try {
                         Waiting.class.wait();
                     } catch (InterruptedException e) {
@@ -351,7 +351,7 @@ public class 并发编程 {
             synchronized (Blocked.class) {
                 while (true) {
                     i++;
-                    System.out.println(Thread.currentThread().getName() +" :" + i);
+                    System.out.println(Thread.currentThread().getName() + " :" + i);
                     SleepUtils.second(100);
                 }
             }
@@ -367,26 +367,26 @@ public class 并发编程 {
         }
     }
 
-    static int count=0;
+    static int count = 0;
 
     @Test
     public void Test14() throws InterruptedException {
-        long start=System.currentTimeMillis();
-        new Thread(){
+        long start = System.currentTimeMillis();
+        new Thread() {
             @Override
             public void run() {
-                for (int i = 0; i <5000000 ; i++) {
+                for (int i = 0; i < 5000000; i++) {
                     count++;
                 }
-                System.out.println("自定义线程:计算完成...，耗时"+(System.currentTimeMillis()-start));
+                System.out.println("自定义线程:计算完成...，耗时" + (System.currentTimeMillis() - start));
             }
         }.start();
-        for (int i = 0; i <5000000 ; i++) {
+        for (int i = 0; i < 5000000; i++) {
             count++;
         }
-        System.out.println("主线程:计算完成....，耗时"+(System.currentTimeMillis()-start));
+        System.out.println("主线程:计算完成....，耗时" + (System.currentTimeMillis() - start));
         Thread.sleep(5000);
-        System.out.println("count:"+count);
+        System.out.println("count:" + count);
         //可以看到的结果并不是我们期望中的一千万。原因在于，count++并不是一个原子操作。每次自增实际上是分为3个步骤：
         //获取count变量的当前值
         //将当前值加1
@@ -396,26 +396,26 @@ public class 并发编程 {
 
     @Test
     public void Test15() throws InterruptedException {
-        long start=System.currentTimeMillis();
-        new Thread(){
+        long start = System.currentTimeMillis();
+        new Thread() {
             @Override
             public void run() {
-                for (int i = 0; i <5000000 ; i++) {
-                    synchronized (并发编程.class){
+                for (int i = 0; i < 5000000; i++) {
+                    synchronized (并发编程.class) {
                         count++;
                     }
                 }
-                System.out.println("自定义线程:计算完成...，耗时"+(System.currentTimeMillis()-start));
+                System.out.println("自定义线程:计算完成...，耗时" + (System.currentTimeMillis() - start));
             }
         }.start();
-        for (int i = 0; i <5000000 ; i++) {
-            synchronized (并发编程.class){
+        for (int i = 0; i < 5000000; i++) {
+            synchronized (并发编程.class) {
                 count++;
             }
         }
-        System.out.println("主线程:计算完成....，耗时"+(System.currentTimeMillis()-start));
+        System.out.println("主线程:计算完成....，耗时" + (System.currentTimeMillis() - start));
         Thread.sleep(5000);
-        System.out.println("count:"+count);
+        System.out.println("count:" + count);
         //上述案例实际上仅仅将count++操作放到一个同步代码块(synchronized关键字，ThreadCompetitionDemo.class可以认为是一个锁)。
         //可以看到结果是计算正确的，不管运行多少次，结果总是这样。这里要注意的是，我们每次线程完成五百万次累加操作的时间，都在2秒左右，而之前大概只需要20毫秒左右，花费的时间接近100倍。这说明同步代码块虽然可以帮助我们将结果计算正确，但是在性能上却有非常大的影响。
     }

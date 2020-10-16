@@ -32,9 +32,9 @@ public class SpringbootApplicationTests {
      * 发送邮件
      * */
     @Test
-    public void SendEmailUtil() {
+    public void SendEmail() {
         String email = "17765114126@163.com";
-        String s = "<p>亲爱的用户：</p>\n" +
+        String html = "<p>亲爱的用户：</p>\n" +
                 "<p>&#xa0;</p>\n" +
                 "<p>您好！感谢您使用朵拉试衣间平台，您的账号（"+email+"）正在进行邮箱验证，本次请\n" +
                 "<p>求的验证码为：</p>\n" +
@@ -43,7 +43,7 @@ public class SpringbootApplicationTests {
                 "<p>朵拉试衣间平台团队</p>\n" +
                 "<p>"+new Date()+"</p>\n";
         String subject = "朵拉试衣间平台-更换邮箱账号操作";
-        sendEmailUtil.sendHtmlMail(email, "", subject, s);
+        sendEmailUtil.sendHtmlMail(email, "", subject, html);
     }
 
 }
