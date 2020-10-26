@@ -1,0 +1,123 @@
+#端口
+server:
+  port: 8080
+
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/
+      suffix: .jsp
+  datasource:
+    url: jdbc:mysql://rm-8vb13nmd5388n09m6wo.mysql.zhangbei.rds.aliyuncs.com:3306/zhaofu?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+    userName: zhaofu
+    password: 2MiaoMiao
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      max-active: 5
+      min-idle: 1
+      initial-size: 1
+      max-wait: 60000
+      time-between-eviction-runs-millis: 360000
+      minEvictableIdleTimeMillis: 360000
+
+# 发送邮件配置
+#  spring.mail.host = smtp.163.com
+#  spring.mail.port =
+#  spring.mail.username = 17765114126@163.com
+#  spring.mail.password = YXIDYBPHLBGNCNQP
+#  spring.mail.default-encoding = UTF-8
+#  spring.mail.properties.mail.smtp.auth = true
+#  spring.mail.properties.mail.smtp.starttls.enable = true
+#  spring.mail.properties.mail.smtp.starttls.required = true
+#  spring.mail.properties.mail.smtp.ssl.enable = true
+  mail:
+    host: smtp.163.com
+    username: 17765114126@163.com #自己的邮箱账号
+    password: YXIDYBPHLBGNCNQP  #这个不是登录密码而是163授权登录的密码
+    default-encoding: UTF-8
+    properties:
+      smtp:
+        auth: true
+        starttls:
+          enable: true
+          required : true
+        ssl:
+          enable: true
+
+
+  #redis配置
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: 22
+#springboot 使用spring.profiles.active 区分不同环境下配置文件
+#  profiles: active=@env@
+
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  global-config:
+    db-config.table-prefix: tbl_
+  config.db-config:
+    id-type: auto
+
+  configuration.log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+#数据库连接
+#  datasource:
+#    driver-class-name: com.
+#    url: 120.0.0.1:3306
+#    username: root
+#    password: root
+#    filters: wall,mergeStat
+#    data-source-name: springboot
+
+# 去除启动时大量的Positive matches信息
+logging.level.org.springframework.boot.autoconfigure: ERROR
+
+#配置日志级别
+logging:
+  level: info
+  file: home/logs.log
+
+#配置文件传输
+servlet:
+  multipart:
+    enabled: true
+    file-size-threshold: 0
+    #单个数据的大小
+    max-file-size: 500MB
+    #总数据的大小
+    max-request-size: 1000MB
+
+#配置Rabbitmq的安装地址、端口以及账户信息
+rabbitmq:
+  name: spirng-boot-rabbitmq
+  rabbitmq: host=127.0.0.1
+  port: 5672
+  username: admin
+  password: admin
+
+host111 : 42864
+
+  #spring-security
+  #自定义用户名和密码
+#  security:
+#    user:
+#      name: x
+#      password: 1
+
+#    lettuce:
+#    pool:
+#      #最大连接数
+#      max-active: 8
+#      #最大阻塞等待时间
+#      max-wait: 6000
+#      #最大空闲连接
+#      max-idle: 8
+#      #最小空闲连接
+#      min-idle: 0
+#      timeout: 5000
+#    database: 0

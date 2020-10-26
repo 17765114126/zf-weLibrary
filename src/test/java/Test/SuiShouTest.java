@@ -223,6 +223,7 @@ public class SuiShouTest {
     @Test
     public void Test16(){
         System.out.println(DateUtil.getNewFormatDateString(new Date()));
+        System.out.println("---------");
 
     }
 
