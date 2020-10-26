@@ -269,6 +269,22 @@ public class MathUtil { //默认除法运算精度
         return val;
     }
 
+
+    /**
+     * 提供精确的加法运算。
+     *
+     * @param v1
+     *            被加数
+     * @param v2
+     *            加数
+     * @return 两个参数的和
+     */
+    public static Float addFloat(Float v1, Float v2) {
+        BigDecimal b1 = new BigDecimal(Float.toString(v1));
+        BigDecimal b2 = new BigDecimal(Float.toString(v2));
+        return b1.add(b2).floatValue();
+    }
+
     public static void main(String[] args) {
         for (int i = 0; i < 50; i++) {
             System.out.println(createNum(6, 3));

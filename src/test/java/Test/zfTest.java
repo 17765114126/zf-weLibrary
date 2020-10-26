@@ -38,6 +38,7 @@ public class zfTest {
     }
 
     //生成随机数字
+    @Deprecated
     public static String getIsvNo(String prefix) {
         long time = System.currentTimeMillis();
         int random = new Random().nextInt(100000);
@@ -63,6 +64,8 @@ public class zfTest {
 
 
     public static void main(String[] args) {
+        getIsvNo("zhaofu");
+
 
         //每个类加载都有一个父类加载器
         ClassLoader classLoader = zfTest.class.getClassLoader();

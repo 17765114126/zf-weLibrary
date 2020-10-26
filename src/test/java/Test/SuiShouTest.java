@@ -2,6 +2,8 @@ package Test;
 
 import com.alibaba.fastjson.JSON;
 import com.example.springboot.model.Person;
+import com.example.springboot.util.DateUtil;
+import com.example.springboot.util.EnvUtils;
 import com.example.springboot.util.MathUtil;
 import com.example.springboot.util.StringUtil;
 import org.apache.commons.lang3.StringUtils;
@@ -176,8 +178,55 @@ public class SuiShouTest {
 
     }
 
-    public static void main(String[] args) {
 
+    @Test
+    public void Test13(){
+        Float mayMoney = 0F;
+
+        List<? extends Number> numbers = Arrays.asList(99.98, 100, -26.61);
+        for (Number number : numbers) {
+            mayMoney = MathUtil.addFloat(mayMoney, number.floatValue());
+
+        }
+
+    }
+
+    @Test
+    public void Test14(){
+        //"[\"1883\", \"17765114126\"]"
+        String[] split = "16666666666,17765114126".split(",");
+        String string = "";
+        for (String s : split) {
+            string += "\""+s+"\"" +",";
+        }
+        String str = "["+string.substring(0, string.length() - 1)+"]";
+        System.out.println(str);
+    }
+
+    @Test
+    public void Test15(){
+
+        Long q = 456456L;
+        Long w = 456456L;
+        int i1 = q.hashCode();
+        int i2 = w.hashCode();
+        System.out.println(q != w);
+        System.out.println(!q.equals(w));
+        System.out.println("--------------------------");
+        String str = "[\"16666666666\",\"17765114126\"]";
+        boolean equals = str.equals("");
+        System.out.println(equals);
+        int i = str.hashCode();
+        System.out.println(i);
+    }
+
+    @Test
+    public void Test16(){
+        System.out.println(DateUtil.getNewFormatDateString(new Date()));
+
+    }
+
+    public static void main(String[] args) {
         BigDecimal c = BigDecimal.valueOf(3.55);
         Integer g = 2;
         BigDecimal bignum2 = new BigDecimal(g);
@@ -186,7 +235,6 @@ public class SuiShouTest {
         Float xx = 200001.11f;
         Float yy = 200000.08f;
         Float tt = xx - yy;
-
 
         BigDecimal b1 = new BigDecimal(Float.toString(xx));
         BigDecimal b2 = new BigDecimal(Float.toString(yy));

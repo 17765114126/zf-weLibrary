@@ -1,6 +1,7 @@
 package com.example.springboot;
 
 import com.example.springboot.Config.LazyConfig;
+import com.example.springboot.util.EnvUtils;
 import com.example.springboot.util.SendEmailUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -45,5 +46,10 @@ public class SpringbootApplicationTests {
         String subject = "朵拉试衣间平台-更换邮箱账号操作";
         sendEmailUtil.sendHtmlMail(email, "", subject, html);
     }
-
+    @Test
+    public void Test(){
+        if (!EnvUtils.devActive()) {
+            System.out.println("生产环境不允许调用!!!");
+        }
+    }
 }
