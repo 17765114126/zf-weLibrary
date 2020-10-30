@@ -290,4 +290,124 @@ public class MathUtil { //默认除法运算精度
             System.out.println(createNum(6, 3));
         }
     }
+
+
+
+
+
+
+//        BigDecimal.setScale()方法用于格式化小数点
+//        setScale(1)表示保留一位小数，默认用四舍五入方式
+//        setScale(1,BigDecimal.ROUND_DOWN)直接删除多余的小数位，如2.35会变成2.3
+//        setScale(1,BigDecimal.ROUND_UP)进位处理，2.35变成2.4
+//        setScale(1,BigDecimal.ROUND_HALF_UP)四舍五入，2.35变成2.4
+//
+//        setScaler(1,BigDecimal.ROUND_HALF_DOWN)四舍五入，2.35变成2.3，如果是5则向下舍
+//
+//        setScaler(1,BigDecimal.ROUND_CEILING)接近正无穷大的舍入
+//
+//        setScaler(1,BigDecimal.ROUND_FLOOR)接近负无穷大的舍入，数字>0和ROUND_UP作用一样，数字<0和ROUND_DOWN作用一样
+//
+//        setScaler(1,BigDecimal.ROUND_HALF_EVEN)向最接近的数字舍入，如果与两个相邻数字的距离相等，则向相邻的偶数舍入。
+
+
+
+    /**
+     *@Description: float * int ，默认保留2位小数
+     * @param a
+     * @param b
+     */
+    public static Float multiply(Float a, Integer b) {
+        if (a == null || b == null) {
+            throw new RuntimeException("传入数字不允许为空");
+        }
+        return multiply(a, b.floatValue(),2);
+    }
+
+    /**
+     *@Description: int * float ，默认保留2位小数
+     * @param a
+     * @param b
+     */
+    public static Float multiply(Integer a, Float b) {
+        if (a == null || b == null) {
+            throw new RuntimeException("传入数字不允许为空");
+        }
+        return multiply(a.floatValue(), b,2);
+    }
+
+    /**
+     *@Description: float * float ，默认保留2位小数
+     * @param a
+     * @param b
+     */
+    public static Float multiply(Float a, Float b) {
+        if (a == null || b == null) {
+            throw new RuntimeException("传入数字不允许为空");
+        }
+        return multiply(a, b,2);
+    }
+
+    /**
+     *@Description: float * float
+     * @param a
+     * @param b
+     * @param number 小数点后保留位数
+     */
+    public static Float multiply(Float a, Float b, Integer number) {
+        if (a == null || b == null) {
+            throw new RuntimeException("传入数字不允许为空");
+        }
+        return new BigDecimal(a).multiply(new BigDecimal(b)).setScale(number, BigDecimal.ROUND_HALF_UP).floatValue();
+
+    }
+
+    public static Float divide(Float a, Integer b) {
+        if (a == null || b == null) {
+            throw new RuntimeException("传入数字不允许为空");
+        }
+        return divide(a, b.floatValue(),2);
+    }
+
+    /**
+     *@Description: float / float
+     * @param a
+     * @param b
+     * @param number 小数点后保留位数
+     */
+    public static Float divide(Float a, Float b, Integer number) {
+        if (a == null || b == null) {
+            throw new RuntimeException("传入数字不允许为空");
+        }
+        return new BigDecimal(a).divide(new BigDecimal(b), number, BigDecimal.ROUND_HALF_UP).floatValue();
+
+    }
+
+
+    /**
+     *@Description: float add Float ，默认保留2位小数
+     * @param a
+     * @param b
+     */
+    public static Float add(Float a, Float b) {
+        if (a == null || b == null) {
+            throw new RuntimeException("传入数字不允许为空");
+        }
+        return add(a, b,2);
+    }
+
+    /**
+     *@Description: float * float
+     * @param a
+     * @param b
+     * @param number 小数点后保留位数
+     */
+    public static Float add(Float a, Float b, Integer number) {
+        if (a == null || b == null) {
+            throw new RuntimeException("传入数字不允许为空");
+        }
+        return new BigDecimal(a).add(new BigDecimal(b)).setScale(number,BigDecimal.ROUND_HALF_UP).floatValue();
+
+    }
+
 }

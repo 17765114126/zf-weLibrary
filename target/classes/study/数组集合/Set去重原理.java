@@ -18,43 +18,43 @@ public class Set去重原理 {
 //
 //     SetTest.java：
 
-     class VO {
-     private String name;
-     private String addr;
+    class VO {
+        private String name;
+        private String addr;
 
-     public VO(String name, String addr) {
-     this.name = name;
-     this.addr = addr;
-     }
+        public VO(String name, String addr) {
+            this.name = name;
+            this.addr = addr;
+        }
 
-     @Override
-     public String toString() {
-     return "name: " + name + " addr:" + addr;
-     }
-     }
+        @Override
+        public String toString() {
+            return "name: " + name + " addr:" + addr;
+        }
+    }
 
     public static void main(String[] args) {
 
     }
 
-     public void testSet() {
+    public void testSet() {
 
-     Set<VO> vos = new HashSet<>();
+        Set<VO> vos = new HashSet<>();
 
-     VO vo = new VO("wahaha", "sh");
+        VO vo = new VO("wahaha", "sh");
 
-     VO vo1 = new VO("wahaha", "bj");
+        VO vo1 = new VO("wahaha", "bj");
 
-     VO vo2 = new VO("wahaha", "sh");
+        VO vo2 = new VO("wahaha", "sh");
 
-     vos.add(vo);
-     vos.add(vo1);
-     vos.add(vo2);
+        vos.add(vo);
+        vos.add(vo1);
+        vos.add(vo2);
 
-     for (VO item : vos) {
-     System.out.println(item.toString());
-     }
-     }
+        for (VO item : vos) {
+            System.out.println(item.toString());
+        }
+    }
 //     结果为：
 //
 //     name: wahaha addr:sh
@@ -66,17 +66,18 @@ public class Set去重原理 {
 
 //     实例化对象：
 
-     /**
-      * Constructs a new, empty set; the backing <tt>HashMap</tt> instance has
-      * default initial capacity (16) and load factor (0.75).
+    /**
+     * Constructs a new, empty set; the backing <tt>HashMap</tt> instance has
+     * default initial capacity (16) and load factor (0.75).
      */
-   /** public HashSet() {
-        map = new HashMap<>();
-    }
-    可见new HashSet()操作实际上是new HashMap<>()，可见底层是以HashMap来实现的。
-
-    HashSet.add方法：
-*/
+    /**
+     * public HashSet() {
+     * map = new HashMap<>();
+     * }
+     * 可见new HashSet()操作实际上是new HashMap<>()，可见底层是以HashMap来实现的。
+     * <p>
+     * HashSet.add方法：
+     */
 //    public boolean add(E e) {
 //        return map.put(e, PRESENT)==null;
 //    }
@@ -149,7 +150,7 @@ public class Set去重原理 {
         }
     }
 
-    public void  testSet1() {
+    public void testSet1() {
 
         Set<VO1> vos = new HashSet<>();
 

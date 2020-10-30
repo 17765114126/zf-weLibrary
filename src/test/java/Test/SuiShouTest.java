@@ -92,7 +92,6 @@ public class SuiShouTest {
 
     @Test
     public void test7() {
-        System.out.println("qaazsdd");
     }
 
     /**
@@ -222,9 +221,18 @@ public class SuiShouTest {
 
     @Test
     public void Test16(){
-        System.out.println(DateUtil.getNewFormatDateString(new Date()));
-        System.out.println("---------");
+//        Integer stockNum = 0;
 
+//        stockNum = stockNum + Integer.parseInt("55.0");
+
+//        System.out.println(DateUtil.getNewFormatDateString(new Date()));
+//        System.out.println(stockNum);
+
+        BigDecimal bigDecimal = new BigDecimal(3.555F);
+
+        BigDecimal ecimal = new BigDecimal(3.211F);
+        BigDecimal add = bigDecimal.add(ecimal).setScale(2,BigDecimal.ROUND_HALF_UP);
+        System.out.println(add);
     }
 
     public static void main(String[] args) {
