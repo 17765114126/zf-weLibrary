@@ -150,16 +150,16 @@ public class SuiShouTest {
     }
 
     @Test
-    public void Test11(){
+    public void Test11() {
         String mobile = null;
-        if (StringUtil.isBlank(mobile)){
+        if (StringUtil.isBlank(mobile)) {
             mobile = "2314";
         }
         System.out.println(mobile);
     }
 
     @Test
-    public void Test12(){
+    public void Test12() {
         BigDecimal q = new BigDecimal(1.55);
         BigDecimal a = new BigDecimal(1.45);
         BigDecimal z = new BigDecimal(0.61);
@@ -179,7 +179,7 @@ public class SuiShouTest {
 
 
     @Test
-    public void Test13(){
+    public void Test13() {
         Float mayMoney = 0F;
 
         List<? extends Number> numbers = Arrays.asList(99.98, 100, -26.61);
@@ -191,19 +191,19 @@ public class SuiShouTest {
     }
 
     @Test
-    public void Test14(){
+    public void Test14() {
         //"[\"1883\", \"17765114126\"]"
         String[] split = "16666666666,17765114126".split(",");
         String string = "";
         for (String s : split) {
-            string += "\""+s+"\"" +",";
+            string += "\"" + s + "\"" + ",";
         }
-        String str = "["+string.substring(0, string.length() - 1)+"]";
+        String str = "[" + string.substring(0, string.length() - 1) + "]";
         System.out.println(str);
     }
 
     @Test
-    public void Test15(){
+    public void Test15() {
 
         Long q = 456456L;
         Long w = 456456L;
@@ -220,7 +220,7 @@ public class SuiShouTest {
     }
 
     @Test
-    public void Test16(){
+    public void Test16() {
 //        Integer stockNum = 0;
 
 //        stockNum = stockNum + Integer.parseInt("55.0");
@@ -231,8 +231,33 @@ public class SuiShouTest {
         BigDecimal bigDecimal = new BigDecimal(3.555F);
 
         BigDecimal ecimal = new BigDecimal(3.211F);
-        BigDecimal add = bigDecimal.add(ecimal).setScale(2,BigDecimal.ROUND_HALF_UP);
+        BigDecimal add = bigDecimal.add(ecimal).setScale(2, BigDecimal.ROUND_HALF_UP);
         System.out.println(add);
+        Float i = 6.71F;
+        Integer i1 = 2;
+
+        System.out.println(MathUtil.mul(i, i1));
+
+    }
+
+    @Test
+    public void Test17() {
+
+        System.out.println(StringUtils.isAnyEmpty("", "bar"));
+
+        System.out.println(StringUtils.isAnyBlank(" ", "bar"));
+
+        System.out.println(StringUtils.isEmpty(" "));
+        System.out.println(StringUtils.isEmpty("\n"));
+
+        System.out.println(StringUtils.isWhitespace("\n"));
+        System.out.println(StringUtils.isWhitespace(" "));
+
+        String productIds = "1,2,3,4,5";
+        String[] split = productIds.split(",", 2);
+        System.out.println(split);
+        System.out.println(StringUtils.split(productIds, ",", 2));
+        System.out.println(StringUtils.split("a:b:c", '.'));
     }
 
     public static void main(String[] args) {
@@ -252,7 +277,7 @@ public class SuiShouTest {
         System.out.println("ssss----" + ss);
 
         String str = "123456789,";
-        if (StringUtils.isNotBlank(str)&& str.substring(str.length() - 1).equals(",")){
+        if (StringUtils.isNotBlank(str) && str.substring(str.length() - 1).equals(",")) {
             String substring = str.substring(0, str.length() - 1);
             System.out.println(substring);
         }
