@@ -1,6 +1,7 @@
 package com.example.springboot;
 
 import com.example.springboot.Config.LazyConfig;
+import com.example.springboot.model.User;
 import com.example.springboot.util.EnvUtils;
 import com.example.springboot.util.SendEmailUtil;
 import org.junit.Test;
@@ -48,6 +49,10 @@ public class SpringbootApplicationTests {
     }
     @Test
     public void Test(){
+        User user = new User();
+        user.setUserName("548");
+        System.out.println(user.getUserName());
+
         if (!EnvUtils.devActive()) {
             System.out.println("生产环境不允许调用!!!");
         }

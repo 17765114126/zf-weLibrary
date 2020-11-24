@@ -2,6 +2,7 @@ package Test;
 
 import com.alibaba.fastjson.JSON;
 import com.example.springboot.model.Person;
+import com.example.springboot.model.User;
 import com.example.springboot.util.DateUtil;
 import com.example.springboot.util.EnvUtils;
 import com.example.springboot.util.MathUtil;
@@ -260,6 +261,14 @@ public class SuiShouTest {
         System.out.println(StringUtils.split("a:b:c", '.'));
     }
 
+
+    @Test
+    public void Test18() {
+        User user = new User();
+        user.setUserName("548");
+        System.out.println(user.getUserName());
+    }
+
     public static void main(String[] args) {
         BigDecimal c = BigDecimal.valueOf(3.55);
         Integer g = 2;
@@ -282,6 +291,10 @@ public class SuiShouTest {
             System.out.println(substring);
         }
         System.out.println(str);
+
+        BigDecimal ssd = new BigDecimal(Float.toString(xx));
+        System.out.println(ssd);
+
     }
 
 }

@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.*;
 
+import javax.annotation.Resource;
+
 /**
  * @ClassName WebConfigurer
  * @Author zhaofu
@@ -14,8 +16,8 @@ import org.springframework.web.servlet.config.annotation.*;
 @Configuration
 public class WebConfigurer implements WebMvcConfigurer {
 
-    @Autowired
-    private LoginInterceptor loginInterceptor;
+    @Resource
+    LoginInterceptor loginInterceptor;
 
     // 这个方法是用来配置静态资源的，比如html，js，css，等等
     @Override
@@ -34,7 +36,7 @@ public class WebConfigurer implements WebMvcConfigurer {
 //        //super.addInterceptors(registry);    //较新Spring Boot的版本中这里可以直接去掉，否则会报错
 
         // 注册拦截器
-         LoginInterceptor loginInterceptor = new LoginInterceptor();
+//         LoginInterceptor loginInterceptor = new LoginInterceptor();
 
          InterceptorRegistration loginRegistry = registry.addInterceptor(loginInterceptor);
          // 拦截路径

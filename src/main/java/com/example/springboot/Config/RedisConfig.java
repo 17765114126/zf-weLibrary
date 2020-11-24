@@ -1,4 +1,4 @@
-package com.example.springboot.util;
+package com.example.springboot.Config;
 
 import com.example.springboot.util.RedisUtil;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;

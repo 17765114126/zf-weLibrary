@@ -2,6 +2,7 @@ package com.example.springboot.Controller;
 
 import com.example.springboot.Config.自定义注解.MyLog;
 import com.example.springboot.model.Student;
+import com.example.springboot.model.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
@@ -19,13 +21,14 @@ import javax.annotation.Resource;
  * @Date 2019/8/5
  * @Version V1.0
  **/
-@Controller
+@RestController
 @Slf4j
 @Component
 public class HelloController {
 
     @RequestMapping("/hello")
     public String hello(Model model) {
+//        System.out.println(user.getUserName());
         String s = "Hello Spring Boot!==++++++==========+++++++++++++++++++========+我自===gasolene";
         Student student = new Student();
         student.setName("执行Contriller类    Student.name+小熊");
