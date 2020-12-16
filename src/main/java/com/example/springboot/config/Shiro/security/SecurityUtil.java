@@ -1,7 +1,6 @@
-package dorago.yiqiancms.biz.common.util;
+package com.example.springboot.config.Shiro.security;
 
-import dorago.yiqiancms.biz.common.constants.SecurityConstants;
-import dorago.syjcms.biz.model.SysUser;
+import com.example.springboot.model.sys.SysUser;
 import org.apache.shiro.crypto.hash.SimpleHash;
 
 public class SecurityUtil {

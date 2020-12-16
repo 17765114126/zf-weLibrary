@@ -1,8 +1,8 @@
-package dorago.yiqiancms.biz.exception;
+package com.example.springboot.config.Shiro.exception;
 
 import com.alibaba.fastjson.support.spring.FastJsonJsonView;
-import dorago.yiqiancms.biz.common.Result;
-import dorago.yiqiancms.biz.common.enums.ResultCodeEnum;
+import com.example.springboot.util.Result;
+import com.example.springboot.util.ResultCodeEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authz.UnauthenticatedException;
 import org.apache.shiro.authz.UnauthorizedException;

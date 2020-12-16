@@ -1,7 +1,7 @@
-package dorago.yiqiancms.biz.exception;
+package com.example.springboot.config.Shiro.exception;
 
 
-import dorago.yiqiancms.biz.common.enums.ResultCodeEnum;
+import com.example.springboot.util.ResultCodeEnum;
 
 /**
  * @author chen

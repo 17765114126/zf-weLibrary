@@ -1,4 +1,4 @@
-package dorago.yiqiancms.biz.common.util;
+package com.example.springboot.config.Shiro.security;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
