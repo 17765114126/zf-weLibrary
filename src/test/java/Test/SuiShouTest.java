@@ -40,7 +40,6 @@ public class SuiShouTest {
         if (person.getSex() == null) {
             System.out.println("1");
         }
-
         //将返回对象数据转换
         String s = person.toString();
         String s1 = JSON.toJSONString(s);
@@ -48,7 +47,6 @@ public class SuiShouTest {
 
     @Test
     public void tese3() {
-
         float payMoney = 100;
         Integer num = 2;
 
@@ -175,20 +173,15 @@ public class SuiShouTest {
         Double s = Double.valueOf(w);
         System.out.println(s);
         Integer integer = Integer.valueOf(w);
-
     }
-
 
     @Test
     public void Test13() {
         Float mayMoney = 0F;
-
         List<? extends Number> numbers = Arrays.asList(99.98, 100, -26.61);
         for (Number number : numbers) {
             mayMoney = MathUtil.addFloat(mayMoney, number.floatValue());
-
         }
-
     }
 
     @Test
@@ -205,7 +198,6 @@ public class SuiShouTest {
 
     @Test
     public void Test15() {
-
         Long q = 456456L;
         Long w = 456456L;
         int i1 = q.hashCode();
@@ -223,12 +215,9 @@ public class SuiShouTest {
     @Test
     public void Test16() {
 //        Integer stockNum = 0;
-
 //        stockNum = stockNum + Integer.parseInt("55.0");
-
 //        System.out.println(DateUtil.getNewFormatDateString(new Date()));
 //        System.out.println(stockNum);
-
         BigDecimal bigDecimal = new BigDecimal(3.555F);
 
         BigDecimal ecimal = new BigDecimal(3.211F);
@@ -236,16 +225,13 @@ public class SuiShouTest {
         System.out.println(add);
         Float i = 6.71F;
         Integer i1 = 2;
-
         System.out.println(MathUtil.mul(i, i1));
-
     }
 
     @Test
     public void Test17() {
 
         System.out.println(StringUtils.isAnyEmpty("", "bar"));
-
         System.out.println(StringUtils.isAnyBlank(" ", "bar"));
 
         System.out.println(StringUtils.isEmpty(" "));
@@ -255,15 +241,21 @@ public class SuiShouTest {
         System.out.println(StringUtils.isWhitespace(" "));
 
         String productIds = "1,2,3,4,5";
-        String[] split = productIds.split(",", 2);
-        System.out.println(split);
-        System.out.println(StringUtils.split(productIds, ",", 2));
-        System.out.println(StringUtils.split("a:b:c", '.'));
+        String[] split = productIds.split(",", 3);
+        System.out.println(JSON.toJSONString(split));
+        System.out.println(JSON.toJSONString(StringUtils.split(productIds, ",", 2)));
+        System.out.println(JSON.toJSONString(StringUtils.split("a:b:c", ':')));
     }
 
 
     @Test
     public void Test18() {
+        String[] split =new String[]{"17765114126","18203655200"};
+
+        String[] sp =new String[split.length];
+        for (int i = 0; i < split.length; i++) {
+            sp[i] = split[i] + "1";
+        }
         User user = new User();
         user.setUserName("548");
         System.out.println(user.getUserName());
@@ -291,10 +283,8 @@ public class SuiShouTest {
             System.out.println(substring);
         }
         System.out.println(str);
-
         BigDecimal ssd = new BigDecimal(Float.toString(xx));
         System.out.println(ssd);
-
     }
 
 }

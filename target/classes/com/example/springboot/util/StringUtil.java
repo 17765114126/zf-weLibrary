@@ -731,4 +731,28 @@ public class StringUtil extends StringUtils {
         }
         return true;
     }
+
+    /**
+     * 判断是否逗号分隔
+     * @param strArr
+     * @return
+     * */
+    public static boolean checkNumByStr(String strArr){
+        if (isBlank(strArr)){
+            return false;
+        }
+        if (strArr.lastIndexOf(",")+1 == strArr.length() || strArr.indexOf(",") == 0){
+            return true;
+        }
+        String[] split = strArr.split(",");
+        boolean flag = false;
+        for (String s : split) {
+            if (!isNumeric(s)){
+                flag = true;
+            }
+        }
+        return flag;
+    }
 }
+
+

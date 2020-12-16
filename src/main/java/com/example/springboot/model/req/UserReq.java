@@ -1,6 +1,7 @@
 package com.example.springboot.model.req;
 
-import com.example.springboot.Config.annotation.Trimmed;
+import com.example.springboot.config.annotation.Trimmed;
+import com.example.springboot.model.form.Paging;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
@@ -12,7 +13,7 @@ import javax.validation.constraints.NotBlank;
  * @Version V1.0
  **/
 @Data
-public class UserReq {
+public class UserReq extends Paging {
 
 
     private Long id;

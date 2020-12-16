@@ -1,10 +1,10 @@
 package com.example.springboot.model;
 
+import com.example.springboot.config.annotation.Encrypt;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.Email;
@@ -24,7 +24,7 @@ public class User {
     @Value("1")
     @NotNull
     private Long id;
-    @Value("user_name_1")
+    @Encrypt
     private String userName;
     @Value("note_1")
     private String note;

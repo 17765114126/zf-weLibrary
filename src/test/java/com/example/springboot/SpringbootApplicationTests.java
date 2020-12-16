@@ -1,6 +1,6 @@
 package com.example.springboot;
 
-import com.example.springboot.Config.LazyConfig;
+import com.example.springboot.config.LazyConfig;
 import com.example.springboot.model.User;
 import com.example.springboot.util.EnvUtils;
 import com.example.springboot.util.SendEmailUtil;
@@ -9,8 +9,6 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;

@@ -9,8 +9,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableAsync;
 
 @SpringBootApplication
-//@MapperScan("com.dorago.syj.mapper")
-@ServletComponentScan("com.example.springboot.Controller")
+@MapperScan("com.example.springboot.mapper")
+@ServletComponentScan("com.example.springboot.controller")
 @EnableAsync
 public class SpringbootApplication {
 

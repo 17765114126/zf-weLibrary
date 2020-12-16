@@ -21,6 +21,8 @@ spring:
       time-between-eviction-runs-millis: 360000
       minEvictableIdleTimeMillis: 360000
 
+
+
 # 发送邮件配置
 #  spring.mail.host = smtp.163.com
 #  spring.mail.port =

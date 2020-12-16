@@ -1,8 +1,8 @@
 package com.example.springboot;
 
-import com.example.springboot.Controller.RabbitMQ.主题模式.MsgSender;
-import com.example.springboot.Controller.RabbitMQ.普通模式.HelloSender;
-import com.example.springboot.Controller.RabbitMQ.订阅模式.MsgSenderFanout;
+import com.example.springboot.controller.RabbitMQ.主题模式.MsgSender;
+import com.example.springboot.controller.RabbitMQ.普通模式.HelloSender;
+import com.example.springboot.controller.RabbitMQ.订阅模式.MsgSenderFanout;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

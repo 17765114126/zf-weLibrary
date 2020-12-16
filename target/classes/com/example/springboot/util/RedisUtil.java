@@ -1,10 +1,7 @@
 package com.example.springboot.util;
 
-import org.springframework.data.redis.core.RedisOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.util.CollectionUtils;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;
@@ -603,10 +600,10 @@ public class RedisUtil {
     }
 
     /**
-    * @Date: 2019/11/1
-    * @Author: zhaofu
-    * @Description: 使用Redis流水线测试10万次读写功能
-    **/
+     * @Date: 2019/11/1
+     * @Author: zhaofu
+     * @Description: 使用Redis流水线测试10万次读写功能
+     **/
 /*    @RequestMapping("/..")
     @ResponseBody
     public Map<String,Object> test(){

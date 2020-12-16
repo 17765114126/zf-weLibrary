@@ -29,12 +29,3 @@ spring:
 mybatis-plus:
   configuration.log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
-#数据库连接
-#  datasource:
-#    driver-class-name: com.
-#    url: 120.0.0.1:3306
-#    username: root
-#    password: root
-#    filters: wall,mergeStat
-#    data-source-name: springboot
-
