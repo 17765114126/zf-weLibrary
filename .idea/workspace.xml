@@ -84,7 +84,7 @@
           <entry key="gitattributes" value="2" />
           <entry key="gitignore" value="2" />
           <entry key="html" value="8" />
-          <entry key="java" value="1376" />
+          <entry key="java" value="1377" />
           <entry key="jpg" value="6" />
           <entry key="js" value="3" />
           <entry key="jsp" value="17" />
@@ -106,7 +106,7 @@
           <entry key="CLASS" value="195" />
           <entry key="HTML" value="8" />
           <entry key="Image" value="15" />
-          <entry key="JAVA" value="1376" />
+          <entry key="JAVA" value="1377" />
           <entry key="JSP" value="16" />
           <entry key="JavaScript" value="3" />
           <entry key="Markdown" value="593" />
@@ -181,11 +181,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/dhifuhhhfshiughiuewfhuihjfkjb">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/springboot/config/Shiro/security/MyShiroRealm.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="651">
@@ -878,7 +873,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1608120045964" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1608120269577" />
     <property name="last_opened_file_path" value="E:/软件/space/JavaGuide-master" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -1127,7 +1122,7 @@
       <workItem from="1606094180649" duration="6501000" />
       <workItem from="1607082543036" duration="3334000" />
       <workItem from="1608003692116" duration="1445000" />
-      <workItem from="1608019493143" duration="10808000" />
+      <workItem from="1608019493143" duration="10920000" />
     </task>
     <task id="LOCAL-00026" summary="Redis">
       <created>1572593894811</created>
@@ -1508,7 +1503,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="792822000" />
+    <option name="totallyTimeSpent" value="792934000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1520,7 +1515,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49746192" visible="true" weight="0.15938166" />
       <window_info id="Structure" order="1" sideWeight="0.5025381" side_tool="true" weight="0.17270789" />
@@ -1538,8 +1533,8 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49946696" weight="0.32330826" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.6503198" visible="true" weight="0.2728249" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.3496802" side_tool="true" visible="true" weight="0.2728249" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.6503198" visible="true" weight="0.4178303" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.3496802" side_tool="true" visible="true" weight="0.4178303" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.26100966" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.32867885" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
@@ -1783,16 +1778,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="32" column="30" lean-forward="true" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/springboot/config/Shiro/security/SpringUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="10" lean-forward="true" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -2045,10 +2030,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/springboot/config/Shiro/security/MyShiroRealm.java">
+    <entry file="file://$PROJECT_DIR$/dhifuhhhfshiughiuewfhuihjfkjb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/springboot/config/Shiro/security/SpringUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="651">
-          <caret line="58" column="26" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
+        <state relative-caret-position="147">
+          <caret line="7" column="10" lean-forward="true" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -2065,8 +2053,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dhifuhhhfshiughiuewfhuihjfkjb">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/springboot/config/Shiro/security/MyShiroRealm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="651">
+          <caret line="58" column="26" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">
