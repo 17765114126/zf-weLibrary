@@ -2,7 +2,6 @@ package com.example.springboot.config.Shiro.security;
 
 import com.example.springboot.model.sys.SysUser;
 import org.apache.shiro.crypto.hash.SimpleHash;
-//提交代码
 public class SecurityUtil {
 
     public static String encodePassword(String password, String salt) {
