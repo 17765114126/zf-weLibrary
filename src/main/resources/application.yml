@@ -52,7 +52,7 @@ spring:
   redis:
     host: 127.0.0.1
     port: 6379
-    password: 22
+    password: 12345
 #springboot 使用spring.profiles.active 区分不同环境下配置文件
 #  profiles: active=@env@
 
