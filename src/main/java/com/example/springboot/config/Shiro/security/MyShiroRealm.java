@@ -14,7 +14,7 @@ import org.apache.shiro.util.ByteSource;
 import javax.annotation.Resource;
 
 public class MyShiroRealm extends AuthorizingRealm {
-
+    //提交代码
     @Resource
     private SysUserService sysUserService;
 
