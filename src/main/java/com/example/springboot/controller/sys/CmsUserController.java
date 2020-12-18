@@ -1,4 +1,4 @@
-package java.com.example.springboot.controller.sys.sys;
+package com.example.springboot.controller.sys;
 
 import com.example.springboot.model.req.sys.CmsUserReq;
 import com.example.springboot.service.sys.CmsUserService;
