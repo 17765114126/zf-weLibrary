@@ -21,7 +21,7 @@ public class 发送电子邮件 {
 
 //// File Name SendEmail.java
 //import java.io.*;
-//import java.util.*;
+//import java.utils.*;
 //import javax.servlet.*;
 //import javax.servlet.http.*;
 //import javax.mail.*;
@@ -123,7 +123,7 @@ public class 发送电子邮件 {
 
 //// File Name SendEmail.java
 //import java.io.*;
-//import java.util.*;
+//import java.utils.*;
 //import javax.servlet.*;
 //import javax.servlet.http.*;
 //import javax.mail.*;
@@ -190,7 +190,7 @@ public class 发送电子邮件 {
 
 //// File Name SendEmail.java
 //import java.io.*;
-//import java.util.*;
+//import java.utils.*;
 //import javax.servlet.*;
 //import javax.servlet.http.*;
 //import javax.mail.*;

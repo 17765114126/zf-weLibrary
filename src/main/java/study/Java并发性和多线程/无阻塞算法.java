@@ -14,7 +14,7 @@ public class 无阻塞算法 {
 //
 //执行线程请求的操作
 //阻塞线程直到可以安全地执行操作
-//很多算法和并发数据结构都是阻塞的。例如，java.util.concurrent.BlockingQueue 的不同实现都是阻塞数据结构。如果一个线程要往一个阻塞队列中插入一个元素，队列中没有足够的空间，执行插入操作的线程就会阻塞直到队列中有了可以存放插入元素的空间。
+//很多算法和并发数据结构都是阻塞的。例如，java.utils.concurrent.BlockingQueue 的不同实现都是阻塞数据结构。如果一个线程要往一个阻塞队列中插入一个元素，队列中没有足够的空间，执行插入操作的线程就会阻塞直到队列中有了可以存放插入元素的空间。
 //
 //下图演示了一个阻塞算法保证一个共享数据结构的行为：
     //https://wiki.jikexueyuan.com/project/java-concurrent/images/18.png
@@ -161,7 +161,7 @@ public class 无阻塞算法 {
 //
 //我们可以使用一种 Java 的原子变量来代替这两个同步块。在这个例子是 AtomicLong。下面是 SynchronizedCounter 类的 AtomicLong 实现版本。
 //
-//import java.util.concurrent.atomic.AtomicLong;
+//import java.utils.concurrent.atomic.AtomicLong;
 //
 //public class AtomicLong{
 //    private AtomicLong count = new AtomicLong(0);
@@ -253,8 +253,8 @@ public class 无阻塞算法 {
 //
 //注意：在非阻塞算法方面，我并不是一位专家，所以，下面的模板可能错误。不要基于我提供的模板实现自己的非阻塞算法。这个模板意在给你一个关于非阻塞算法大致是什么样子的一个 idea。如果，你想实现自己的非阻塞算法，首先学习一些实际的工业水平的非阻塞算法的时间，在实践中学习更多关于非阻塞算法实现的知识。
 //
-//import java.util.concurrent.atomic.AtomicBoolean;
-//import java.util.concurrent.atomic.AtomicStampedReference;
+//import java.utils.concurrent.atomic.AtomicBoolean;
+//import java.utils.concurrent.atomic.AtomicStampedReference;
 //
 //public class NonblockingTemplate{
 //    public static class IntendedModification{

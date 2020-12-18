@@ -24,8 +24,8 @@ public class ArraysTest {
  *         Arrays.asList() 方法返回的是一个固定大小的数组 , 也就是说不可以进行**add **和 remove 操作.否则会产生如下错误 :
  *
  *         Exception in thread "main" java.lang.UnsupportedOperationException
- *         at java.util.AbstractList.add(AbstractList.java:148)
- *         at java.util.AbstractList.add(AbstractList.java:108)
+ *         at java.utils.AbstractList.add(AbstractList.java:148)
+ *         at java.utils.AbstractList.add(AbstractList.java:108)
  *         at com.wsj.utils.ArraysTest.main(ArraysTest.java:19)
  *  方法原型
  *     public static <T> List<T> asList(T... a)

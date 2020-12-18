@@ -9,7 +9,7 @@ public class 阻塞队列 {
     //https://wiki.jikexueyuan.com/project/java-concurrent/images/17.png
 //线程 1 往阻塞队列中添加元素，而线程 2 从阻塞队列中移除元素
 //
-//从 5.0 开始，JDK 在 java.util.concurrent 包里提供了阻塞队列的官方实现。尽管 JDK 中已经包含了阻塞队列的官方实现，但是熟悉其背后的原理还是很有帮助的。
+//从 5.0 开始，JDK 在 java.utils.concurrent 包里提供了阻塞队列的官方实现。尽管 JDK 中已经包含了阻塞队列的官方实现，但是熟悉其背后的原理还是很有帮助的。
 //
 //阻塞队列的实现
 //阻塞队列的实现类似于带上限的 Semaphore 的实现。下面是阻塞队列的一个简单实现

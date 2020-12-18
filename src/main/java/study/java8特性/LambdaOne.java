@@ -127,7 +127,7 @@ public class LambdaOne {
  *
  * 5.公共定义的函数式接口
  *
- * 从jdk1.8开始为了方便用户开发专门提供了一个新的包：java.util.function
+ * 从jdk1.8开始为了方便用户开发专门提供了一个新的包：java.utils.function
  *
  * 在这个包里面针对于用户有可能做的函数式接口做了一个公共定义
  *

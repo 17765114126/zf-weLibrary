@@ -226,7 +226,7 @@ myList.clear();//运行时报错：UnsupportedOperationException
 
 ```java
 List myList = Arrays.asList(1, 2, 3);
-System.out.println(myList.getClass());//class java.util.Arrays$ArrayList
+System.out.println(myList.getClass());utils
 ```
 
 下图是`java.util.Arrays$ArrayList`的简易源码，我们可以看到这个类重写的方法有哪些。

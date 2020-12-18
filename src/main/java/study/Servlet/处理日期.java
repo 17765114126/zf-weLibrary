@@ -6,7 +6,7 @@ package study.Servlet;
  */
 public class 处理日期 {
 //使用 Servlet 的最重要的优势之一是你可以使用核心 Java 中的大多数可用的方法。
-// 本教程将讲解 Java 提供的 Date 类，该类在 java.util 包中是可用的，这个类封装了当前的日期和时间。
+// 本教程将讲解 Java 提供的 Date 类，该类在 java.utils 包中是可用的，这个类封装了当前的日期和时间。
 
 //Date 类支持两个构造函数。第一个构造函数用当前日期和时间初始化对象。
 
@@ -64,7 +64,7 @@ public class 处理日期 {
 
 //// Import required java libraries
 //import java.io.*;
-//import java.util.Date;
+//import java.utils.Date;
 //import javax.servlet.*;
 //import javax.servlet.http.*;
 //// Extend HttpServlet class
@@ -118,7 +118,7 @@ public class 处理日期 {
 //// Import required java libraries
 //import java.io.*;
 //import java.text.*;
-//import java.util.Date;
+//import java.utils.Date;
 //import javax.servlet.*;
 //import javax.servlet.http.*;
 //// Extend HttpServlet class

@@ -86,9 +86,9 @@ public class 概述 {
     //    ThreadTwo run：3
     //    ThreadTwo run：4
     //    ThreadTwo run：5
-    //    Exception in thread "Thread-0" java.util.ConcurrentModificationException
-    //        at java.util.ArrayList$Itr.checkForComodification(Unknown Source)
-    //        at java.util.ArrayList$Itr.next(Unknown Source)
+    //    Exception in thread "Thread-0" java.utils.ConcurrentModificationException
+    //        at java.utils.ArrayList$Itr.checkForComodification(Unknown Source)
+    //        at java.utils.ArrayList$Itr.next(Unknown Source)
     //        at test.ArrayListTest$threadOne.run(ArrayListTest.java:23)
     //二、fail-fast 产生原因
     //通过上面的示例和讲解，我初步知道 fail-fast 产生的原因就在于程序在对 collection 进行迭代时，某个线程对该 collection 在结构上对其做了修改，这时迭代器就会抛出 ConcurrentModificationException 异常信息，从而产生 fail-fast。

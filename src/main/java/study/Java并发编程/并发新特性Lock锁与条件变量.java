@@ -6,7 +6,7 @@ package study.Java并发编程;
  */
 public class 并发新特性Lock锁与条件变量 {
 //简单使用 Lock 锁
-//Java 5 中引入了新的锁机制——java.util.concurrent.locks 中的显式的互斥锁：Lock 接口，它提供了比synchronized 更加广泛的锁定操作。Lock 接口有 3 个实现它的类：ReentrantLock、ReetrantReadWriteLock.ReadLock 和 ReetrantReadWriteLock.WriteLock，即重入锁、读锁和写锁。lock 必须被显式地创建、锁定和释放，为了可以使用更多的功能，一般用 ReentrantLock 为其实例化。为了保证锁最终一定会被释放（可能会有异常发生），要把互斥区放在 try 语句块内，并在 finally 语句块中释放锁，尤其当有 return 语句时，return 语句必须放在 try 字句中，以确保 unlock()不会过早发生，从而将数据暴露给第二个任务。因此，采用 lock 加锁和释放锁的一般形式如下：
+//Java 5 中引入了新的锁机制——java.utils.concurrent.locks 中的显式的互斥锁：Lock 接口，它提供了比synchronized 更加广泛的锁定操作。Lock 接口有 3 个实现它的类：ReentrantLock、ReetrantReadWriteLock.ReadLock 和 ReetrantReadWriteLock.WriteLock，即重入锁、读锁和写锁。lock 必须被显式地创建、锁定和释放，为了可以使用更多的功能，一般用 ReentrantLock 为其实例化。为了保证锁最终一定会被释放（可能会有异常发生），要把互斥区放在 try 语句块内，并在 finally 语句块中释放锁，尤其当有 return 语句时，return 语句必须放在 try 字句中，以确保 unlock()不会过早发生，从而将数据暴露给第二个任务。因此，采用 lock 加锁和释放锁的一般形式如下：
 //
 //Lock lock = new ReentrantLock();//默认使用非公平锁，如果要使用公平锁，需要传入参数true
 //........
@@ -158,7 +158,7 @@ public class 并发新特性Lock锁与条件变量 {
 //
 //我们再将上面代码中 synchronized 的互斥锁改为 ReentrantLock 的响应中断锁，即改为如下代码：
 //
-//import java.util.concurrent.locks.ReentrantLock;
+//import java.utils.concurrent.locks.ReentrantLock;
 //
 //public class BufferInterruptibly {
 //
@@ -264,8 +264,8 @@ public class 并发新特性Lock锁与条件变量 {
 //
 //下面将生产者——消费者模型一文中的代码改为用条件变量实现，如下：
 //
-//import java.util.concurrent.*;
-//import java.util.concurrent.locks.*;
+//import java.utils.concurrent.*;
+//import java.utils.concurrent.locks.*;
 //
 //class Info{ // 定义信息类
 //    private String name = "name";//定义name属性，为了与下面set的name属性区别开

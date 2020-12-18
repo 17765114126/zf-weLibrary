@@ -60,7 +60,7 @@ public class 编写过滤器 {
 //import java.io.*;
 //import javax.servlet.*;
 //import javax.servlet.http.*;
-//import java.util.*;
+//import java.utils.*;
 //// Implements Filter class
 //public class LogFilter implements Filter  {
 //   public void  init(FilterConfig config)

@@ -1,6 +1,6 @@
 package Test;
 
-import com.example.springboot.util.DateUtil;
+import com.example.springboot.utils.DateUtil;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 

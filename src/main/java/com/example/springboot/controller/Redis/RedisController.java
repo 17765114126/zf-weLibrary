@@ -1,7 +1,7 @@
 package com.example.springboot.controller.Redis;
 
 import com.example.springboot.model.Student;
-import com.example.springboot.util.RedisUtil;
+import com.example.springboot.utils.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

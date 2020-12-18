@@ -9,7 +9,7 @@ public class notifyAll造成的早期通知问题 {
 //
 //很简单，两个线程等待删除 List 中的元素，同时另外一个线程正要向其中添加项目。代码如下：
 //
-//import java.util.*;
+//import java.utils.*;
 //
 //public class EarlyNotify extends Object {
 //    private List list;

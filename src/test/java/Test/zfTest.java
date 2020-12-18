@@ -1,7 +1,7 @@
 package Test;
 
-import com.example.springboot.util.AESEncryptUtil;
-import com.example.springboot.util.Md5Util;
+import com.example.springboot.utils.AESEncryptUtil;
+import com.example.springboot.utils.Md5Util;
 import org.junit.Test;
 import org.springframework.web.multipart.MultipartFile;
 import java.util.ArrayList;

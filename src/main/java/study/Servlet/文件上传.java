@@ -74,7 +74,7 @@ public class 文件上传 {
 //请确保已经提前创建好目录 c:\temp and c:\apache-tomcat-5.5.29\webapps\data。
 //// Import required java libraries
 //import java.io.*;
-//import java.util.*;
+//import java.utils.*;
 //import javax.servlet.ServletConfig;
 //import javax.servlet.ServletException;
 //import javax.servlet.http.HttpServlet;

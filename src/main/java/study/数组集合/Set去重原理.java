@@ -268,7 +268,7 @@ public class Set去重原理 {
         private String name;
         private String addr;
 
-//        public  VO(String name, String addr) {
+//        public  vo(String name, String addr) {
 //            this.name = name;
 //            this.addr = addr;
 //        }

@@ -122,7 +122,7 @@ public class 构建和解析自定义协议消息 {
 //import java.io.ByteArrayInputStream;
 //import java.io.IOException;
 //import java.io.InputStreamReader;
-//import java.util.Scanner;
+//import java.utils.Scanner;
 
 //public class VoteMsgTextCoder implements VoteMsgCoder {
 //  /*

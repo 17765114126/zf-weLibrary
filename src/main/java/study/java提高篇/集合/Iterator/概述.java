@@ -37,7 +37,7 @@ public class 概述 {
     //
     //上面只是对 Iterator 模式进行简单的说明，下面我们看看 Java 中 Iterator 接口，看他是如何来进行实现的。
     //
-    //一、java.util.Iterator
+    //一、java.utils.Iterator
     //在 Java 中 Iterator 为一个接口，它只提供了迭代了基本规则，在 JDK 中他是这样定义的：对 collection 进行迭代的迭代器。迭代器取代了 Java Collections Framework 中的 Enumeration。迭代器与枚举有两点不同：
     //
     //1、迭代器允许调用者利用定义良好的语义在迭代期间从迭代器所指向的 collection 移除元素。

@@ -474,8 +474,8 @@ public class CollectionStudy {
      * SortedSet和SortedMap接口对元素按指定规则排序，SortedMap是对key列进行排序。
 
      * 3.Q：Comparable和Comparator区别
-     * A:调用java.util.Collections.sort(List list)方法来进行排序的时候，List内的Object都必须实现了Comparable接口。
-     * java.util.Collections.sort(List list，Comparator c)，可以临时声明一个Comparator 来实现排序。
+     * A:调用java.utils.Collections.sort(List list)方法来进行排序的时候，List内的Object都必须实现了Comparable接口。
+     * java.utils.Collections.sort(List list，Comparator c)，可以临时声明一个Comparator 来实现排序。
 
      * Collections.sort(imageList, new Comparator() {
      * public int compare(Object a, Object b) {

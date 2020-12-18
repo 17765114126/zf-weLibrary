@@ -3,7 +3,7 @@ package com.example.springboot.config.Shiro.security;
 import com.example.springboot.model.sys.SysPermission;
 import com.example.springboot.model.sys.SysRole;
 import com.example.springboot.model.sys.SysUser;
-import com.example.springboot.service.SysUserService;
+import com.example.springboot.service.sys.SysUserService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;

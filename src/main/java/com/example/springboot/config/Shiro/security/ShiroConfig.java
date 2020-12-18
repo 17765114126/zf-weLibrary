@@ -12,7 +12,6 @@ import org.crazycake.shiro.RedisCacheManager;
 import org.crazycake.shiro.RedisManager;
 import org.crazycake.shiro.RedisSessionDAO;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.HandlerExceptionResolver;
@@ -26,9 +25,9 @@ public class ShiroConfig {
 
 
 //    @Value("${redishost}:${redisport}")
-    private String host = "127.0.0.1";
+    private String host = "127.0.0.1:6379";
 //    @Value("${redispassword}")
-    private String password = "22";
+    private String password = "12345";
 
     @Bean
     public ShiroFilterFactoryBean shirFilter(SecurityManager securityManager) {

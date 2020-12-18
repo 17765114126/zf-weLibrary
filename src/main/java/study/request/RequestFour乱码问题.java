@@ -12,7 +12,7 @@ public class RequestFour乱码问题 {
     //.1、以POST方式提交表单中文参数的乱码问题
     //例如有如下的form表单页面：
 
-    //  <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+    //  <%@ page language="java" import="java.utils.*" pageEncoding="UTF-8"%>
     //
     //  <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
     //  <html>
@@ -59,7 +59,7 @@ public class RequestFour乱码问题 {
     //例如有如下的form表单页面：
 
 
-    //  <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+    //  <%@ page language="java" import="java.utils.*" pageEncoding="UTF-8"%>
 
     //  <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
     //  <html>

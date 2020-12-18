@@ -2,8 +2,8 @@ package com.example.springboot;
 
 import com.example.springboot.config.LazyConfig;
 import com.example.springboot.model.User;
-import com.example.springboot.util.EnvUtils;
-import com.example.springboot.util.SendEmailUtil;
+import com.example.springboot.utils.EnvUtils;
+import com.example.springboot.utils.SendEmailUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;

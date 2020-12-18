@@ -5,7 +5,7 @@ package study.Java并发性和多线程;
  * @date 2020-{MONTH}-{DAY}
  */
 public class 信号量 {
-//Semaphore（信号量）是一个线程同步结构，用于在线程间传递信号，以避免出现信号丢失（译者注：下文会具体介绍），或者像锁一样用于保护一个关键区域。自从 5.0 开始，jdk 在 java.util.concurrent 包里提供了 Semaphore 的官方实现，因此大家不需要自己去实现 Semaphore。但是还是很有必要去熟悉如何使用 Semaphore 及其背后的原理
+//Semaphore（信号量）是一个线程同步结构，用于在线程间传递信号，以避免出现信号丢失（译者注：下文会具体介绍），或者像锁一样用于保护一个关键区域。自从 5.0 开始，jdk 在 java.utils.concurrent 包里提供了 Semaphore 的官方实现，因此大家不需要自己去实现 Semaphore。但是还是很有必要去熟悉如何使用 Semaphore 及其背后的原理
 //
 //本文的涉及的主题如下：
 //

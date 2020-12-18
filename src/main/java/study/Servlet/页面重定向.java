@@ -26,7 +26,7 @@ public class 页面重定向 {
 //
 //import java.io.*;
 //import java.sql.Date;
-//import java.util.*;
+//import java.utils.*;
 //import javax.servlet.*;
 //import javax.servlet.http.*;
 //public class PageRedirect extends HttpServlet{

@@ -22,7 +22,7 @@ public class 自动刷新页面 {
 //import java.io.*;
 //import javax.servlet.*;
 //import javax.servlet.http.*;
-//import java.util.*;
+//import java.utils.*;
 //// Extend HttpServlet class
 //public class Refresh extends HttpServlet {
 //  // Method to handle GET method request.

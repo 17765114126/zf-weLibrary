@@ -11,9 +11,9 @@ public class 并发新特性信号量Semaphore {
 //
 //下面给出一个采用 Semaphore 控制并发访问数量的示例程序：
 //
-//import java.util.concurrent.ExecutorService;
-//import java.util.concurrent.Executors;
-//import java.util.concurrent.Semaphore;
+//import java.utils.concurrent.ExecutorService;
+//import java.utils.concurrent.Executors;
+//import java.utils.concurrent.Semaphore;
 //public class SemaphoreTest{
 //    public static void main(String[] args) {
 //    //采用新特性来启动和管理线程——内部使用线程池

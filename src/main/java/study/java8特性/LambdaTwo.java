@@ -314,7 +314,7 @@ public static void Test3() {
 /**
 * 6.4 Stream API 示例
 *
-* java.util.stream.Stream接口 和 Lambda 表达式一样，都是 Java 8 新引入的。所有 Stream 的操作必须以 Lambda 表达式为参数。
+* java.utils.stream.Stream接口 和 Lambda 表达式一样，都是 Java 8 新引入的。所有 Stream 的操作必须以 Lambda 表达式为参数。
 * Stream 接口中带有大量有用的方法，比如 map() 的作用就是将 input Stream 的每个元素，映射成output Stream 的另外一个元素。
 * -
 * 下面的例子，我们将 Lambda 表达式 x -> x*x 传递给 map() 方法，将其应用于流的所有元素。之后，我们使用 forEach打印列表的所有元素。

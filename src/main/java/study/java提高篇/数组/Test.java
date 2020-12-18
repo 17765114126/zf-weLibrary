@@ -354,8 +354,8 @@ public class Test {
         //这个程序非常简单，就是讲一个数组转换成 list，然后改变集合中值，但是运行呢？
 
         //    Exception in thread "main"   java.lang.UnsupportedOperationException
-        //        at java.util.AbstractList.add(AbstractList.java:131)
-        //        at java.util.AbstractList.add(AbstractList.java:91)
+        //        at java.utils.AbstractList.add(AbstractList.java:131)
+        //        at java.utils.AbstractList.add(AbstractList.java:91)
         //        at com.array.Test.main(Test.java:18)
         //编译没错，但是运行竟然出现了异常错误！UnsupportedOperationException，当不支持请求的操作时，就会抛出该异常。
         // 从某种程度上来说就是不支持add方法，我们知道这是不可能的！什么原因引起这个异常呢？先看 asList() 的源代码：
@@ -364,7 +364,7 @@ public class Test {
         //    public static <T> List<T> asList(T... a) {
         //            return new ArrayList<T>(a);
         //        }
-        //这里是直接返回一个 ArrayList 对象返回，但是注意这个 ArrayList 并不是 java.util.ArrayList,而是 Arrays 工具类的一个内之类：
+        //这里是直接返回一个 ArrayList 对象返回，但是注意这个 ArrayList 并不是 java.utils.ArrayList,而是 Arrays 工具类的一个内之类：
 
 
         //    private static class ArrayList<E> extends AbstractList<E>

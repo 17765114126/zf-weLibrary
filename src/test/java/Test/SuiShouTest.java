@@ -3,10 +3,8 @@ package Test;
 import com.alibaba.fastjson.JSON;
 import com.example.springboot.model.Person;
 import com.example.springboot.model.User;
-import com.example.springboot.util.DateUtil;
-import com.example.springboot.util.EnvUtils;
-import com.example.springboot.util.MathUtil;
-import com.example.springboot.util.StringUtil;
+import com.example.springboot.utils.MathUtil;
+import com.example.springboot.utils.StringUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 

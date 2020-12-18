@@ -27,7 +27,7 @@ public class 多线程环境下安全使用集合API {
 //
 //下面给出一段多线程中安全遍历集合元素的示例。我们使用 Iterator 逐个扫描 List 中的元素，在多线程环境中，当遍历当前集合中的元素时，一般希望阻止其他线程添加或删除元素。安全遍历的实现方法如下：
 //
-//import java.util.*;
+//import java.utils.*;
 //
 //public class SafeCollectionIteration extends Object {
 //    public static void main(String[] args) {

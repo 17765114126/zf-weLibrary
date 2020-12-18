@@ -1,6 +1,6 @@
 package com.example.springboot.config;
 
-import com.example.springboot.util.RedisUtil;
+import com.example.springboot.utils.RedisUtil;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
 import org.springframework.context.annotation.Bean;

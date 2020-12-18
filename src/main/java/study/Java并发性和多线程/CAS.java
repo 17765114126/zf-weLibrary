@@ -49,7 +49,7 @@ public class CAS {
 //原子的 lock 方法实际上是一个”compare and swap“的例子。
 //
 //CAS 用作原子操作
-//现在 CPU 内部已经执行原子的 CAS 操作。Java5 以来，你可以使用 java.util.concurrent.atomic 包中的一些原子类来使用 CPU 中的这些功能。
+//现在 CPU 内部已经执行原子的 CAS 操作。Java5 以来，你可以使用 java.utils.concurrent.atomic 包中的一些原子类来使用 CPU 中的这些功能。
 //
 //下面是一个使用 AtomicBoolean 类实现 lock()方法的例子：
 //

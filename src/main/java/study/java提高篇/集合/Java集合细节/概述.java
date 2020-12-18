@@ -126,8 +126,8 @@ public class 概述 {
     //
     //
     //    Exception in thread "main" java.lang.UnsupportedOperationException
-    //        at java.util.AbstractList.add(Unknown Source)
-    //        at java.util.AbstractList.add(Unknown Source)
+    //        at java.utils.AbstractList.add(Unknown Source)
+    //        at java.utils.AbstractList.add(Unknown Source)
     //        at com.chenssy.test.arrayList.AsListTest.main(AsListTest.java:10)
     //运行结果尽然抛出 UnsupportedOperationException 异常，该异常表示 list 不支持 add 方法。这就让我们郁闷了，list 怎么可能不支持 add 方法呢？难道 JDK 脑袋堵塞了？我们再看 asList 的源码：
     //
@@ -150,7 +150,7 @@ public class 概述 {
     //            }
     //            //.................
     //        }
-    //这是 ArrayList 的源码,从这里我们可以看出,此 ArrayList 不是 java.util.ArrayList，他是 Arrays 的内部类。该内部类提供了 size、toArray、get、set、indexOf、contains 方法，而像 add、remove 等改变 list 结果的方法从 AbstractList 父类继承过来，同时这些方法也比较奇葩，它直接抛出 UnsupportedOperationException 异常：
+    //这是 ArrayList 的源码,从这里我们可以看出,此 ArrayList 不是 java.utils.ArrayList，他是 Arrays 的内部类。该内部类提供了 size、toArray、get、set、indexOf、contains 方法，而像 add、remove 等改变 list 结果的方法从 AbstractList 父类继承过来，同时这些方法也比较奇葩，它直接抛出 UnsupportedOperationException 异常：
     //
     //
     //    public boolean add(E e) {
@@ -313,9 +313,9 @@ public class 概述 {
     //
     //
     //    list1'size：3
-    //    Exception in thread "main" java.util.ConcurrentModificationException
-    //        at java.util.ArrayList$SubList.checkForComodification(Unknown Source)
-    //        at java.util.ArrayList$SubList.size(Unknown Source)
+    //    Exception in thread "main" java.utils.ConcurrentModificationException
+    //        at java.utils.ArrayList$SubList.checkForComodification(Unknown Source)
+    //        at java.utils.ArrayList$SubList.size(Unknown Source)
     //        at com.chenssy.test.arrayList.SubListTest.main(SubListTest.java:17)
     //list1 正常输出，但是 list3 就抛出 ConcurrentModificationException 异常，看过我另一篇博客的同仁肯定对这个异常非常，fail-fast？不错就是 fail-fast 机制，在 fail-fast 机制中，LZ 花了很多力气来讲述这个异常，所以这里 LZ 就不对这个异常多讲了（更多请点这里：Java 提高篇（三四）—–fail-fast 机制 ）。我们再看 size 方法：
     //

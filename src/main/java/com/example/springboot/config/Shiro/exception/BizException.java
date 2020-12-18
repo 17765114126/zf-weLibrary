@@ -1,7 +1,7 @@
 package com.example.springboot.config.Shiro.exception;
 
 
-import com.example.springboot.util.ResultCodeEnum;
+import com.example.springboot.utils.ResultCodeEnum;
 
 /**
  * @author chen

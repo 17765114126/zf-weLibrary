@@ -72,7 +72,7 @@ public static void main(String[] args) {
  * 最终采取的方法是：增加函数式接口的概念。
  * 函数式接口就是一个具有一个方法的普通接口。
  * 像这样的接口，可以被隐式转换为lambda表达式。
- * java.lang.Runnable与java.util.concurrent.Callable是函数式接口最典型的两个例子。
+ * java.lang.Runnable与java.utils.concurrent.Callable是函数式接口最典型的两个例子。
 
  *
  * 在实际使用过程中，函数式接口是容易出错的：如有某个人在接口定义中增加了另一个方法，这时，这个接口就不再是函数式的了，并且编译过程也会失败。
@@ -151,7 +151,7 @@ public static void main(String[] args) {
 
  * 在JVM中，默认方法的实现是非常高效的，并且通过字节码指令为方法调用提供了支持。
  * 默认方法允许继续使用现有的Java接口，而同时能够保障正常的编译过程。
- * 这方面好的例子是大量的方法被添加到java.util.Collection接口中去：stream()，parallelStream()，forEach()，removeIf()，……
+ * 这方面好的例子是大量的方法被添加到java.utils.Collection接口中去：stream()，parallelStream()，forEach()，removeIf()，……
  *
  * 尽管默认方法非常强大，但是在使用默认方法时我们需要小心注意一个地方：
  * 在声明一个默认方法前，请仔细思考是不是真的有必要使用默认方法，因为默认方法会带给程序歧义，并且在复杂的继承体系中容易产生编译错误。更多详情请参考官方文档
@@ -374,7 +374,7 @@ public static void main(String[] args) {
 
 
  * 4.2 Stream
- * 最新添加的Stream API（java.util.stream） 把真正的函数式编程风格引入到Java中。
+ * 最新添加的Stream API（java.utils.stream） 把真正的函数式编程风格引入到Java中。
  * 这是目前为止对Java类库最好的补充，因为Stream API可以极大提供Java程序员的生产力，让程序员写出高效率、干净、简洁的代码。
  * Stream API极大简化了集合框架的处理（但它的处理的范围不仅仅限于集合框架的处理，这点后面我们会看到）。让我们以一个简单的Task类为例进行介绍：
  * public class Streams  {
@@ -484,11 +484,11 @@ public static void main(String[] args) {
  *
  * 4.3 Date/Time API (JSR 310)
  * Java 8通过发布新的Date-Time API (JSR 310)来进一步加强对日期与时间的处理。对日期与时间的操作一直是Java程序员最痛苦的地方之一。
- * 标准的 java.util.Date以及后来的java.util.Calendar一点没有改善这种情况（可以这么说，它们一定程度上更加复杂）。
+ * 标准的 java.utils.Date以及后来的java.utils.Calendar一点没有改善这种情况（可以这么说，它们一定程度上更加复杂）。
  * 这种情况直接导致了Joda-Time——一个可替换标准日期/时间处理且功能非常强大的Java API的诞生。
  * Java 8新的Date-Time API (JSR 310)在很大程度上受到Joda-Time的影响，并且吸取了其精髓。
  * 新的java.time包涵盖了所有处理日期，时间，日期/时间，时区，时刻（instants），过程（during）与时钟（clock）的操作。
- * 在设计新版API时，十分注重与旧版API的兼容性：不允许有任何的改变（从java.util.Calendar中得到的深刻教训）。
+ * 在设计新版API时，十分注重与旧版API的兼容性：不允许有任何的改变（从java.utils.Calendar中得到的深刻教训）。
  * 如果需要修改，会返回这个类的一个新实例。
  * 让我们用例子来看一下新版API主要类的使用方法。第一个是Clock类，它通过指定一个时区，然后就可以获取到当前的时刻，日期与时间。
  * Clock可以替换System.currentTimeMillis()与TimeZone.getDefault()。
@@ -576,7 +576,7 @@ public static void main(String[] args) {
  * package com.javacodegeeks.java8.base64;
  *
  * import java.nio.charset.StandardCharsets;
- * import java.util.Base64;
+ * import java.utils.Base64;
  *
  * public class Base64s {
  *     public static void main(String[] args) {
@@ -603,8 +603,8 @@ public static void main(String[] args) {
  * 下面的例子展示了新方法（parallelXxx）的使用。
  * package com.javacodegeeks.java8.parallel.arrays;
  *
- * import java.util.Arrays;
- * import java.util.concurrent.ThreadLocalRandom;
+ * import java.utils.Arrays;
+ * import java.utils.concurrent.ThreadLocalRandom;
  *
  * public class ParallelArrays {
  *     public static void main( String[] args ) {
@@ -629,11 +629,11 @@ public static void main(String[] args) {
 
  *
  * 4.7 并发（Concurrency）
- * 在新增Stream机制与lambda的基础之上，在java.util.concurrent.ConcurrentHashMap中加入了一些新方法来支持聚集操作。
- * 同时也在java.util.concurrent.ForkJoinPool类中加入了一些新方法来支持共有资源池（common pool）（请查看我们关于Java 并发的免费课程）。
- * 新增的java.util.concurrent.locks.StampedLock类提供一直基于容量的锁，
- * 这种锁有三个模型来控制读写操作（它被认为是不太有名的java.util.concurrent.locks.ReadWriteLock类的替代者）。
- * 在java.util.concurrent.atomic包中还增加了下面这些类：
+ * 在新增Stream机制与lambda的基础之上，在java.utils.concurrent.ConcurrentHashMap中加入了一些新方法来支持聚集操作。
+ * 同时也在java.utils.concurrent.ForkJoinPool类中加入了一些新方法来支持共有资源池（common pool）（请查看我们关于Java 并发的免费课程）。
+ * 新增的java.utils.concurrent.locks.StampedLock类提供一直基于容量的锁，
+ * 这种锁有三个模型来控制读写操作（它被认为是不太有名的java.utils.concurrent.locks.ReadWriteLock类的替代者）。
+ * 在java.utils.concurrent.atomic包中还增加了下面这些类：
  * DoubleAccumulator
  * DoubleAdder
  * LongAccumulator
@@ -668,8 +668,8 @@ public static void main(String[] args) {
  *       -> java.lang.annotation
  *       -> java.lang.ref
  *       -> java.lang.reflect
- *       -> java.util
- *       -> java.util.concurrent
+ *       -> java.utils
+ *       -> java.utils.concurrent
  *       -> org.apache.commons.logging                         not found
  *       -> org.springframework.asm                            not found
  *       -> org.springframework.asm.commons                    not found
@@ -677,7 +677,7 @@ public static void main(String[] args) {
  *       -> java.lang
  *       -> java.lang.annotation
  *       -> java.lang.reflect
- *       -> java.util
+ *       -> java.utils
  * 更多详情请参考官方文档
  *
 

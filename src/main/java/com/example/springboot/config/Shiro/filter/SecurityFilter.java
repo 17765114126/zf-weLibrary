@@ -12,9 +12,9 @@ import com.example.springboot.model.sys.SysUser;
 import com.example.springboot.model.entity.CmsButton;
 import com.example.springboot.model.entity.CmsModel;
 import com.example.springboot.model.entity.CmsPermission;
-import com.example.springboot.service.SysUserService;
-import com.example.springboot.util.Result;
-import com.example.springboot.util.ResultCodeEnum;
+import com.example.springboot.service.sys.SysUserService;
+import com.example.springboot.utils.Result;
+import com.example.springboot.utils.ResultCodeEnum;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.servlet.*;

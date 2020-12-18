@@ -248,8 +248,8 @@ public class 概述 {
     //
     //    Exception in thread "Timer-0" java.lang.RuntimeException
     //        at com.chenssy.timer.TimerTest04$1.run(TimerTest04.java:25)
-    //        at java.util.TimerThread.mainLoop(Timer.java:555)
-    //        at java.util.TimerThread.run(Timer.java:505)
+    //        at java.utils.TimerThread.mainLoop(Timer.java:555)
+    //        at java.utils.TimerThread.run(Timer.java:505)
     //对于 Timer 的缺陷，我们可以考虑 ScheduledThreadPoolExecutor 来替代。Timer 是基于绝对时间的，对系统时间比较敏感，而 ScheduledThreadPoolExecutor 则是基于相对时间；Timer 是内部是单一线程，而 ScheduledThreadPoolExecutor 内部是个线程池，所以可以支持多个任务并发执行。
     //
     //3.2、用 ScheduledExecutorService 替代 Timer

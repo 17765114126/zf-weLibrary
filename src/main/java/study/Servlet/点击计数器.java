@@ -30,7 +30,7 @@ public class 点击计数器 {
 
 //import java.io.*;
 //import java.sql.Date;
-//import java.util.*;
+//import java.utils.*;
 //import javax.servlet.*;
 //import javax.servlet.http.*;
 //public class PageHitCounter extends HttpServlet{
@@ -108,7 +108,7 @@ public class 点击计数器 {
 //import java.io.*;
 //import javax.servlet.*;
 //import javax.servlet.http.*;
-//import java.util.*;
+//import java.utils.*;
 //public class SiteHitCounter implements Filter{
 //  private int hitCount;
 //  public void  init(FilterConfig config)

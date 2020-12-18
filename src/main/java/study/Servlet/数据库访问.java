@@ -57,7 +57,7 @@ public class 数据库访问 {
 
 //// Loading required libraries
 //import java.io.*;
-//import java.util.*;
+//import java.utils.*;
 //import javax.servlet.*;
 //import javax.servlet.http.*;
 //import java.sql.*;

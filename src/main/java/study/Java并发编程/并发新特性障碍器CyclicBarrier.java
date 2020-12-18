@@ -5,12 +5,12 @@ package study.Java并发编程;
  * @date 2020-{MONTH}-{DAY}
  */
 public class 并发新特性障碍器CyclicBarrier {
-//CyclicBarrier（又叫障碍器）同样是 Java 5 中加入的新特性，使用时需要导入java.util.concurrent.CylicBarrier。它适用于这样一种情况：你希望创建一组任务，它们并发地执行工作，另外的一个任务在这一组任务并发执行结束前一直阻塞等待，直到该组任务全部执行结束，这个任务才得以执行。这非常像 CountDownLatch，只是 CountDownLatch 是只触发一次的事件，而 CyclicBarrier 可以多次重用。
+//CyclicBarrier（又叫障碍器）同样是 Java 5 中加入的新特性，使用时需要导入java.utils.concurrent.CylicBarrier。它适用于这样一种情况：你希望创建一组任务，它们并发地执行工作，另外的一个任务在这一组任务并发执行结束前一直阻塞等待，直到该组任务全部执行结束，这个任务才得以执行。这非常像 CountDownLatch，只是 CountDownLatch 是只触发一次的事件，而 CyclicBarrier 可以多次重用。
 //
 //下面给出一个简单的实例来说明其用法：
 //
-//import java.util.concurrent.BrokenBarrierException;
-//import java.util.concurrent.CyclicBarrier;
+//import java.utils.concurrent.BrokenBarrierException;
+//import java.utils.concurrent.CyclicBarrier;
 //
 //public class CyclicBarrierTest {
 //        public static void main(String[] args) {
