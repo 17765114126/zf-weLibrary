@@ -34,9 +34,6 @@ public class LoginController {
     @Resource
     SuSmsLogService suSmsLogService;
 
-//    @Resource
-//    SyjCmsOptLogService syjCmsOptLogService;
-
     @Resource
     MySessionManager mySessionManager;
 
@@ -92,7 +89,6 @@ public class LoginController {
         } catch (Exception e) {
             result = Result.with(ResultCodeEnum.INNER_ERROR);
         }
-//        syjCmsOptLogService.log(req.getMobile(),1,"用户登录",null,result.success() ? "登录成功" : result.getMsg());
         return result;
     }
 

@@ -1,6 +1,7 @@
 package Test;
 
 import com.alibaba.fastjson.JSON;
+import com.example.springboot.config.Shiro.security.SpringUtils;
 import com.example.springboot.model.Person;
 import com.example.springboot.model.User;
 import com.example.springboot.utils.MathUtil;
@@ -257,6 +258,11 @@ public class SuiShouTest {
         User user = new User();
         user.setUserName("548");
         System.out.println(user.getUserName());
+    }
+
+    @Test
+    public void Test19 (){
+        System.out.println(SpringUtils.testEnv());
     }
 
     public static void main(String[] args) {

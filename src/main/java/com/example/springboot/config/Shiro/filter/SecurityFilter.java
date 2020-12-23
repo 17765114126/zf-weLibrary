@@ -16,7 +16,6 @@ import com.example.springboot.service.sys.SysUserService;
 import com.example.springboot.utils.Result;
 import com.example.springboot.utils.ResultCodeEnum;
 import lombok.extern.slf4j.Slf4j;
-//提交代码
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
@@ -34,7 +33,7 @@ public class SecurityFilter implements Filter {
             response.setCharacterEncoding("utf-8");
             response.setContentType("application/json;charset=utf-8");
             String requri = req.getRequestURI();
-            Map<String, String> params = new HashMap<>();
+            Map<String, String> params = new HashMap<>(16);
             for (Object name : request.getParameterMap().keySet()) {
                 String v = request.getParameter(name.toString());
                 if (v != null && v != "") {

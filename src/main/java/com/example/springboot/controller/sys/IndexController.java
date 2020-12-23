@@ -32,7 +32,7 @@ public class IndexController {
      * @param request
      * @return
      */
-    @RequestMapping("/login")
+    @RequestMapping("/login1")
     public String login(HttpServletRequest request) {
         String username = request.getParameter("username");
         String password = request.getParameter("password");

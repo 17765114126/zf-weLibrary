@@ -11,11 +11,9 @@ public interface SecurityConstants {
 
     int SESSION_TIMEOUT = 7200*1000;
 
-    /*
-    * 绕过权限可直接访问的页面
-    * */
-    List<String> PATH_WHITE_LIST = Arrays.asList("/businessLogin","/getMoblieMessage", "/forgetPwdMobileMessage", "/password/updateDefaultPwd","/settledProduct/handStart",
-            "/business/settleIn/submit","/business/settleIn/checkMobile","/business/settleIn/index","/business/settleIn/getCity","/business/settleIn/getCityBytype",
-            "/eqb/auth","/BusinessManagament/uploadPicture");
+     /**
+      * 绕过权限可直接访问的页面
+      * */
+    List<String> PATH_WHITE_LIST = Arrays.asList("/login","/login1", "/forgetPwdMobileMessage", "/password/updateDefaultPwd");
 
 }
