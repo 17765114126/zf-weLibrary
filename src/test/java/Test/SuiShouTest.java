@@ -11,6 +11,10 @@ import org.junit.Test;
 
 import java.math.BigDecimal;
 import java.util.*;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @ClassName SuiShouTest
@@ -249,9 +253,9 @@ public class SuiShouTest {
 
     @Test
     public void Test18() {
-        String[] split =new String[]{"17765114126","18203655200"};
+        String[] split = new String[]{"17765114126", "18203655200"};
 
-        String[] sp =new String[split.length];
+        String[] sp = new String[split.length];
         for (int i = 0; i < split.length; i++) {
             sp[i] = split[i] + "1";
         }
@@ -261,11 +265,7 @@ public class SuiShouTest {
     }
 
     @Test
-    public void Test19 (){
-        System.out.println(SpringUtils.testEnv());
-    }
-
-    public static void main(String[] args) {
+    public void Test19()  {
         BigDecimal c = BigDecimal.valueOf(3.55);
         Integer g = 2;
         BigDecimal bignum2 = new BigDecimal(g);
@@ -289,6 +289,56 @@ public class SuiShouTest {
         System.out.println(str);
         BigDecimal ssd = new BigDecimal(Float.toString(xx));
         System.out.println(ssd);
+    }
+
+    @Test
+    public void Test20() throws Throwable {
+        System.out.println(SpringUtils.testEnv());
+        throw new Exception("dcj");
+    }
+
+
+    private static ThreadPoolExecutor executor = new ThreadPoolExecutor(100, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue<Runnable>());
+
+    @Test
+    public void Test21() {
+        try {
+            List<String> records = new ArrayList<>();
+            for (int i = 0; i < 10000; i++) {
+                records.add("xiancheng :" + i);
+            }
+            CountDownLatch latch = new CountDownLatch(records.size());
+            for (String record : records) {
+                executor.execute(() -> {
+                    try {
+                        if (record.equals("xiancheng :5")) {
+                            System.out.println("sleep--------");
+                            Thread.sleep(2000);
+                        }
+                        System.out.println(record);
+                        return;
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }finally {
+                        latch.countDown();
+                    }
+                });
+            }
+            latch.await();
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void Test22()  {
+    }
+    public static void main(String[] args) {
+        for (String arg : args) {
+            System.out.println(arg);
+        }
     }
 
 }
