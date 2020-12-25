@@ -1,7 +1,7 @@
 package com.example.springboot.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.example.springboot.model.entity.SuSmsLog;
+import com.example.springboot.model.entity.SmsLog;
 
 /**
  * 发送短信验证码记录表 Mapper 接口
@@ -9,6 +9,6 @@ import com.example.springboot.model.entity.SuSmsLog;
  * @author system
  * @since 2019-07-01
  */
-public interface SuSmsLogMapper extends BaseMapper<SuSmsLog> {
+public interface SuSmsLogMapper extends BaseMapper<SmsLog> {
 
 }

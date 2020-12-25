@@ -47,11 +47,11 @@ public enum ResultCodeEnum {
 
     private static Map<Integer, ResultCodeEnum> lookup;
 
-    static {
-        lookup = new HashMap<>();
-        Arrays.stream(values()).forEach(e -> lookup.put(e.code, e));
-        lookup = Collections.unmodifiableMap(lookup);
-    }
+//    static {
+//        lookup = new HashMap<>();
+//        Arrays.stream(values()).forEach(e -> lookup.put(e.code, e));
+//        lookup = Collections.unmodifiableMap(lookup);
+//    }
 
     private Integer code;
 

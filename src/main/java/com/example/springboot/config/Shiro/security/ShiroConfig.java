@@ -51,7 +51,7 @@ public class ShiroConfig {
     public HashedCredentialsMatcher hashedCredentialsMatcher() {
         HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
         hashedCredentialsMatcher.setHashAlgorithmName(SecurityConstants.HASH_ALGORITHMNAME);
-        hashedCredentialsMatcher.setHashIterations(SecurityConstants.HASH_ITERATIONS);
+//        hashedCredentialsMatcher.setHashIterations(SecurityConstants.HASH_ITERATIONS);
         return hashedCredentialsMatcher;
     }
 

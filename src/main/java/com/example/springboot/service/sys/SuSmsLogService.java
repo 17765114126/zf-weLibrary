@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.springboot.mapper.CmsUserMapper;
 import com.example.springboot.mapper.SuSmsLogMapper;
 import com.example.springboot.model.entity.CmsUser;
-import com.example.springboot.model.entity.SuSmsLog;
+import com.example.springboot.model.entity.SmsLog;
 import com.example.springboot.model.enums.CmsUserStatusEnum;
 import com.example.springboot.utils.Result;
 import com.example.springboot.utils.ResultCodeEnum;
@@ -35,7 +35,7 @@ public class SuSmsLogService {
         }
         String code = "";
 //        try {
-            SuSmsLog ssl = suSmsLogMapper.selectOne(new QueryWrapper<SuSmsLog>().lambda().eq(SuSmsLog::getMobile, mobile));
+            SmsLog ssl = suSmsLogMapper.selectOne(new QueryWrapper<SmsLog>().lambda().eq(SmsLog::getMobile, mobile));
             Random rand = new Random();//生成随机数
             for (int a = 0; a < 6; a++) {
                 code += rand.nextInt(10);//生成6位验证码
@@ -46,7 +46,7 @@ public class SuSmsLogService {
                 ssl.setUpdateTime(new Date());
                 suSmsLogMapper.updateById(ssl);
             } else {
-                SuSmsLog smsLog = new SuSmsLog();//短信验证对象
+                SmsLog smsLog = new SmsLog();//短信验证对象
                 smsLog.setCode(code);
                 smsLog.setMobile(mobile);
                 smsLog.setCreateDateTime(new Date());
@@ -75,7 +75,7 @@ public class SuSmsLogService {
     public Result checkMobileMessage(String mobile, String registCode) {
         String msg = null;
         //验证码是否正确
-        SuSmsLog ssl = suSmsLogMapper.selectOne(new QueryWrapper<SuSmsLog>().lambda().eq(SuSmsLog::getMobile, mobile));
+        SmsLog ssl = suSmsLogMapper.selectOne(new QueryWrapper<SmsLog>().lambda().eq(SmsLog::getMobile, mobile));
         if (ssl != null) {
             if (registCode != null && registCode.equals(ssl.getCode())) {
                 if (new Date().getTime() - ssl.getCreateDateTime().getTime() > 600000) {

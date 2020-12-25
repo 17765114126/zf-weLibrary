@@ -7,6 +7,7 @@ import com.example.springboot.service.sys.SysUserService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
+import org.apache.shiro.crypto.hash.Md5Hash;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
@@ -36,6 +37,8 @@ public class MyShiroRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token)
             throws AuthenticationException {
         String mobile = (String) token.getPrincipal();
+        //可能是因为在UsernamePasswordToken内部将密码部分转为字符数组了，所以要这样取String password = new String((char[]) token.getCredentials()); ，
+        String password = new String((char[]) token.getCredentials());
         SysUser sysUser = sysUserService.getUserByMobile(mobile);
         if (sysUser == null) {
             return null;
@@ -44,11 +47,15 @@ public class MyShiroRealm extends AuthorizingRealm {
         if (sysUser.getStatus() == 2) {
             throw new LockedAccountException();
         }
+
+        //此密码为明文，然后给密码加密String md5Pwd = new Md5Hash(password, username).toHex();，然后再将md5Pwd放到SimpleAuthenticationInfo中
+        String md5Pwd = new Md5Hash(password, sysUser.getSalt()).toHex();
+
         SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
                 //用户名
                 sysUser,
                 //密码
-                sysUser.getPassword(),
+                md5Pwd,
                 //salt=username+salt
                 ByteSource.Util.bytes(sysUser.getSalt()),
                 //realm name

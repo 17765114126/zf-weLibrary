@@ -33,13 +33,13 @@ public class SecurityFilter implements Filter {
             response.setCharacterEncoding("utf-8");
             response.setContentType("application/json;charset=utf-8");
             String requri = req.getRequestURI();
-            Map<String, String> params = new HashMap<>(16);
-            for (Object name : request.getParameterMap().keySet()) {
-                String v = request.getParameter(name.toString());
-                if (v != null && v != "") {
-                    params.put(name.toString(), v);
-                }
-            }
+//            Map<String, String> params = new HashMap<>(16);
+//            for (Object name : request.getParameterMap().keySet()) {
+//                String v = request.getParameter(name.toString());
+//                if (v != null && v != "") {
+//                    params.put(name.toString(), v);
+//                }
+//            }
 
             if(!SecurityConstants.PATH_WHITE_LIST.contains(requri)){
                 SysUser sysUser = SecurityUtil.sysUser();

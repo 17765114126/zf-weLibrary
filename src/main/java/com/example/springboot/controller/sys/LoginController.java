@@ -1,9 +1,11 @@
 package com.example.springboot.controller.sys;
 
+import com.alibaba.fastjson.JSON;
 import com.example.springboot.config.Shiro.security.MySessionManager;
 import com.example.springboot.config.Shiro.security.SecurityConstants;
 import com.example.springboot.config.Shiro.security.SecurityUtil;
 import com.example.springboot.config.Shiro.security.SpringUtils;
+import com.example.springboot.controller.JSON.Json;
 import com.example.springboot.model.req.sys.LoginReq;
 import com.example.springboot.model.sys.SysUser;
 import com.example.springboot.model.sys.UserInfoVO;
@@ -42,7 +44,7 @@ public class LoginController {
 
     private final static String LOGIN_SESSION_KEY_PREFIX = "zf_";
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
     public Object login(LoginReq req) {
         Result result;
         try {
@@ -81,12 +83,16 @@ public class LoginController {
             result = Result.with(userInfoVO);
            /*return Result.with(subject.getSession().getId());*/
         } catch (IncorrectCredentialsException e) {
+            System.out.println(JSON.toJSONString(e));
             result = Result.with(ResultCodeEnum.PASSWORD_ERROR);
         } catch (LockedAccountException e) {
+            System.out.println(JSON.toJSONString(e));
             result = Result.with(ResultCodeEnum.USER_INVALID);
         } catch (AuthenticationException e) {
+            System.out.println(JSON.toJSONString(e));
             result = Result.with(ResultCodeEnum.USER_NOT_EXIST);
         } catch (Exception e) {
+            System.out.println(JSON.toJSONString(e));
             result = Result.with(ResultCodeEnum.INNER_ERROR);
         }
         return result;
