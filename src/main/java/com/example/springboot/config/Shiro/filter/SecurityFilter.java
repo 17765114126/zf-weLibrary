@@ -19,8 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+
 @Slf4j
 public class SecurityFilter implements Filter {
     @Override
@@ -81,7 +80,7 @@ public class SecurityFilter implements Filter {
             chain.doFilter(request, response);
         }catch (Exception e){
             log.error("",e);
-            response.getWriter().write(JSON.toJSONString(Result.with(ResultCodeEnum.INNER_ERROR)));
+//            response.getWriter().write(JSON.toJSONString(Result.with(ResultCodeEnum.INNER_ERROR)));
         }
     }
 

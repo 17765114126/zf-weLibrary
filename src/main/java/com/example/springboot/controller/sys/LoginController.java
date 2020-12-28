@@ -5,7 +5,6 @@ import com.example.springboot.config.Shiro.security.MySessionManager;
 import com.example.springboot.config.Shiro.security.SecurityConstants;
 import com.example.springboot.config.Shiro.security.SecurityUtil;
 import com.example.springboot.config.Shiro.security.SpringUtils;
-import com.example.springboot.controller.JSON.Json;
 import com.example.springboot.model.req.sys.LoginReq;
 import com.example.springboot.model.sys.SysUser;
 import com.example.springboot.model.sys.UserInfoVO;
