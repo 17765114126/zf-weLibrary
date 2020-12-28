@@ -3,6 +3,7 @@ package com.example.springboot.config.Shiro.security;
 import com.example.springboot.config.Shiro.exception.MyExceptionHandler;
 import com.example.springboot.config.Shiro.filter.SecurityFilter;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
+import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.session.mgt.SessionManager;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
@@ -12,11 +13,16 @@ import org.crazycake.shiro.RedisCacheManager;
 import org.crazycake.shiro.RedisManager;
 import org.crazycake.shiro.RedisSessionDAO;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.cache.RedisCacheConfiguration;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.serializer.RedisSerializationContext;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 
 import javax.servlet.Filter;
+import java.time.Duration;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -24,10 +30,10 @@ import java.util.Map;
 public class ShiroConfig {
 
 
-//    @Value("${redishost}:${redisport}")
-    private String host = "127.0.0.1:6379";
-//    @Value("${redispassword}")
-    private String password = "12345";
+//    @Value("${spring.redis.host}:${spring.redis.port}")
+    private String host = "39.101.184.47:6379";
+//    @Value("${spring.redis.password}")
+    private String password;
 
     @Bean
     public ShiroFilterFactoryBean shirFilter(SecurityManager securityManager) {
@@ -153,5 +159,28 @@ public class ShiroConfig {
         return new MyExceptionHandler();
     }
 
-
+//    @Bean
+//    public CacheManager cacheManager(RedisTemplate<String, Object> template) {
+//        RedisCacheConfiguration defaultCacheConfiguration =
+//                RedisCacheConfiguration
+//                        .defaultCacheConfig()
+//                        // 设置key为String
+//                        .serializeKeysWith(RedisSerializationContext.SerializationPair.fromSerializer(template.getStringSerializer()))
+//                        // 设置value 为自动转Json的Object
+//                        .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(template.getValueSerializer()))
+//                        // 不缓存null
+//                        .disableCachingNullValues()
+//                        // 缓存数据保存1小时
+//                        .entryTtl(Duration.ofHours(1));
+//        RedisCacheManager redisCacheManager =
+//                RedisCacheManagerBuilder
+//                        // Redis 连接工厂
+//                        .fromConnectionFactory(template.getConnectionFactory())
+//                        // 缓存配置
+//                        .cacheDefaults(defaultCacheConfiguration)
+//                        // 配置同步修改或删除 put/evict
+//                        .transactionAware()
+//                        .build();
+//        return redisCacheManager;
+//    }
 }

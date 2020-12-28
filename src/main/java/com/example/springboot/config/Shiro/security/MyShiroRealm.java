@@ -36,6 +36,7 @@ public class MyShiroRealm extends AuthorizingRealm {
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token)
             throws AuthenticationException {
+        //https://www.geek-share.com/detail/2777305691.html
         String mobile = (String) token.getPrincipal();
         //可能是因为在UsernamePasswordToken内部将密码部分转为字符数组了，所以要这样取String password = new String((char[]) token.getCredentials()); ，
         String password = new String((char[]) token.getCredentials());
@@ -47,10 +48,8 @@ public class MyShiroRealm extends AuthorizingRealm {
         if (sysUser.getStatus() == 2) {
             throw new LockedAccountException();
         }
-
         //此密码为明文，然后给密码加密String md5Pwd = new Md5Hash(password, username).toHex();，然后再将md5Pwd放到SimpleAuthenticationInfo中
         String md5Pwd = new Md5Hash(password, sysUser.getSalt()).toHex();
-
         SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
                 //用户名
                 sysUser,
@@ -61,7 +60,6 @@ public class MyShiroRealm extends AuthorizingRealm {
                 //realm name
                 getName()
         );
-
         return authenticationInfo;
     }
 
