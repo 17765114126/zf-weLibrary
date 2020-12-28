@@ -1,5 +1,8 @@
 package study.反射;
 
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+
 /**
  * @author zhaofu
  * @date 2020-{MONTH}-{DAY}
@@ -49,8 +52,8 @@ public class java动态代理 {
 //}
 //下面是它的实现类的定义：
 
-//public class MyInvocationHandler implements InvocationHandler{
-
+//public class MyInvocationHandler implements InvocationHandler {
+//
 //  public Object invoke(Object proxy, Method method, Object[] args)
 //  throws Throwable {
 //    //do something "dynamic"

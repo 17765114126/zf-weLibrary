@@ -1,5 +1,12 @@
 package study.反射;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+
 /**
  * @author zhaofu
  * @date 2020-{MONTH}-{DAY}
@@ -50,18 +57,18 @@ public class java动态类加载与重载 {
 
 //public class MainClass {
 
-//  public static void main(String[] args){
+  public static void main(String[] args){
 
-//    ClassLoader classLoader = MainClass.class.getClassLoader();
+    ClassLoader classLoader = java动态类加载与重载.class.getClassLoader();
 
-//    try {
-//        Class aClass = classLoader.loadClass("com.jenkov.MyClass");
-//        System.out.println("aClass.getName() = " + aClass.getName());
-//    } catch (ClassNotFoundException e) {
-//        e.printStackTrace();
-//    }
+    try {
+        Class aClass = classLoader.loadClass("com.jenkov.MyClass");
+        System.out.println("aClass.getName() = " + aClass.getName());
+    } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+    }
 
-//}
+}
 //动态类重载
 //动态类重载有一点复杂。
 // Java 内置的类加载器在加载一个类之前会检查它是否已经被加载。
@@ -122,72 +129,72 @@ public class java动态类加载与重载 {
 // 你自己设计的类加载器应该不仅仅只有一个，如果你想用来重载类的话你可能会设计很多加载器。
 // 并且你也不会像下面这样将需要加载的类的路径硬编码（hardcore）到你的代码中。
 
-//public class MyClassLoader extends ClassLoader{
+public class MyClassLoader extends ClassLoader{
 
-//    public MyClassLoader(ClassLoader parent) {
-//        super(parent);
-//    }
+    public MyClassLoader(ClassLoader parent) {
+        super(parent);
+    }
+    @Override
+    public Class loadClass(String name) throws ClassNotFoundException {
+        if(!"reflection.MyObject".equals(name)) {
+            return super.loadClass(name);
+        }
+        try {
+            String url = "file:C:/data/projects/tutorials/web/WEB-INF/" +
+                            "classes/reflection/MyObject.class";
+            URL myUrl = new URL(url);
+            URLConnection connection = myUrl.openConnection();
+            InputStream input = connection.getInputStream();
+            ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+            int data = input.read();
 
-//    public Class loadClass(String name) throws ClassNotFoundException {
-//        if(!"reflection.MyObject".equals(name))
-//                return super.loadClass(name);
+            while(data != -1){
+                buffer.write(data);
+                data = input.read();
+            }
 
-//        try {
-//            String url = "file:C:/data/projects/tutorials/web/WEB-INF/" +
-//                            "classes/reflection/MyObject.class";
-//            URL myUrl = new URL(url);
-//            URLConnection connection = myUrl.openConnection();
-//            InputStream input = connection.getInputStream();
-//            ByteArrayOutputStream buffer = new ByteArrayOutputStream();
-//            int data = input.read();
+            input.close();
 
-//            while(data != -1){
-//                buffer.write(data);
-//                data = input.read();
-//            }
+            byte[] classData = buffer.toByteArray();
 
-//            input.close();
+            return defineClass("reflection.MyObject",
+                    classData, 0, classData.length);
 
-//            byte[] classData = buffer.toByteArray();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-//            return defineClass("reflection.MyObject",
-//                    classData, 0, classData.length);
+        return null;
+    }
 
-//        } catch (MalformedURLException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-
-//        return null;
-//    }
-
-//}
+}
 //下面是使用 MyClassLoader 的例子：
 
 //public static void main(String[] args) throws
 //    ClassNotFoundException,
 //    IllegalAccessException,
 //    InstantiationException {
-
+//
 //    ClassLoader parentClassLoader = MyClassLoader.class.getClassLoader();
 //    MyClassLoader classLoader = new MyClassLoader(parentClassLoader);
 //    Class myObjectClass = classLoader.loadClass("reflection.MyObject");
-
+//
 //    AnInterface2       object1 =
 //            (AnInterface2) myObjectClass.newInstance();
-
+//
 //    MyObjectSuperClass object2 =
 //            (MyObjectSuperClass) myObjectClass.newInstance();
-
+//
 //    //create new class loader so classes can be reloaded.
 //    classLoader = new MyClassLoader(parentClassLoader);
 //    myObjectClass = classLoader.loadClass("reflection.MyObject");
-
+//
 //    object1 = (AnInterface2)       myObjectClass.newInstance();
 //    object2 = (MyObjectSuperClass) myObjectClass.newInstance();
 
-//}
+}
 //下面这个就是被加载的 reflection.MyObject 类。
 // 注意它既继承了一个超类并且也实现了一个接口。
 // 这样做仅仅是为了通过例子演示这个特性。
@@ -197,4 +204,4 @@ public class java动态类加载与重载 {
 //    //... body of class ... override superclass methods
 //    //    or implement interface methods
 //}
-}
+//}

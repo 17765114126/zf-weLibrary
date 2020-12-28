@@ -7,6 +7,7 @@ package study.代理.cgLib代理;
  * @Version V1.0
  **/
 //我们实现一个业务类，不实现任何的接口
+
 /**
  * 业务类，
  */
@@ -19,7 +20,7 @@ public class TestService {
      * 该方法不能被子类覆盖,Cglib是无法代理final修饰的方法的
      */
     final public String sayOthers(String name) {
-        System.out.println("TestService:sayOthers>>"+name);
+        System.out.println("TestService:sayOthers>>" + name);
         return null;
     }
 

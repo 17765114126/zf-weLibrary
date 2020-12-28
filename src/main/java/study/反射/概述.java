@@ -2,7 +2,6 @@ package study.反射;
 
 
 import com.alibaba.druid.sql.dialect.mysql.ast.MySqlObject;
-
 import java.lang.reflect.Method;
 import java.util.Arrays;
 
@@ -31,11 +30,13 @@ public class 概述 {
      *
      * 在这个系列的指南中同时也会说明一些非反射相关的但是令人困惑的问题，
      * 比如哪些泛型信息在运行时是有效的，一些人声称所有的泛型信息在运行期都会消失，其实这是不对的。
+     *
+     * 转自:https://wiki.jikexueyuan.com/project/java-reflection/
      */
 
-//转自:https://wiki.jikexueyuan.com/project/java-reflection/
-
-//下面是一个 Java 反射的简单例子：
+    /**
+     * 下面是一个 Java 反射的简单例子：
+     */
     public static void main(String[] args) {
         Method[] methods = MySqlObject.class.getMethods();
 

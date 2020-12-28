@@ -22,7 +22,7 @@ import javax.annotation.Resource;
  * 所依赖util
  * RedisConfig
  * RedisUtil
- * 启动不成功----本地没有下载 redis导致连接不到
+ * 启动不成功---->本地没有启动redis导致连接不到
  **/
 @RestController
 @Slf4j

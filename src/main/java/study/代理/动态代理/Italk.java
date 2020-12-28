@@ -1,5 +1,10 @@
 package study.代理.动态代理;
-
+/**
+* @Date: 2020/12/28
+* @Author: zhaofu
+* @Description: TODO
+* @author
+**/
 public interface Italk {
-    public void talk(String msg);
+    void talk(String msg);
 }
