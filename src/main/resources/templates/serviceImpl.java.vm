@@ -1,0 +1,83 @@
+package ${package.ServiceImpl};
+
+import ${package.Entity}.${entity};
+import ${package.Mapper}.${table.mapperName};
+import ${package.Service}.${table.serviceName};
+import ${superServiceImplClassPackage};
+import org.springframework.stereotype.Service;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.example.springboot.utils.Result;
+import com.example.springboot.model.form.Paging;
+import com.example.springboot.utils.PageUtil;
+
+/**
+ * @$!{table.comment}
+ *
+ * @author ${author}
+ * @since ${date}
+ */
+@Service
+#if(${kotlin})
+open class $!{table.serviceImplName} : $!{superServiceImplClass}<$!{table.mapperName}, $!{entity}>(), $!{table.serviceName} {
+
+}
+#else
+public class $!{table.serviceImplName} extends $!{superServiceImplClass}<$!{table.mapperName}, $!{entity}> implements ${table.serviceName} {
+
+    @Override
+    public Result getPage($!{entity} req) {
+        Paging paging = new Paging();
+
+        IPage<$!{entity}> ipage = page(paging.toPage(), new LambdaQueryWrapper<$!{entity}>()
+        .eq($!{entity}::getInvalid, 0)
+        .orderByDesc($!{entity}::getCreateTime));
+
+        Page<$!{entity}> page = PageUtil.toPage(ipage);
+        return Result.buildSuccess(PageUtil.convert(page, e -> {
+//            VO vo = new VO();
+        //主表复制元素
+//            CopyUtil.copyObject(e, vo);
+        return e;
+        }));
+    }
+
+    @Override
+    public Result addInfo($!{entity} req) {
+        boolean flag = save(req);
+        if (flag) {
+        return Result.buildSuccess();
+        }
+        return Result.buildFail();
+    }
+
+    @Override
+    public Result updateInfo($!{entity} req) {
+        boolean flag = updateById(req);
+        if (flag) {
+        return Result.buildSuccess();
+        }
+        return Result.buildFail();
+    }
+
+    @Override
+    public Result getInfo(Integer id) {
+        return Result.buildSuccess(getById(id));
+    }
+
+    @Override
+    public Result deleteInfos(String ids) {
+        boolean flag = update(new UpdateWrapper<$!{entity}>().lambda()
+                .set($!{entity}::getInvalid, 1)
+                .inSql($!{entity}::getId, ids)
+        );
+        if (flag) {
+        return Result.buildSuccess();
+        }
+        return Result.buildFail();
+    }
+
+}
+#end

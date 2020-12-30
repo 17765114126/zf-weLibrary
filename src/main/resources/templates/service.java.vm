@@ -1,0 +1,28 @@
+package ${package.Service};
+
+import ${package.Entity}.${entity};
+import ${superServiceClassPackage};
+import com.example.springboot.utils.Result;
+
+/**
+ * @$!{table.comment}
+ *
+ * @author ${author}
+ * @since ${date}
+ */
+#if(${kotlin})
+interface ${table.serviceName} : ${superServiceClass}<${entity}>
+#else
+public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
+
+    Result getPage($!{entity} req);
+
+    Result addInfo($!{entity} req);
+
+    Result updateInfo($!{entity} req);
+
+    Result getInfo(Integer id);
+
+    Result deleteInfos(String ids);
+}
+#end
