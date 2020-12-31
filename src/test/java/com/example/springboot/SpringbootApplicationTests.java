@@ -8,7 +8,6 @@ import com.example.springboot.model.req.sys.CmsUserReq;
 import com.example.springboot.model.sys.CmsUserVo;
 import com.example.springboot.service.sys.CmsUserService;
 import com.example.springboot.utils.EnvUtils;
-import com.example.springboot.utils.Result;
 import com.example.springboot.utils.SendEmailUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -67,11 +66,10 @@ public class SpringbootApplicationTests {
     private CmsUserService cmsUserService;
 
     @Test
-    public void Test132() {
+    public void Test1() {
         CmsUserReq cmsUserReq = new CmsUserReq();
         cmsUserReq.setStatus(1);
         Page<CmsUserVo> page = cmsUserService.getPage(cmsUserReq);
         System.out.println(JSON.toJSONString(page));
     }
-
 }

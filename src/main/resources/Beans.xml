@@ -12,6 +12,8 @@
 
 
     <aop:aspectj-autoproxy/>
+    <bean id="annotationPointcut" class="study.springStudy.AOP.AnnotationPointcut"/>
+    <bean id="userService" class="study.springStudy.AOP.UserServiceImpl"/>
 
     <!-- Definition for student bean -->
     <bean id="student" class="com.example.springboot.model.Student">
