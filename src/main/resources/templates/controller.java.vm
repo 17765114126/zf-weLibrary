@@ -2,6 +2,8 @@ package ${package.Controller};
 
 
 import com.example.springboot.utils.Result;
+import com.example.springboot.utils.Assert;
+import com.example.springboot.utils.ResultCodeEnum;
 import org.springframework.web.bind.annotation.*;
 import ${package.Service}.${table.serviceName};
 import ${package.Entity}.${entity};
@@ -50,6 +52,7 @@ class ${table.controllerName}#if(${superControllerClass}) : ${superControllerCla
     public Result list($!{entity} req){
         return service.getPage(req);
     }
+
     /**
      *@Description: 新增
      * @param req
@@ -58,12 +61,14 @@ class ${table.controllerName}#if(${superControllerClass}) : ${superControllerCla
     public Result save($!{entity} req){
         return service.addInfo(req);
     }
+
     /**
      *@Description: 修改
      * @param req
      */
     @PostMapping("/update")
     public Result update($!{entity} req){
+        Assert.isNull(req.getId(), ResultCodeEnum.CLIENT_PARAM_ERROR);
         return service.updateInfo(req);
     }
 
@@ -73,6 +78,7 @@ class ${table.controllerName}#if(${superControllerClass}) : ${superControllerCla
      */
     @PostMapping("/info")
     public Result getById(Integer id){
+        Assert.isNull(id, ResultCodeEnum.CLIENT_PARAM_ERROR);
         return service.getInfo(id);
     }
 
@@ -82,6 +88,7 @@ class ${table.controllerName}#if(${superControllerClass}) : ${superControllerCla
      */
     @PostMapping("/deleteIds")
     public Result deleteInfos(String ids) {
+        Assert.isNull(ids, ResultCodeEnum.CLIENT_PARAM_ERROR);
         return service.deleteInfos(ids);
     }
 }

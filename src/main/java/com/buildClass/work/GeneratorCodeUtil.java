@@ -50,7 +50,9 @@ public class GeneratorCodeUtil {
         System.out.println("--------------------开始自动生成相关的类----------------------");
         System.out.println("args = " + new File("").getAbsolutePath() + "/src/main/java/");
 
-        generateByTables(MODULE_NAME, "tbl_cms_user");
+        generateByTables(MODULE_NAME, "tbl_cms_user","tbl_sms_log","tbl_mall_region",
+                "tbl_cms_user_role","tbl_cms_role_permission","tbl_cms_role","tbl_cms_permission",
+                "tbl_cms_model","tbl_cms_button");
         System.out.println("--------------------------生成成功------------------------");
     }
 

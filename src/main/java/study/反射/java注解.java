@@ -18,7 +18,7 @@ public class java注解 {
 //什么是注解
 //注解是 Java 5 的一个新特性。
 // 注解是插入你代码中的一种注释或者说是一种元数据（meta data）。
-// 这些注解信息可以在编译期使用预编译工具进行处理（pre-compiler tools），
+// 这些注解信息可以在编译期使用预编译工具进行处理（pre-compiler Docker），
 // 也可以在运行期使用 Java 反射机制进行处理。下面是一个类注解的例子：
 
 //@MyAnnotation(name="someName",  value = "Hello World")
