@@ -1,8 +1,8 @@
 package Test;
 
 import org.junit.Test;
-import study.Ioc.DI;
-import study.Ioc.IOCContainer;
+import study.springStudy.Ioc.DI;
+import study.springStudy.Ioc.IOCContainer;
 
 /**
  * @ClassName IOCContainer

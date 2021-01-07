@@ -1,4 +1,4 @@
-package study.Ioc;
+package study.springStudy.Ioc;
 
 @FunctionalInterface
 public interface ClassFilter{

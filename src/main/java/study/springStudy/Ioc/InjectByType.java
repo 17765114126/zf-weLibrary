@@ -1,4 +1,4 @@
-package study.Ioc;
+package study.springStudy.Ioc;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -28,7 +28,9 @@ public class LambdaTest {
     @Repeatable(Filters.class)
     public @interface Filter {
         String value();
-    };
+    }
+
+    ;
 
     @Filter("filter1")
     @Filter("filter2")
@@ -123,6 +125,7 @@ public class LambdaTest {
 //        System.out.println(strings.size());
 
     }
+
     //扩展注解的支持
     @Retention(RetentionPolicy.RUNTIME)
     @Target({ElementType.TYPE_USE, ElementType.TYPE_PARAMETER})

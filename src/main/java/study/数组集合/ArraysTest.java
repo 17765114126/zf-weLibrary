@@ -1,4 +1,4 @@
-package study.java8特性;
+package study.数组集合;
 
 import java.util.*;
 

@@ -1,7 +1,6 @@
 package Test;
 
-import study.Ioc.InjectByType;
-import study.Ioc.Part;
+import study.springStudy.Ioc.Part;
 
 /**
  * @ClassName A

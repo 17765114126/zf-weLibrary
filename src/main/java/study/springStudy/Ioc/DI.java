@@ -1,4 +1,4 @@
-package study.Ioc;
+package study.springStudy.Ioc;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;

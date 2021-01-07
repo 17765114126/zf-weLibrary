@@ -37,8 +37,11 @@ public class WebConfigurer implements WebMvcConfigurer {
          loginRegistry.addPathPatterns("/**");
          // 排除路径
          loginRegistry.excludePathPatterns("/login");
+    }
 
-
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
     }
 
     /**

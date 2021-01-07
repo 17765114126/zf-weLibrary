@@ -1,4 +1,4 @@
-package study.Ioc;
+package study.springStudy.Ioc;
 
 
 import java.io.File;

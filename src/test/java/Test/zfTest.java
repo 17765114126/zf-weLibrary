@@ -4,6 +4,7 @@ import com.example.springboot.utils.AESEncryptUtil;
 import com.example.springboot.utils.Md5Util;
 import org.junit.Test;
 import org.springframework.web.multipart.MultipartFile;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -47,16 +48,18 @@ public class zfTest {
     }
 
 
-    public static String aesEncrypt(){
+    public static String aesEncrypt() {
         String key = "zhaofu";
-        String md5key= Md5Util.encode(key).toUpperCase();
+        String md5key = Md5Util.encode(key).toUpperCase();
         return md5key;
     }
-    public static String getEncrypt(String token){
-        String aesToken = AESEncryptUtil.aesEncrypt(token,aesEncrypt());
+
+    public static String getEncrypt(String token) {
+        String aesToken = AESEncryptUtil.aesEncrypt(token, aesEncrypt());
         return aesToken;
     }
-    public static String aesDecrypt(String token){
+
+    public static String aesDecrypt(String token) {
         String AESToken = AESEncryptUtil.aesDecrypt(token, aesEncrypt());
 
         return AESToken;
@@ -69,11 +72,11 @@ public class zfTest {
 
         //每个类加载都有一个父类加载器
         ClassLoader classLoader = zfTest.class.getClassLoader();
-        System.out.println("1ClassLoader :"+classLoader);
+        System.out.println("1ClassLoader :" + classLoader);
         ClassLoader parent = zfTest.class.getClassLoader().getParent();
         System.out.println("2Parent :" + parent);
         ClassLoader parent1 = zfTest.class.getClassLoader().getParent().getParent();
-        System.out.println("3Parent tow :" +parent1 );
+        System.out.println("3Parent tow :" + parent1);
 //        AppClassLoader的父类加载器为ExtClassLoader
 //         ExtClassLoader的父类加载器为null，
 //         null并不代表ExtClassLoader没有父类加载器，
@@ -87,7 +90,7 @@ public class zfTest {
      * 判断文件大小
      *
      * @param :multipartFile:上传的文件
-     * @param size: 限制大小
+     * @param size:                限制大小
      * @param unit:限制单位（B,K,M,G)
      * @return boolean:是否大于
      */

@@ -83,8 +83,7 @@ public class 并发编程 {
 
     @Test
     public void test5() throws InterruptedException {
-
-        //段代码我们使用了一个方法Thread.currentThread().sleep(miliseconds)来模拟文件的模拟和处理操作。
+        // 这段代码我们使用了一个方法Thread.currentThread().sleep(miliseconds)来模拟文件的模拟和处理操作。
         // 其作用是让当前线程休眠，休眠的含义是在指定的时间范围内，线程不会再向CPU发送执行的请求。
         // 等到休眠时间已过，才会重新请求CPU执行。
         // 因为我们的代码都是在main方法即主线程中运行，因此当主线程休眠的时候，就相当于程序停止了运行，等到休眠时间已过，程序才会继续运行，然后又休眠,运行...。
@@ -100,8 +99,8 @@ public class 并发编程 {
         System.out.println("读取B文件结束，耗时：" + (System.currentTimeMillis() - start) / 1000 + "秒...开始处理B文件");
         Thread.currentThread().sleep(2000);
         System.out.println("B文件处理完成...，耗时：" + (System.currentTimeMillis() - start) / 1000 + "秒");
-        //需要注意的是，上面的代码，资源利用率是很低的。
-        //原因在于从磁盘中读取文件的时候，大部分的CPU时间用于等待磁盘去读取数据。
+        // 需要注意的是，上面的代码，资源利用率是很低的。
+        // 原因在于从磁盘中读取文件的时候，大部分的CPU时间用于等待磁盘去读取数据。
         // 在这段时间里，CPU非常的空闲。其深层次的原因是对于IO操作，往往是通过硬件直接存取器(DMA)来执行的，
         // 也就是说，CPU只需要将发送一个指令给DMA去执行对应的IO操作即可，指令发送是一瞬间的事，发送完成CPU就可以干其他的事了,
         // 我们说的IO操作需要执行5秒事实上是DMA执行这个操作需要5秒的时间，而不是CPU。
@@ -135,7 +134,7 @@ public class 并发编程 {
         System.out.println("A文件处理完成...");
         t1.join();
         System.out.println("总耗时:" + (System.currentTimeMillis() - start) / 1000 + "秒");
-        //在改进后的代码中，我们将B文件的操作放在了另外一个线程中执行,所以效率可以得到提升。
+        // 在改进后的代码中，我们将B文件的操作放在了另外一个线程中执行,所以效率可以得到提升。
         // 这是因为我们在A文件读取完成之后，同时开始了A文件的处理和B文件的处理工作。
     }
 
@@ -277,13 +276,16 @@ public class 并发编程 {
         new Thread(new Blocked(), "BlockedThread-2").start();
         //代码分析：
 
-        //RunningThread线程运行一个不断自增加法，持续时间会很长，线程一直应该处于RUNNABLE状态。
+        // RunningThread线程运行一个不断自增加法，持续时间会很长，线程一直应该处于RUNNABLE状态。
 
-        //TimeWaiting线程里面是一个死循环，每次休眠100毫秒，因此大部分情况下，应该处于TIME-WAITING状态。
+        // TimeWaiting线程里面是一个死循环，每次休眠100毫秒，因此大部分情况下，应该处于TIME-WAITING状态。
 
-        //WaitingThread-1和WaitingThread-2共同竞争一个类锁：Waiting.class。而同步快里面，又调用了wait()方法，先得到锁的线程会释放锁，因此最终2个线程都处于Waiting状态。
+        // WaitingThread-1和WaitingThread-2共同竞争一个类锁：Waiting.class。
+        // 而同步快里面，又调用了wait()方法，先得到锁的线程会释放锁，因此最终2个线程都处于Waiting状态。
 
-        //BlockedThread-1和BlockedThread-2线程也是共同竞争一个类锁：Blocked.class。而同步快里面，是一个死循环，然后调用了SleepUtils.sleep()方法，因此一直不会释放锁。所以二者，应该是有一个大部分情况下处于Time-Waiting状态，另一个处于Blocked状态。
+        // BlockedThread-1和BlockedThread-2线程也是共同竞争一个类锁：Blocked.class。
+        // 而同步快里面，是一个死循环，然后调用了SleepUtils.sleep()方法，因此一直不会释放锁。
+        // 所以二者，应该是有一个大部分情况下处于Time-Waiting状态，另一个处于Blocked状态。
     }
 
     /**

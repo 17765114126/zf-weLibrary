@@ -1,6 +1,6 @@
 package Test;
 
-import study.Ioc.Part;
+import study.springStudy.Ioc.Part;
 
 /**
  * @ClassName C
