@@ -16,10 +16,11 @@ import java.time.LocalDateTime;
  **/
 @Component
 public class SimpleScheduleTest {
+    private static Integer i = 1;
     /**3.添加定时任务*/
     @Scheduled(cron = "0/5 * * * * ?")
     private void configureTasks() {
-        System.err.println("执行定时任务: " + LocalDateTime.now());
+        System.err.println("执行定时任务"+(i++)+": " + LocalDateTime.now());
     }
 }
 
