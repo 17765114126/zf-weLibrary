@@ -158,6 +158,15 @@ public class SuiShouTest {
             mobile = "2314";
         }
         System.out.println(mobile);
+
+        int q = 2;
+        int a = 2;
+        String z = "12";
+        int w = 542;
+        if (q == 2 && a == 2 &&(z == null || z != null && (w == 28 ||  w == 42))){
+            System.out.println("已发货");
+        }
+
     }
 
     @Test
