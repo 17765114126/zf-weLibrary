@@ -16,9 +16,7 @@ import org.springframework.context.annotation.Configuration;
 public class ListenerConfig {
 
     @Bean
-    public ServletListenerRegistrationBean<CountListener>
-    countListenerServletRegistrationBean() {
-        return new ServletListenerRegistrationBean<>(
-                new CountListener());
+    public ServletListenerRegistrationBean<CountListener> countListenerServletRegistrationBean() {
+        return new ServletListenerRegistrationBean<>(new CountListener());
     }
 }

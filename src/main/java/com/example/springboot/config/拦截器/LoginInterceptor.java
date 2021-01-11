@@ -31,6 +31,8 @@ public class LoginInterceptor implements HandlerInterceptor {
         if (null == loginName || !(loginName instanceof String)) {
             //这个方法返回false表示忽略当前请求，如果一个用户调用了需要登陆才能使用的接口，如果他没有登陆这里会直接忽略掉
             //当然你可以利用response给用户返回一些提示信息，告诉他没登陆
+//            request.setAttribute("msg","请先登录！");
+//            request.getRequestDispatcher("/login").forward(request,response);
             response.sendRedirect("/login");
             return false;
         }

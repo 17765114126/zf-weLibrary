@@ -33,9 +33,9 @@ public class WebConfigurer implements WebMvcConfigurer {
 //         LoginInterceptor loginInterceptor = new LoginInterceptor();
 
          InterceptorRegistration loginRegistry = registry.addInterceptor(loginInterceptor);
-         // 拦截路径
+         // 拦截路径(全部)
          loginRegistry.addPathPatterns("/**");
-         // 排除路径
+         // 放开路径
          loginRegistry.excludePathPatterns("/login");
     }
 
