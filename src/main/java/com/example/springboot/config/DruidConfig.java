@@ -34,16 +34,16 @@ public class DruidConfig {
         return servletRegistrationBean ;
     }
 
-    @Bean
-    public FilterRegistrationBean filterRegistrationBean() {
-        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean() ;
-        filterRegistrationBean.setFilter(new WebStatFilter());
-        //所有请求进行监控处理
-        filterRegistrationBean.addUrlPatterns("/*");
-        //添加不需要忽略的格式信息
-        filterRegistrationBean.addInitParameter("exclusions", "*.js,*.gif,*.jpg,*.css,/druid/*");
-        return filterRegistrationBean ;
-    }
+//    @Bean
+//    public FilterRegistrationBean filterRegistrationBean() {
+//        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean() ;
+//        filterRegistrationBean.setFilter(new WebStatFilter());
+//        //所有请求进行监控处理
+//        filterRegistrationBean.addUrlPatterns("/*");
+//        //添加不需要忽略的格式信息
+//        filterRegistrationBean.addInitParameter("exclusions", "*.js,*.gif,*.jpg,*.css,/druid/*");
+//        return filterRegistrationBean ;
+//    }
 
     @Bean
     @ConfigurationProperties(prefix = "spring.datasource")

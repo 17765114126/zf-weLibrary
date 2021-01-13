@@ -14,6 +14,6 @@ public interface SecurityConstants {
      /**
       * 绕过权限可直接访问的页面
       * */
-    List<String> PATH_WHITE_LIST = Arrays.asList("/login","/login1", "/forgetPwdMobileMessage", "/password/updateDefaultPwd");
+    List<String> PATH_WHITE_LIST = Arrays.asList("/login","/swagger-ui.html", "/forgetPwdMobileMessage", "/password/updateDefaultPwd");
 
 }
