@@ -343,6 +343,9 @@ public class SuiShouTest {
 
     @Test
     public void Test22()  {
+        HashMap<String, String> map = new HashMap<>();
+        System.out.println(StringUtil.isBlank(map.get("ds")));
+
     }
     public static void main(String[] args) {
         for (String arg : args) {
