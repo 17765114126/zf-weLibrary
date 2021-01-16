@@ -33,16 +33,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 
         // 定制请求的授权规则
         // 首页所有人可以访问
-        http.authorizeRequests().antMatchers("/").permitAll()
-                .antMatchers("/level1/**").hasRole("vip1");
+        http.authorizeRequests()//开启登陆配置
+                .antMatchers("/", "/home").permitAll()
+                .antMatchers("/level1/**").hasRole("vip1");//表示访问 /level1 下的接口，需要具备 vip1 这个角色
         // 开启自动配置的登录功能
         // /login 请求来到登录页
         // /login?error 重定向到这里表示登录失败
         http.formLogin()
+                //定义登录时，用户名的 key，默认为 username
                 .usernameParameter("username")
+                //定义登录时，用户密码的 key，默认为 password
                 .passwordParameter("password")
+                //定义登录页面，未登录时，访问一个需要登录之后才能访问的接口，会自动跳转到该页面
                 .loginPage("/toLogin")
-                .loginProcessingUrl("/login"); // 登陆表单提交请求
+                //登录处理接口
+                .loginProcessingUrl("/login");
 
         // 开启自动配置的注销的功能
         // 注销请求

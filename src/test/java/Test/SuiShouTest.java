@@ -15,6 +15,8 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @ClassName SuiShouTest
@@ -346,7 +348,21 @@ public class SuiShouTest {
         HashMap<String, String> map = new HashMap<>();
         System.out.println(StringUtil.isBlank(map.get("ds")));
 
+        String expressNumber ="。";
+        if (!isChinese(expressNumber)) {//非数字
+            System.out.println("1111111111111");
+        }
     }
+
+
+    public boolean isChinese(String str) {
+        //判断是否数字与字母
+        String regex = "^[a-z0-9A-Z]+$";
+        Matcher m = Pattern.compile(regex).matcher(str);
+        return m.matches();
+    }
+
+
     public static void main(String[] args) {
         for (String arg : args) {
             System.out.println(arg);
