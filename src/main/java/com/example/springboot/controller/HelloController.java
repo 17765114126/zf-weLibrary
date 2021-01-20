@@ -44,18 +44,4 @@ public class HelloController {
         model.addAttribute("student", student);
         return "views/hello";
     }
-
-//    @Resource
-//    private JavaMailSender mailSender;
-//
-//    @RequestMapping("/sendSimpleMail")
-//    public void sendSimpleMail() {
-//        SimpleMailMessage message = new SimpleMailMessage();
-//        message.setFrom("17765114126@163.com");
-//        message.setTo("17765114126@163.com");
-//        message.setSubject("主题：简单邮件");
-//        message.setText("测试邮件内容");
-//
-//        mailSender.send(message);
-//    }
 }
