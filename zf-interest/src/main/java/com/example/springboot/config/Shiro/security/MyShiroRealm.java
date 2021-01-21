@@ -37,8 +37,10 @@ public class MyShiroRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token)
             throws AuthenticationException {
         //https://www.geek-share.com/detail/2777305691.html
+        //得到用户名
         String mobile = (String) token.getPrincipal();
         //可能是因为在UsernamePasswordToken内部将密码部分转为字符数组了，所以要这样取String password = new String((char[]) token.getCredentials()); ，
+        //得到密码
         String password = new String((char[]) token.getCredentials());
         SysUser sysUser = sysUserService.getUserByMobile(mobile);
         if (sysUser == null) {

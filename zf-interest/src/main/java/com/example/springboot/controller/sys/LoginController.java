@@ -109,11 +109,11 @@ public class LoginController {
         return Result.with(user.getRoles());
     }
 
-  /* @RequestMapping(value = "logout",method = RequestMethod.GET)
-    public Object logout(HttpServletRequest request){
-       request.getSession().invalidate();
-       SecurityContextHolder.getContext().setAuthentication(null);
-   }*/
+   @RequestMapping(value = "logout",method = RequestMethod.GET)
+    public void logout(){
+       Subject subject = SecurityUtils.getSubject();
+       subject.logout();
+   }
 
 
 

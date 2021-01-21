@@ -7,6 +7,7 @@ import com.example.springboot.model.User;
 import com.example.springboot.utils.MathUtil;
 import com.example.springboot.utils.StringUtil;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.shiro.crypto.hash.SimpleHash;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -354,6 +355,27 @@ public class SuiShouTest {
         }
     }
 
+    @Test
+    public void Test23(){
+        //获取当前系统时间与1970年01月01日00:00点之间的毫秒差值
+        long timeMillis = System.currentTimeMillis();
+
+        String s = System.getProperty("s");
+
+        //用来运行JVM中的垃圾回收器，完成内存中垃圾的清除。
+        System.gc();
+
+        //用来结束正在运行的Java程序。参数传入一个数字即可。通常传入0记为正常状态，其他为异常状态
+        System.exit(0);
+    }
+
+    @Test
+    public void Test24(){
+        String str = "$@$tz1@@7ndq8jypnifo";
+        String salt = "C86nfc";
+        SimpleHash md5 = new SimpleHash("md5", str, salt,22);
+        System.out.println(md5);
+    }
 
     public boolean isChinese(String str) {
         //判断是否数字与字母
