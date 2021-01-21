@@ -8,7 +8,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-@Service//将服务发布出去
+//不推荐使用@Service，因为需要的是com.alibaba.dubbo.config.annotation.Service;容易和org.springframework.stereotype.Service弄混，新版Dubbo更新变成了@DubboService
+//@Service//将服务发布出去
 @Component//放在容器中
 public class UserInfoServiceImpl implements UserInfoService {
 
