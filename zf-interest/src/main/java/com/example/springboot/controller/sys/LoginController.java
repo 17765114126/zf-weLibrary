@@ -53,7 +53,9 @@ public class LoginController {
                     return Result.with(ResultCodeEnum.CHECK_CODE_ERROR);
                 }
             }
+            //获取当前用户
             Subject subject = SecurityUtils.getSubject();
+            //用户登陆数据
             UsernamePasswordToken token = new UsernamePasswordToken(req.getMobile(), req.getPassword());
             subject.login(token);
 

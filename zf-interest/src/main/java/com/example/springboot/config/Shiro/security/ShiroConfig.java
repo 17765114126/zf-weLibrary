@@ -38,14 +38,27 @@ public class ShiroConfig {
     @Bean
     public ShiroFilterFactoryBean shirFilter(SecurityManager securityManager) {
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
+        //设置安全管理器
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         Map<String, Filter> filters = shiroFilterFactoryBean.getFilters();
         filters.put("securityFilter",new SecurityFilter());
-        Map<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
-        filterChainDefinitionMap.put("/logout", "logout");
-        filterChainDefinitionMap.put("/**", "securityFilter");
-        shiroFilterFactoryBean.setLoginUrl("/notlogin");
-        shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
+        /**
+         * anon：无需认证就可访问
+         * authc：必须认证才可访问
+         * user：必须拥有 记住我 功能才能访问
+         * role：拥有某个角色才能访问
+         * */
+        Map<String, String> filterMap = new LinkedHashMap<>();
+        filterMap.put("/hello", "anon");
+        filterMap.put(" /password/*", "authc");
+
+        filterMap.put("/logout", "logout");
+        filterMap.put("/**", "securityFilter");
+        shiroFilterFactoryBean.setFilterChainDefinitionMap(filterMap);
+        //登陆页面
+        shiroFilterFactoryBean.setLoginUrl("/login");
+        //未授权页面
+        shiroFilterFactoryBean.setUnauthorizedUrl("/notlogin");
         return shiroFilterFactoryBean;
     }
 
@@ -71,6 +84,7 @@ public class ShiroConfig {
     @Bean
     public SecurityManager securityManager() {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
+        //关联ShiroRealm
         securityManager.setRealm(myShiroRealm());
         // 自定义session管理 使用redis
         securityManager.setSessionManager(sessionManager());

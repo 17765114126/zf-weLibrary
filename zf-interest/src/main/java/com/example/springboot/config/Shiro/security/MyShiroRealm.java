@@ -18,6 +18,7 @@ public class MyShiroRealm extends AuthorizingRealm {
     @Resource
     private SysUserService sysUserService;
 
+    //授权
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         //权限配置
@@ -32,6 +33,7 @@ public class MyShiroRealm extends AuthorizingRealm {
         return authorizationInfo;
     }
 
+    //认证
     /**主要是用来进行身份认证的，也就是说验证用户输入的账号和密码是否正确。  */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token)
@@ -44,7 +46,7 @@ public class MyShiroRealm extends AuthorizingRealm {
         String password = new String((char[]) token.getCredentials());
         SysUser sysUser = sysUserService.getUserByMobile(mobile);
         if (sysUser == null) {
-            return null;
+            return null;//抛出UnknownAccountException
         }
         //账户禁用
         if (sysUser.getStatus() == 2) {
