@@ -166,7 +166,7 @@ public class SuiShouTest {
         int a = 2;
         String z = "12";
         int w = 542;
-        if (q == 2 && a == 2 &&(z == null || z != null && (w == 28 ||  w == 42))){
+        if (q == 2 && a == 2 && (z == null || z != null && (w == 28 || w == 42))) {
             System.out.println("已发货");
         }
 
@@ -277,7 +277,7 @@ public class SuiShouTest {
     }
 
     @Test
-    public void Test19()  {
+    public void Test19() {
         BigDecimal c = BigDecimal.valueOf(3.55);
         Integer g = 2;
         BigDecimal bignum2 = new BigDecimal(g);
@@ -329,9 +329,9 @@ public class SuiShouTest {
                         }
                         System.out.println(record);
                         return;
-                    }catch (Exception e){
+                    } catch (Exception e) {
                         e.printStackTrace();
-                    }finally {
+                    } finally {
                         latch.countDown();
                     }
                 });
@@ -345,18 +345,25 @@ public class SuiShouTest {
     }
 
     @Test
-    public void Test22()  {
+    public void Test22() {
         HashMap<String, String> map = new HashMap<>();
         System.out.println(StringUtil.isBlank(map.get("ds")));
 
-        String expressNumber ="。";
+        String expressNumber = "。";
         if (!isChinese(expressNumber)) {//非数字
             System.out.println("1111111111111");
         }
     }
 
+    public boolean isChinese(String str) {
+        //判断是否数字与字母
+        String regex = "^[a-z0-9A-Z]+$";
+        Matcher m = Pattern.compile(regex).matcher(str);
+        return m.matches();
+    }
+
     @Test
-    public void Test23(){
+    public void Test23() {
         //获取当前系统时间与1970年01月01日00:00点之间的毫秒差值
         long timeMillis = System.currentTimeMillis();
 
@@ -370,20 +377,19 @@ public class SuiShouTest {
     }
 
     @Test
-    public void Test24(){
+    public void Test24() {
         String str = "$@$tz1@@7ndq8jypnifo";
         String salt = "C86nfc";
-        SimpleHash md5 = new SimpleHash("md5", str, salt,22);
+        SimpleHash md5 = new SimpleHash("md5", str, salt, 22);
         System.out.println(md5);
     }
 
-    public boolean isChinese(String str) {
-        //判断是否数字与字母
-        String regex = "^[a-z0-9A-Z]+$";
-        Matcher m = Pattern.compile(regex).matcher(str);
-        return m.matches();
+    @Test
+    public void Test25() {
+        //获取cpu核数
+        //cpu密集型，IO密集型
+        System.out.println(Runtime.getRuntime().availableProcessors());
     }
-
 
     public static void main(String[] args) {
         for (String arg : args) {
