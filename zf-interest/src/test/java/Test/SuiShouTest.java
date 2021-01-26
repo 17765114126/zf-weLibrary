@@ -95,10 +95,6 @@ public class SuiShouTest {
         yqhGetPrice(100.6);
     }
 
-    @Test
-    public void test7() {
-    }
-
     /**
      * 一起火计算价格
      *
@@ -129,6 +125,14 @@ public class SuiShouTest {
         System.out.println(hxPrice);
         System.out.println(xsPrice);
         return map;
+    }
+
+    @Test
+    public void test6() {
+    }
+
+    @Test
+    public void test7() {
     }
 
     @Test

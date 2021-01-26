@@ -51,7 +51,6 @@ public class ShiroConfig {
         Map<String, String> filterMap = new LinkedHashMap<>();
         filterMap.put("/hello", "anon");
         filterMap.put(" /password/*", "authc");
-
         filterMap.put("/logout", "logout");
         filterMap.put("/**", "securityFilter");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterMap);
@@ -77,6 +76,7 @@ public class ShiroConfig {
     @Bean
     public MyShiroRealm myShiroRealm() {
         MyShiroRealm myShiroRealm = new MyShiroRealm();
+        //凭证匹配器（密码匹配）
         myShiroRealm.setCredentialsMatcher(hashedCredentialsMatcher());
         return myShiroRealm;
     }

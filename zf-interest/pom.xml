@@ -31,6 +31,12 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- SpringBoot集成thymeleaf模板 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
         <!-- servlet依赖. -->
         <dependency>
             <groupId>javax.servlet</groupId>

@@ -133,7 +133,7 @@ public class LambdaFour {
 
 //      使用旧的方式,代码如下所示:
 
-//      1.1 使用匿名内部类根据 name 排序 players
+//      1.1 使用匿名内部类根据 name 算法排序 players
         Arrays.sort(atp, new Comparator<String>() {
             @Override
             public int compare(String s1, String s2) {
@@ -143,7 +143,7 @@ public class LambdaFour {
 
 //      使用lambdas,可以通过下面的代码实现同样的功能:
 
-//      1.2 使用 lambda expression 排序 players
+//      1.2 使用 lambda expression 算法排序 players
         Comparator<String> sortByName = (String s1, String s2) -> (s1.compareTo(s2));
         Arrays.sort(atp, sortByName);
 
@@ -153,7 +153,7 @@ public class LambdaFour {
 //      其他的排序如下所示。 和上面的示例一样,代码分别通过匿名内部类和一些lambda表达式来实现Comparator :
 
 
-// 1.1 使用匿名内部类根据 surname 排序 players
+// 1.1 使用匿名内部类根据 surname 算法排序 players
         Arrays.sort(atp, new Comparator<String>() {
             @Override
             public int compare(String s1, String s2) {
@@ -161,7 +161,7 @@ public class LambdaFour {
             }
         });
 
-// 1.2 使用 lambda expression 排序,根据 surname
+// 1.2 使用 lambda expression 算法排序,根据 surname
         Comparator<String> sortBySurname = (String s1, String s2) ->
                 ( s1.substring(s1.indexOf(" ")).compareTo( s2.substring(s2.indexOf(" ")) ) );
         Arrays.sort(atp, sortBySurname);
@@ -171,7 +171,7 @@ public class LambdaFour {
                 ( s1.substring(s1.indexOf(" ")).compareTo( s2.substring(s2.indexOf(" ")) ) )
         );
 
-// 2.1 使用匿名内部类根据 name lenght 排序 players
+// 2.1 使用匿名内部类根据 name lenght 算法排序 players
         Arrays.sort(atp, new Comparator<String>() {
             @Override
             public int compare(String s1, String s2) {
@@ -179,7 +179,7 @@ public class LambdaFour {
             }
         });
 
-// 2.2 使用 lambda expression 排序,根据 name lenght
+// 2.2 使用 lambda expression 算法排序,根据 name lenght
         Comparator<String> sortByNameLenght = (String s1, String s2) -> (s1.length() - s2.length());
         Arrays.sort(atp, sortByNameLenght);
 
@@ -194,7 +194,7 @@ public class LambdaFour {
             }
         });
 
-// 3.2 使用 lambda expression 排序,根据最后一个字母
+// 3.2 使用 lambda expression 算法排序,根据最后一个字母
         Comparator<String> sortByLastLetter =
                 (String s1, String s2) ->
                         (s1.charAt(s1.length() - 1) - s2.charAt(s2.length() - 1));
@@ -298,7 +298,7 @@ public class LambdaFour {
 
 
 // 静态引入
-        System.out.println("根据 name 排序,并显示前5个 Java programmers:");
+        System.out.println("根据 name 算法排序,并显示前5个 Java programmers:");
         List<Student> sortedJavaProgrammers = javaProgrammers
                 .stream()
                 .sorted((p, p2) -> (p.getName().compareTo(p2.getName())))
@@ -307,7 +307,7 @@ public class LambdaFour {
 
         sortedJavaProgrammers.forEach((p) -> System.out.printf(p.getName()));
 
-        System.out.println("根据 salary 排序 Java programmers:");
+        System.out.println("根据 salary 算法排序 Java programmers:");
         sortedJavaProgrammers = javaProgrammers
                 .stream()
                 .sorted( (p, p2) -> (p.getAge() - p2.getAge()) )

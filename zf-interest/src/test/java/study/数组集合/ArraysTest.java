@@ -60,7 +60,7 @@ public class ArraysTest {
         Arrays.sort(testArray);
         System.out.println("testArray:"+testArray.toString());
         System.out.println("testArray:"+Arrays.toString(testArray));
-// 2. 排序 [2-5)     ,  结果 :  [2, 1, 3, 8, 9, 7, 6, 10]
+// 2. 算法排序 [2-5)     ,  结果 :  [2, 1, 3, 8, 9, 7, 6, 10]
         byte[] testArray1 = {2, 1, 9, 8, 3, 7, 6, 10};
         Arrays.sort(testArray1, 2, 5);
         System.out.println("testArray1:"+Arrays.toString(testArray1));

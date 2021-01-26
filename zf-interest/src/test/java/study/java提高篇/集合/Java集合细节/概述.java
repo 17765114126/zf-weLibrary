@@ -415,7 +415,7 @@ public class 概述 {
     //            list.add(new Student("1", "chenssy1", 24));
     //            list.add(new Student("2", "chenssy1", 26));
     //
-    //            Collections.sort(list);   //排序
+    //            Collections.sort(list);   //算法排序
     //
     //            Student student = new Student("2", "chenssy1", 26);
     //

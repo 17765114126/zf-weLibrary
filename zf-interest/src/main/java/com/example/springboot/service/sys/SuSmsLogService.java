@@ -15,9 +15,6 @@ import javax.annotation.Resource;
 import java.util.Date;
 import java.util.Random;
 
-/**
- * Created by chen on 2019/7/3.
- */
 @Slf4j
 @Service
 public class SuSmsLogService {
@@ -25,37 +22,38 @@ public class SuSmsLogService {
     SuSmsLogMapper suSmsLogMapper;
     @Resource
     CmsUserMapper cmsUserMapper;
+
     public Result selectMobileMessage(String mobile) {
         CmsUser user = cmsUserMapper.selectOne(new QueryWrapper<CmsUser>().lambda().eq(CmsUser::getMobile, mobile));
         if (user == null) {
             return Result.with(ResultCodeEnum.NOT_ZC);
         }
-        if(user.getStatus() == CmsUserStatusEnum.DISABLE.getCode()){
+        if (user.getStatus() == CmsUserStatusEnum.DISABLE.getCode()) {
             return Result.buildFail("此用户已禁用");
         }
         String code = "";
 //        try {
-            SmsLog ssl = suSmsLogMapper.selectOne(new QueryWrapper<SmsLog>().lambda().eq(SmsLog::getMobile, mobile));
-            Random rand = new Random();//生成随机数
-            for (int a = 0; a < 6; a++) {
-                code += rand.nextInt(10);//生成6位验证码
-            }
-            if (ssl != null) {
-                ssl.setCode(code);
-                ssl.setCreateDateTime(new Date());
-                ssl.setUpdateTime(new Date());
-                suSmsLogMapper.updateById(ssl);
-            } else {
-                SmsLog smsLog = new SmsLog();//短信验证对象
-                smsLog.setCode(code);
-                smsLog.setMobile(mobile);
-                smsLog.setCreateDateTime(new Date());
-                smsLog.setUpdateTime(new Date());
-                smsLog.setStatus(1);
-                smsLog.setInvalid(0);
-                suSmsLogMapper.insert(smsLog);
-            }
-            String smscode = "{\"code\":\"" + code + "\"}";
+        SmsLog ssl = suSmsLogMapper.selectOne(new QueryWrapper<SmsLog>().lambda().eq(SmsLog::getMobile, mobile));
+        Random rand = new Random();//生成随机数
+        for (int a = 0; a < 6; a++) {
+            code += rand.nextInt(10);//生成6位验证码
+        }
+        if (ssl != null) {
+            ssl.setCode(code);
+            ssl.setCreateDateTime(new Date());
+            ssl.setUpdateTime(new Date());
+            suSmsLogMapper.updateById(ssl);
+        } else {
+            SmsLog smsLog = new SmsLog();//短信验证对象
+            smsLog.setCode(code);
+            smsLog.setMobile(mobile);
+            smsLog.setCreateDateTime(new Date());
+            smsLog.setUpdateTime(new Date());
+            smsLog.setStatus(1);
+            smsLog.setInvalid(0);
+            suSmsLogMapper.insert(smsLog);
+        }
+        String smscode = "{\"code\":\"" + code + "\"}";
 //            SendSmsResponse srm = AliSmsUtil.sendSms(mobile, smscode, "SMS_206605062");//登录确认验证码
 //            String aLiMessage = srm.getMessage();
 //            if (aLiMessage != null) {
@@ -84,7 +82,7 @@ public class SuSmsLogService {
             } else {
                 return Result.buildFail("验证码错误");
             }
-        }else{
+        } else {
             return Result.buildFail("没有此用户，或者没有获取验证码");
         }
         return Result.buildSuccess();

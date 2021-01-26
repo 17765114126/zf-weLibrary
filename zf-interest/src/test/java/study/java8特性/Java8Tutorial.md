@@ -474,7 +474,7 @@ forEach 是为 Lambda 而设计的，保持了最紧凑的风格。而且 Lambda
 排序是一个 **中间操作**，返回的是排序好后的 Stream。**如果你不指定一个自定义的 Comparator 则会使用默认排序。**
 
 ```java
-        // 测试 Sort (排序)
+        算法排序
         stringList
                 .stream()
                 .sorted()

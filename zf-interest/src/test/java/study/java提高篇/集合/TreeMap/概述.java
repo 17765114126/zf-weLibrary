@@ -181,7 +181,7 @@ public class 概述 {
     //                Entry<K,V> t = root;
     //                //t为null表示一个空树，即TreeMap中没有任何元素，直接插入
     //                if (t == null) {
-    //                    //比较key值，个人觉得这句代码没有任何意义，空树还需要比较、排序？
+    //                    //比较key值，个人觉得这句代码没有任何意义，空树还需要比较、算法排序？
     //                    compare(key, key); // type (and possibly null) check
     //                    //将新的key-value键值对创建为一个Entry节点，并将该节点赋予给root
     //                    root = new Entry<>(key, value, null);

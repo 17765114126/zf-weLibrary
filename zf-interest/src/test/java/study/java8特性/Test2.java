@@ -256,7 +256,7 @@ public class Test2 {
      *  mapToInt 元素一对一转换：将原Stream中的使用传入的IntFunction加工后返回一个IntStream对象
      *  flatMap 元素一对多转换：对原Stream中的所有元素进行操作，每个元素会有一个或者多个结果，然后将返回的所有元素组合成一个统一的Stream并返回；
      *  distinct 去重：返回一个去重后的Stream对象
-     *  sorted 排序：返回排序后的Stream对象
+     *  sorted 算法排序：返回排序后的Stream对象
      *  peek 使用传入的Consumer对象对所有元素进行消费后，返回一个新的包含所有原来元素的Stream对象
      *  limit 获取有限个元素组成新的Stream对象返回
      *  skip 抛弃前指定个元素后使用剩下的元素组成新的Stream返回

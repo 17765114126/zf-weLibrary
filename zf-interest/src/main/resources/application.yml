@@ -17,19 +17,32 @@ logging:
 #  Unconditional classes: （没有条件的类）
 
 spring:
+  # 模板引擎
+  thymeleaf:
+    mode: HTML
+    encoding: utf-8
+    # 禁用缓存
+    cache: false
+  # 资源信息
+  messages:
+    # 国际化资源文件路径
+    basename: static/i18n/messages
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
   #springboot 使用spring.profiles.active 选择要激活哪个环境块
   profiles:
     active: dev
 
-  mvc:
-    view:
-      prefix: /WEB-INF/
-      suffix: .jsp
+#  mvc:
+#    view:
+#      prefix: /WEB-INF/
+#      suffix: .jsp
 
   datasource:
     url: jdbc:mysql://rm-8vb13nmd5388n09m6wo.mysql.zhangbei.rds.aliyuncs.com:3306/zhaofu?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
-    userName: -------
-    password: -------
+    userName: zhaofu
+    password: 2MiaoMiao
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
     druid:

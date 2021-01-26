@@ -9,7 +9,7 @@ package study.java8特性;
 public class stream多字段排序 {
 //转载：https://www.cnblogs.com/kuanglongblogs/p/11230250.html
 //
-//很多情况下sql不好解决的多表查询,临时表分组,排序,尽量用java8新特性stream进行处理
+//很多情况下sql不好解决的多表查询,临时表分组,算法排序,尽量用java8新特性stream进行处理
 //
 //使用java8新特性,下面先来点基础的
 

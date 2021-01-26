@@ -4,6 +4,7 @@ import com.example.springboot.config.自定义注解.MyLog;
 import com.example.springboot.model.Student;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date 2019/8/5
  * @Version V1.0
  **/
-@RestController
+@Controller
 @Slf4j
 @Component
 public class HelloController {
@@ -29,7 +30,7 @@ public class HelloController {
         log.info("打印日志" + student.toString());
         model.addAttribute("s", s);
         model.addAttribute("student", student);
-        return "views/hello";
+        return "/error/404";
     }
     /**
     * @Date: 2019/10/18

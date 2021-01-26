@@ -79,7 +79,7 @@ public class 方法引用 {
         list.add("a");
         list.add("d");
         list.add("b");
-        // 排序
+        // 算法排序
         list.sort((s1, s2) -> s1.compareTo(s2));
         // 遍历
         list.forEach((s) -> System.out.println(s));
