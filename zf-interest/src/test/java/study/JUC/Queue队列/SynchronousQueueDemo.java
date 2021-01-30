@@ -1,6 +1,5 @@
-package study.JUC.bq;
+package study.JUC.Queue队列;
 
-import java.sql.Time;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.TimeUnit;

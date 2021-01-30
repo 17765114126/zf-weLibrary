@@ -1,4 +1,4 @@
-package study.Queue;
+package study.JUC.Queue队列.Queue;
 
 import java.util.Random;
 import java.util.Vector;
@@ -9,6 +9,8 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @Author zhaofu
  * @Date 2020/10/22
  * @Version V1.0
+ *
+ * 生产者
  **/
 public class Producer implements Runnable {
 

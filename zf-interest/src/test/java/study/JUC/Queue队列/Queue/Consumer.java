@@ -1,4 +1,4 @@
-package study.Queue;
+package study.JUC.Queue队列.Queue;
 
 import java.util.Random;
 import java.util.Vector;
@@ -8,6 +8,8 @@ import java.util.Vector;
  * @Author zhaofu
  * @Date 2020/10/22
  * @Version V1.0
+ *
+ * 消费者
  **/
 public class Consumer implements Runnable {
 

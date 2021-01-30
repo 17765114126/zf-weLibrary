@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.example.springboot.config.Shiro.security.SpringUtils;
 import com.example.springboot.model.Person;
 import com.example.springboot.model.User;
+import com.example.springboot.utils.DateUtil;
 import com.example.springboot.utils.MathUtil;
 import com.example.springboot.utils.StringUtil;
 import org.apache.commons.lang3.StringUtils;
@@ -129,6 +130,8 @@ public class SuiShouTest {
 
     @Test
     public void test6() {
+     String number = new StringBuilder().append("PS").append(DateUtil.getDateNoTime().substring(2, 6)).append(StringUtil.getRandomCode(5, true, false)).toString();
+     System.out.println(number);
     }
 
     @Test

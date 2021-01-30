@@ -2,6 +2,7 @@ package study.JUC;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,6 +34,14 @@ public class StreamTest {
         // 集合就是存储
         List<User> list = Arrays.asList(u1, u2, u3, u4, u5);
 
+
+        Stream<String> stringStream = list.stream()
+                .map(u -> {
+                    return u.getName().toUpperCase();
+                });
+
+
+        List<Stream<String>> streams = Arrays.asList(stringStream);
         // 计算交给Stream流
         // lambda表达式、链式编程、函数式接口、Stream流式计算
         list.stream()

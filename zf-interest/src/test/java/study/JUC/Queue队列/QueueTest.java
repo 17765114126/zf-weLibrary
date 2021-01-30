@@ -1,4 +1,4 @@
-package study.JUC.bq;
+package study.JUC.Queue队列;
 
 import org.junit.Test;
 

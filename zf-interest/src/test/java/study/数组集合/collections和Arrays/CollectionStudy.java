@@ -1,4 +1,4 @@
-package study.数组集合;
+package study.数组集合.collections和Arrays;
 
 import com.example.springboot.model.Student;
 import java.util.*;
@@ -501,7 +501,7 @@ public class CollectionStudy {
      * 而TreeSet则将放入其中的元素按序存放，这就要求你放入其中的对象是可排序的，这就用到了集合框架提供的另外两个实用类Comparable和Comparator。
      * 一个类是可排序的，它就应该实现Comparable接口。
      * 有时多个类具有相同的排序算法，那就不需要在每分别重复定义相同的排序算法，只要实现Comparator接口即可。
-     * 集合框架中还有两个很实用的公用类：Collections和Arrays。
+     * 集合框架中还有两个很实用的公用类：collections和Arrays。
      * Collections提供了对一个Collection容器进行诸如排序、复制、查找和填充等一些非常有用的方法，
      * Arrays则是对一个数组进行类似的操作。
 

@@ -1,4 +1,4 @@
-package study.数组集合;
+package study.数组集合.collections和Arrays;
 
 import java.util.*;
 

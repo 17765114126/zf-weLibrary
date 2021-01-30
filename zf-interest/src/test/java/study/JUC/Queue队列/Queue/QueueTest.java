@@ -1,7 +1,4 @@
-package study.Queue;
-
-import study.Queue.Consumer;
-import study.Queue.Producer;
+package study.JUC.Queue队列.Queue;
 
 import java.util.Vector;
 import java.util.concurrent.ExecutorService;
@@ -12,6 +9,10 @@ import java.util.concurrent.Executors;
  * @Author zhaofu
  * @Date 2020/10/22
  * @Version V1.0
+ *
+ * 生产者和消费者模式，秋招面试的时候可能会让你手写一段这样的代码。
+ * 最简单的方式就是用阻塞队列去写。类似下面
+ *
  **/
 public class QueueTest {
 
@@ -47,7 +48,5 @@ public class QueueTest {
 
         // 5.shutdown()等待任务执行完才中断线程(因为消费者一直在运行的，所以会发现程序无法结束)
         service.shutdown();
-
-
     }
 }
