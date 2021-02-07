@@ -136,6 +136,7 @@ public class SuiShouTest {
 
     @Test
     public void test7() {
+        System.out.println(DateUtil.gainBigOrSmall("2021-02-03 00:00:00"));
     }
 
     @Test
